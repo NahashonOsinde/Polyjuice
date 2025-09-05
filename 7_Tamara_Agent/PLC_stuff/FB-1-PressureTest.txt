@@ -1,0 +1,228 @@
+FUNCTION_BLOCK "FB_1-PressureTest"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      iq_stModule : "UDT_PressureTest";
+      iq_stPressureControl : "UDT_PressureControl";
+      iq_stRS232 : "UDT_RS232";
+      iq_stSystemFlagS : "UDT_SystemFlags";
+   END_VAR
+
+   VAR 
+      trigStart {InstructionName := 'R_TRIG'; LibVersion := '1.0'; S7_SetPoint := 'False'} : R_TRIG;
+      stOnDelay_Fill {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;
+      stOnDelay_Hold {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;
+      stOnDelay_Vent {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;
+      Instance_PressureControl_PTest : "FB_PressureControl";
+   END_VAR
+
+   VAR_TEMP 
+      _rdeltaP : Real;   // absolute difference sensor vs setpoint
+      "_q_b_InfoState-Faulted" : Bool;
+      "_q_b_InfoState-ON" : Bool;
+      "_q_b_InfoState-OFF" : Bool;
+      _r_desired : Real;
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_1-PressureTest"
+	    // Comment/Function: This FB handles the logic associated with performing a pressure test.
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon Osinde / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 16-07-2025 | Nahashon Osinde    | First released version
+	    //==================================================================================
+	END_REGION
+	
+	//=============================================================================
+	// Network 1: Start‐Edge Detection & Initialization
+	// - Watch the “Start” bit in iq_stModule.Command.b_Start
+	// - On a rising edge, clear all flags and go to STEP=1 (Fill Phase)
+	//-----------------------------------------------------------------------------
+	#trigStart(CLK := #iq_stModule.Command.b_Start);
+	//IF #trigStart.Q OR #iq_stModule.Command.b_Start THEN //If trigStart is not working well try this line
+	IF #trigStart.Q THEN
+	    #iq_stModule.Status.b_Active := TRUE;
+	    #iq_stModule.Status.b_Done := FALSE;
+	    #iq_stModule.Status.b_OK := FALSE;
+	    #iq_stModule.Status.i_Step := 1;
+	    //Reset any vent output (If we just need to set the Pressure regulators to 0, delete this functionality)
+	    #iq_stModule.Command.b_VentOpen := FALSE;
+	END_IF;
+	
+	//----------------------------------------------------------------------------
+	// If not active, skip all subsequent logic
+	//----------------------------------------------------------------------------
+	IF #iq_stModule.Status.b_Active THEN
+	//=============================================================================
+	// Network 3: STEP 1 – Fill to Target Pressure -> transition to hold or fail
+	//   • Drive regulators up to r_TargetPressure
+	//   • Time‐out with #stOnDelay_Fill if not reached in t_MaxFillTime
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_Step = 1 THEN
+	    // Command both regulators to the target setpoint (bar)
+	    #iq_stModule.Parameter.r_PressureSetpoint := #iq_stModule.Parameter.r_TargetPressure;
+	   
+	    #stOnDelay_Fill(IN := TRUE,
+	                    PT := #iq_stModule.Config.t_MaxFillTime);
+	    
+	    //Compute current pressure error
+	    #_rdeltaP := ABS(#iq_stModule.Status.r_ActualPressure - #iq_stModule.Parameter.r_TargetPressure);
+	    
+	    //If within tolerance → transition to HOLD phase
+	 IF #_rdeltaP <= #iq_stModule.Parameter.r_Tolerance THEN
+	        #stOnDelay_Fill(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_MaxFillTime);
+	        
+	        #iq_stModule.Status.i_Step := 2; //
+	        // start hold timer
+	        //#stOnDelay_Hold(IN := TRUE,
+	                       // PT := #iq_stModule.Config.t_HoldTime);
+	        // Else if fill TIMEOUT → immediate FAIL
+	    ELSIF #stOnDelay_Fill.Q THEN
+	        #stOnDelay_Fill(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_MaxFillTime);
+	       
+	        #iq_stModule.Parameter.r_TargetPressure := 0.0;
+	        #iq_stModule.Parameter.r_PressureSetpoint := #iq_stModule.Parameter.r_TargetPressure;
+	        
+	        #iq_stModule.Status.b_Active := FALSE;
+	        #iq_stModule.Status.b_Done := TRUE;
+	        #iq_stModule.Status.b_OK := FALSE;
+	        // clear the start bit on failure
+	        #iq_stModule.Command.b_Start := FALSE;
+	        #iq_stModule.Status.i_Step := 4;
+	    END_IF;
+	    
+	    #iq_stModule.Parameter.r_TimeRemaining :=
+	                 DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Fill.PT)
+	                 - TIME_TO_DINT(#stOnDelay_Fill.ET)) * 0.001;  // convert ms→s
+	END_IF;
+	
+	//=============================================================================
+	// Network 4: STEP 2 – Hold at Setpoint for t_HoldTime -> Vent or Fail
+	//   • Maintain regulators at setpoint
+	//   • If pressure drifts → FAIL immediately
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_Step = 2 THEN
+	    //Keep pressure command constant
+	    #iq_stModule.Parameter.r_PressureSetpoint := #iq_stModule.Parameter.r_TargetPressure;
+	    
+	    //Start/continue the hold timer
+	    #stOnDelay_Hold(IN := TRUE,
+	                    PT := #iq_stModule.Config.t_HoldTime);
+	    //Compute drift
+	    #_rdeltaP := ABS(#iq_stModule.Status.r_ActualPressure - #iq_stModule.Parameter.r_TargetPressure);
+	    
+	    //If pressure drifts outside tolerance → FAIL
+	    IF #_rdeltaP > #iq_stModule.Parameter.r_Tolerance THEN
+	        #stOnDelay_Hold(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_HoldTime);
+	        #iq_stModule.Parameter.r_TargetPressure := 0.0;
+	        #iq_stModule.Parameter.r_PressureSetpoint := #iq_stModule.Parameter.r_TargetPressure;
+	        #iq_stModule.Status.b_Active := FALSE;
+	        #iq_stModule.Status.b_OK := FALSE;
+	        // clear the start bit on failure
+	        #iq_stModule.Command.b_Start := FALSE;
+	        #iq_stModule.Status.b_Done := TRUE;
+	        #iq_stModule.Status.i_Step := 4;
+	        //If hold time elapsed → go to VENT phase
+	    ELSIF #stOnDelay_Hold.Q THEN
+	        #stOnDelay_Hold(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_HoldTime);
+	        #iq_stModule.Status.i_Step := 3;
+	        #iq_stModule.Command.b_VentOpen := TRUE;
+	        // stop regulators
+	        #iq_stModule.Parameter.r_TargetPressure := 0.0;
+	        #iq_stModule.Parameter.r_PressureSetpoint := #iq_stModule.Parameter.r_TargetPressure;
+	        
+	        // start vent timeout
+	        #stOnDelay_Vent(IN := TRUE,
+	                        PT := #iq_stModule.Config.t_VentTimeout);
+	    END_IF;
+	 
+	    #iq_stModule.Parameter.r_TimeRemaining :=
+	    DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Hold.PT)
+	                 - TIME_TO_DINT(#stOnDelay_Hold.ET)) * 0.001;
+	END_IF;
+	
+	//=============================================================================
+	// Network 5: STEP 3 – Vent / Depressurize -> Done
+	//   • Wait until sensor reads < tolerance OR timeout
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_Step = 3 THEN
+	    // a) Keep vent open
+	    #iq_stModule.Command.b_VentOpen := TRUE;
+	    
+	    // b) Check low pressure or timeout
+	    IF (#iq_stModule.Status.r_ActualPressure <= #iq_stModule.Parameter.r_Tolerance)
+	        OR #stOnDelay_Vent.Q THEN
+	        
+	        // stop vent timer
+	        #stOnDelay_Vent(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_VentTimeout);
+	        
+	        // finalize test
+	        #iq_stModule.Status.i_Step := 4;
+	        #iq_stModule.Status.b_Active := FALSE;
+	        #iq_stModule.Status.b_OK := TRUE;
+	        #iq_stModule.Command.b_VentOpen := FALSE;
+	        #iq_stModule.Status.b_Done := TRUE;
+	    END_IF;
+	    
+	    #iq_stModule.Parameter.r_TimeRemaining :=
+	    DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Vent.PT)
+	                 - TIME_TO_DINT(#stOnDelay_Vent.ET)) * 0.001;
+	END_IF;
+	
+	END_IF;
+	
+	//=============================================================================
+	// Network 6: STEP 4 – Completed (Idle until next start)
+	//   • i_Step = 4, b_Done = TRUE, b_OK indicates pass/fail
+	//-----------------------------------------------------------------------------
+	//   • ALWAYS drive zero when test isn’t in Fill/Hold/Vent
+	//-----------------------------------------------------------------------------
+	
+	IF (#iq_stModule.Status.i_Step >= 4) OR NOT (#iq_stModule.Status.b_Active) THEN
+	    // continuously force regulator setpoint to zero
+	    #_r_desired := 0.0;
+	    #iq_stModule.Parameter.r_TargetPressure := 0.0;
+	    #iq_stModule.Parameter.r_PressureSetpoint := 0.0;
+	    #iq_stModule.Parameter.r_TimeRemaining := 0.0;
+	    // nothing left to do, waiting for next rising-edge
+	    #iq_stModule.Command.b_Start := FALSE;
+	ELSE
+	    #_r_desired := #iq_stModule.Parameter.r_PressureSetpoint;
+	END_IF;
+	
+	#Instance_PressureControl_PTest(i_r_UserTargetPressure := #_r_desired,
+	                                "q_r_InfoState-Pressure" => #iq_stModule.Status.r_ActualPressure,
+	                                "q_b_InfoState-Faulted" => #"_q_b_InfoState-Faulted",
+	                                "q_b_InfoState-ON" => #"_q_b_InfoState-ON",
+	                                "q_b_InfoState-OFF" => #"_q_b_InfoState-OFF",
+	                                iq_stModule := #iq_stPressureControl,
+	                                iq_stRS232 := #iq_stRS232,
+	                                iq_stSystemFlags := #iq_stSystemFlagS);
+	
+	//=============================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	//Max‐Fill AND Vent PTs (Process times): Confirm the spec values in the Config DB (e.g. 10 s, 5 s).
+	//If we just need to set the Pressure regulator to 0, delete the Vent functionality.
+	
+	
+END_FUNCTION_BLOCK
+

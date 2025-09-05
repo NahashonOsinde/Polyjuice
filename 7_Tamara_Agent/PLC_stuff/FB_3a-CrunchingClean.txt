@@ -1,0 +1,145 @@
+FUNCTION_BLOCK "FB_3a-CrunchingClean"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      iq_stModule : "UDT_TamaraCrunching";
+      iq_stTamaraCrunching : "UDT_TamaraCrunching";
+   END_VAR
+
+   VAR 
+      r_mu : Real;
+      r_base1 : Real;
+      r_base1a : Real;
+      r_base2 : Real;
+      r_base2a : Real;
+      r_base3 : Real;
+      r_base3a : Real;
+      r_res1 : Real;
+      r_res1a : Real;
+      r_res2 : Real;
+      r_res2a : Real;
+      r_res3 : Real;
+      r_res3a : Real;
+      r_r1 : Real;
+      r_ra1 : Real;
+      r_r2 : Real;
+      r_ra2 : Real;
+      r_MyPMax_mbar : Real;
+      r_Pmax_mbar : Real;
+      r_tfrmax : Real;
+      r_volume1 : Real;
+      r_volume2 : Real;
+      r_flowRate1 : Real;
+      r_flowRate2 : Real;
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_3a-CrunchingClean"
+	    // Comment/Function: This FB handles the logic associated with the computation of
+	    //                   pressures for the Clean functionality of Tamara.
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon Osinde / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 29-07-2025 | Nahashon Osinde    | First released version
+	    //==================================================================================
+	END_REGION
+	
+	#iq_stModule.User_Inputs := #iq_stTamaraCrunching.User_Inputs;
+	#iq_stModule.Constants := #iq_stTamaraCrunching.Constants;
+	
+	//=============================================================================
+	// Network 1: Derived viscosities (mu) in in μPa.s
+	//============================================================================
+	#r_mu := 1005.0 - 23.0 * (#iq_stModule.User_Inputs.r_Temp - 20.0); //Viscosity of water
+	
+	//=============================================================================
+	// Network 2: Scaled channel resistances to account for viscosity (mbar·s/µL for linear, mbar·s^2/µL^2 for quadratic)
+	//-----------------------------------------------------------------------------
+	#r_base1 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 0];
+	#r_base1a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 1];
+	#r_base2 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 2];
+	#r_base2a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 3];
+	#r_base3 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 4];
+	#r_base3a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 5];
+	
+	// Viscosity adjusted resistances (choose µ for each line)
+	#r_res1 := #r_base1 * (#r_mu / #iq_stModule.Constants.r_MU_REF); // r_MU_REF -> water viscosity at 20°C, for which the default resistance is given
+	#r_res1a := #r_base1a * (#r_mu / #iq_stModule.Constants.r_MU_REF);
+	#r_res2 := #r_base2 * (#r_mu / #iq_stModule.Constants.r_MU_REF);
+	#r_res2a := #r_base2a * (#r_mu / #iq_stModule.Constants.r_MU_REF);
+	#r_res3 := #r_base3 * (#r_mu / #iq_stModule.Constants.r_MU_REF);
+	#r_res3a := #r_base3a * (#r_mu / #iq_stModule.Constants.r_MU_REF);
+	
+	//=============================================================================
+	// Network 3: Effective linear/quadratic resistances
+	//-----------------------------------------------------------------------------
+	#r_r1 := (#r_res1 /2 ) + #r_res3;
+	#r_ra1 := (#r_res1a /4) + #r_res3a;
+	#r_r2 := (#r_res2 /2) + #r_res3;
+	#r_ra2 := (#r_res2a / 4) + #r_res3a;
+	
+	(* 
+	The set pressure should not fall below a minimum PreMin value (instrument parameter) for good accuracy
+	The set pressure must not exceed the capabilities of the instrument (instrument parameter) or the chip (chip parameter)
+	*)
+	
+	//=============================================================================
+	// Network 4: Computing Pconsmax, TFRMax, Volumes, Flow rates and pressures
+	//-----------------------------------------------------------------------------
+	// 4a) PConsMax
+	#r_MyPMax_mbar := #iq_stTamaraCrunching.User_Inputs.r_lab_pressure * 1000; //In mbar
+	//#r_MyPMax_bar := 8.0; //8 bar -> For now our regulators can only go to a maximum of 2 bar
+	#r_Pmax_mbar := MIN(IN1 := (#iq_stModule.Constants.r_CHIP_PMax[#iq_stModule.User_Inputs.i_Chip_ID] * 1000), IN2 := #r_MyPMax_mbar);
+	#iq_stModule.Parameter.r_PressureConsMax := 0.9 * #r_Pmax_mbar; // *0.7? closed loop 0.9 open loop
+	
+	// 4b) TFRmax is constrained by Pmax on each input, in relation to the resistance of the circuit
+	IF (#r_ra1 * #r_ra2 = 0) THEN
+	    #r_tfrmax := #iq_stModule.Parameter.r_PressureConsMax * MIN(IN1 := 1/(#r_res1/2 + #r_res3), IN2 := 1/(#r_res2/2 + #r_res3));
+	ELSE
+	    #r_tfrmax := MIN(IN1 := (-#r_r1 + SQRT(#r_r1 ** 2 + 4.0 * #iq_stModule.Parameter.r_PressureConsMax * #r_ra1) ) / (2*#r_ra1),
+	                     IN2 := (-#r_r2 + SQRT(#r_r2 ** 2 + 4.0 * #iq_stModule.Parameter.r_PressureConsMax * #r_ra2)) / (2*#r_ra2) );
+	END_IF;
+	
+	(*
+	// Computing the volumes and flowrate could be useful in the future
+	// 4c) Volumes
+	#r_volume1 := #iq_stModule.User_Inputs.r_TargetVolume / 2;
+	#r_volume2 := #iq_stModule.User_Inputs.r_TargetVolume / 2;
+	
+	// 4d) Flow rate
+	#r_flowRate1 := #r_tfrmax / 2;
+	#r_flowRate2 := #r_tfrmax / 2;
+	*)
+	
+	//mbar·s/µL,
+	// 4e) Pressures
+	#iq_stModule.Parameter.r_PressureEmpty1 := #r_tfrmax * #r_r1 + (#r_tfrmax ** 2) * #r_ra1;
+	#iq_stModule.Parameter.r_PressureEmpty2 := #r_tfrmax * #r_r2 + (#r_tfrmax ** 2) * #r_ra2;
+	
+	// 
+	// ================================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	// 1. There is an issue with the computation of the Emptying pressure - Check with Matthieu and the original MATLAB code,... mbars or bars?... 
+	// 2. Remember to associate the correct DB to this CrunchingClean function as well as the
+	//    required parameters. e.g the Reference viscosity of water, r_lab_pressure., r_TargetVolume Keep in mind that there 
+	//    will another DB for the other Crunching function.
+	
+	
+	
+	
+	
+END_FUNCTION_BLOCK
+

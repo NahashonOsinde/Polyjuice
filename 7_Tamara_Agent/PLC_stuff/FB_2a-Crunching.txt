@@ -1,0 +1,218 @@
+FUNCTION_BLOCK "FB_2a-Crunching"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      iq_stModule : "UDT_TamaraCrunching";
+   END_VAR
+
+   VAR 
+      r_mu1 : Real;
+      r_mu2 : Real;
+      r_mu3 : Real;
+      r_n : Real;
+      r_frrate : Real;
+      r_base1 : Real;
+      r_base1a : Real;
+      r_base2 : Real;
+      r_base2a : Real;
+      r_base3 : Real;
+      r_base3a : Real;
+      r_res1 : Real;
+      r_res1a : Real;
+      r_res2 : Real;
+      r_res2a : Real;
+      r_res3 : Real;
+      r_res3a : Real;
+      r_r1 : Real;
+      r_ra1 : Real;
+      r_r2 : Real;
+      r_ra2 : Real;
+      r_p_min_mbar : Real;
+      r_p_max_mbar : Real;
+      r_t1 : Real;
+      r_t2 : Real;
+      r_tm1 : Real;
+      r_tm2 : Real;
+      r_tfrmin : Real;
+      r_tfrmax : Real;
+      r_Q : Real;
+      r_tfr_ml_s : Real;
+      r_total_v : Real;
+      r_manifold_cap : Real;
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_2a-Crunching"
+	    // Comment/Function: This FB handles the logic associated with computing the required
+	    //                   pressure values to be sent to the Pressure Regulators.
+	    //                   While computing these pressure values, it also ascertains
+	    //                   that the required parameter limits are adhered to.
+	    //                   Check the mathematical formulation document for more information.
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon OSINDE / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 18-07-2025 | Nahashon OSINDE    | First released version
+	    //==================================================================================
+	END_REGION
+	
+	//=============================================================================
+	// Network 1: Derived viscosities (mu) & mixing ratio (n)
+	//-----------------------------------------------------------------------------
+	#r_mu1 := 1005.0 - 23.0 * (#iq_stModule.User_Inputs.r_Temp - 20.0);
+	#r_mu2 := #iq_stModule.User_Inputs.r_viscosity_org - #iq_stModule.User_Inputs.r_viscosity_sens * (#iq_stModule.User_Inputs.r_Temp - 20.0);
+	#r_n   := #iq_stModule.User_Inputs.r_FRR * (#iq_stModule.User_Inputs.r_molar_vol / 18.0);
+	#r_mu3 := (#r_mu1 * #r_n + #r_mu2) / (1.0 + #r_n);
+	//=============================================================================
+	// Network 2: Viscosity‐scaled channel resistances (mbar·s/µL for linear, mbar·s^2/µL^2 for quadratic)
+	//-----------------------------------------------------------------------------
+	#r_base1 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 0];
+	#r_base1a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 1];
+	#r_base2 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 2];
+	#r_base2a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 3];
+	#r_base3 := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 4];
+	#r_base3a := #iq_stModule.Constants.r_CHIP_RES[#iq_stModule.User_Inputs.i_Chip_ID, 5];
+	
+	// Viscosity adjusted resistances (choose µ for each line)
+	#r_res1 := #r_base1 * (#r_mu1 / #iq_stModule.Constants.r_MU_REF);
+	#r_res1a := #r_base1a * (#r_mu1 / #iq_stModule.Constants.r_MU_REF);
+	#r_res2 := #r_base2 * (#r_mu2 / #iq_stModule.Constants.r_MU_REF);
+	#r_res2a := #r_base2a * (#r_mu2 / #iq_stModule.Constants.r_MU_REF);
+	#r_res3 := #r_base3 * (#r_mu3 / #iq_stModule.Constants.r_MU_REF);
+	#r_res3a := #r_base3a * (#r_mu3 / #iq_stModule.Constants.r_MU_REF);
+	//=============================================================================
+	// Network 3: Effective linear/quadratic resistances
+	//-----------------------------------------------------------------------------
+	#r_frrate := #iq_stModule.User_Inputs.r_FRR;
+	#r_r1 := #r_res1 * (#r_frrate / (1.0 + #r_frrate)) + #r_res3;
+	#r_ra1 := #r_res1a * ((#r_frrate / (1.0 + #r_frrate)) ** 2) + #r_res3a;
+	#r_r2 := #r_res2 * (1.0 / (1.0 + #r_frrate)) + #r_res3;
+	#r_ra2 := #r_res2a * ((1.0 / (1.0 + #r_frrate)) ** 2) + #r_res3a;
+	//=============================================================================
+	// Network 4: Compute dynamic flow‐rate limits TFRmin / TFRmax
+	//-----------------------------------------------------------------------------
+	#r_p_min_mbar := #iq_stModule.Constants.r_P_MIN_BAR * 1000.0;
+	#r_p_max_mbar := 0.9 * #iq_stModule.User_Inputs.r_lab_pressure * 1000.0;
+	
+	#iq_stModule.Parameter.r_PressureSourceMax := #r_p_max_mbar;
+	
+	// TFRmin branch 1
+	IF #r_ra1 <> 0.0 THEN
+	    #r_t1 := (- #r_r1 + SQRT(#r_r1 ** 2 + 4.0 * #r_p_min_mbar * #r_ra1)) / (2.0 * #r_ra1);
+	ELSE
+	    #r_t1 := #r_p_min_mbar / #r_r1;
+	END_IF;
+	// TFRmin branch 2
+	IF #r_ra2 <> 0.0 THEN
+	    #r_t2 := (- #r_r2 + SQRT(#r_r2 ** 2 + 4.0 * #r_p_min_mbar * #r_ra2)) / (2.0 * #r_ra2);
+	ELSE
+	    #r_t2 := #r_p_min_mbar / #r_r2;
+	END_IF;
+	#r_tfrmin := MAX(IN1 := #r_t1, IN2 := #r_t2) * 60.0 / 1000.0;  // µL/s→mL/min
+	
+	// TFRmax branch 1
+	IF #r_ra1 <> 0.0 THEN
+	    #r_tm1 := (- #r_r1 + SQRT(#r_r1 ** 2 + 4.0 * #r_p_max_mbar * #r_ra1)) / (2.0 * #r_ra1);
+	ELSE
+	    #r_tm1 := #r_p_max_mbar / #r_r1;
+	END_IF;
+	// TFRmax branch 2
+	IF #r_ra2 <> 0.0 THEN
+	    #r_tm2 := (- #r_r2 + SQRT(#r_r2 ** 2 + 4.0 * #r_p_max_mbar * #r_ra2)) / (2.0 * #r_ra2);
+	ELSE
+	    #r_tm2 := #r_p_max_mbar / #r_r2;
+	END_IF;
+	#r_tfrmax := MIN(IN1 := #r_tm1, IN2 := #r_tm2) * 60.0 / 1000.0;
+	
+	// ensure non-zero window
+	IF #r_tfrmax <= #r_tfrmin THEN
+	    #r_tfrmax := #r_tfrmin + 0.1;
+	END_IF;
+	
+	//=============================================================================
+	// Network 5: Compute flows, pressures, run_time
+	//-----------------------------------------------------------------------------
+	#r_Q := #iq_stModule.User_Inputs.r_TFR * 1000.0 / 60.0;               // µL/s
+	#iq_stModule.Parameter.r_PressureRun1 := (#r_Q * #r_r1 + #r_Q * #r_Q * #r_ra1 + 10.0) / 1000.0; // bar
+	#iq_stModule.Parameter.r_PressureRun2 := (#r_Q * #r_r2 + #r_Q * #r_Q * #r_ra2 + 10.0) / 1000.0; // bar
+	
+	#r_tfr_ml_s := #iq_stModule.User_Inputs.r_TFR / 60.0;
+	#iq_stModule.Parameter.r_run_time := #iq_stModule.User_Inputs.r_TargetVolume / #r_tfr_ml_s + #iq_stModule.Constants.r_T_PRIME_S;  // s
+	
+	//=============================================================================
+	// Network 6: Compute pressures for Amorcage and Priming ---- CONFIRM THESE EQUATIONS (ESP Viscosity and resistance parameters) ON TAMARA
+	// Visco1 -> Aqueous ->ViscoRef
+	// Visco2 -> Organic
+	//-----------------------------------------------------------------------------
+	#iq_stModule.Parameter.r_PressureAmorcage1 := (85.0 / MAX(IN1 := #iq_stModule.Constants.r_MU_REF, IN2 := #iq_stModule.User_Inputs.r_viscosity_org))
+	                                            * #iq_stModule.Constants.r_MU_REF;
+	
+	#iq_stModule.Parameter.r_PressureAmorcage1 := (85.0 / MAX(IN1 := #iq_stModule.Constants.r_MU_REF, IN2 := #iq_stModule.User_Inputs.r_viscosity_org))
+	                                            * #iq_stModule.User_Inputs.r_viscosity_org;
+	
+	
+	#iq_stModule.Parameter.r_PressurePriming1 := 350.0 * #iq_stModule.Constants.r_MU_REF /
+	                                            MAX(IN1 := #iq_stModule.Constants.r_MU_REF, IN2 := #iq_stModule.User_Inputs.r_viscosity_org);
+	  
+	#iq_stModule.Parameter.r_PressurePriming2 := 350.0 * (#iq_stModule.User_Inputs.r_viscosity_org * #r_res2 / #r_res1) /
+	                                            MAX(IN1 := #iq_stModule.Constants.r_MU_REF, IN2 := #iq_stModule.User_Inputs.r_viscosity_org);
+	
+	//=============================================================================
+	// Network 7: Validation checks
+	//-----------------------------------------------------------------------------
+	#iq_stModule.Status.b_Valid := TRUE;  // assume OK, then clear on any failure
+	
+	// 6a) Pressure bounds
+	IF (#iq_stModule.Parameter.r_PressureRun1 < #iq_stModule.Constants.r_P_MIN_BAR)
+	    OR (#iq_stModule.Parameter.r_PressureRun1 > 0.9 * #iq_stModule.User_Inputs.r_lab_pressure)
+	    OR (#iq_stModule.Parameter.r_PressureRun2 < #iq_stModule.Constants.r_P_MIN_BAR)
+	    OR (#iq_stModule.Parameter.r_PressureRun2 > 0.9 * #iq_stModule.User_Inputs.r_lab_pressure) THEN
+	    #iq_stModule.Status.b_Valid := FALSE;
+	END_IF;
+	
+	// 6b) Volume vs manifold
+	#iq_stModule.Parameter.r_AqueousVolume := #iq_stModule.User_Inputs.r_TargetVolume / (1.0 + #r_frrate); //#r_volume1
+	#iq_stModule.Parameter.r_SolventVolume := #iq_stModule.Parameter.r_AqueousVolume * #r_frrate; //#r_volume2
+	#r_manifold_cap := #iq_stModule.Constants.r_MANIFOLD_VOL[#iq_stModule.User_Inputs.i_Manifold_ID];
+	IF (#iq_stModule.Parameter.r_AqueousVolume + #iq_stModule.Parameter.r_SolventVolume) > #r_manifold_cap THEN
+	    #iq_stModule.Status.b_Valid := FALSE;
+	END_IF;
+	
+	// 6c) FRR range
+	IF (#iq_stModule.User_Inputs.r_FRR < 1.0) OR (#iq_stModule.User_Inputs.r_FRR > 10.0) THEN
+	    #iq_stModule.Status.b_Valid := FALSE;
+	END_IF;
+	
+	// 6d) TFR window
+	IF (#iq_stModule.User_Inputs.r_TFR < #r_tfrmin) OR (#iq_stModule.User_Inputs.r_TFR > #r_tfrmax) THEN
+	    #iq_stModule.Status.b_Valid := FALSE;
+	END_IF;
+	
+	// final exit
+	IF NOT #iq_stModule.Status.b_Valid THEN
+	    // zero out outputs on fail
+	    #iq_stModule.Parameter.r_PressureRun1 := 0.0;
+	    #iq_stModule.Parameter.r_PressureRun2 := 0.0;
+	    #iq_stModule.Parameter.r_run_time := 0.0;
+	END_IF;
+	
+	//=============================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	// 1. Add fault text incase the limits are violated. Something the AI Agent will understand
+	// and give relevant information to the user.
+	// 2. For each limit violation associate it with a Fault Trigger bit.
+	
+END_FUNCTION_BLOCK
+

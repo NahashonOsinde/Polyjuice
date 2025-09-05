@@ -1,0 +1,160 @@
+Implement the following instructions in the folder '7_Tamara_Agent':
+Think intelligently, longer and like a professional Python programmer.
+Use LangChain, LangGraph
+
+Build a standalone agentic POC for TAMARA (chat + RAG + MCP-style tools + PLC)
+
+Context & style
+
+Read all .py and .ipynb files in this directory to mirror formatting, libraries and conventions.
+
+Do not import any existing project modules (e.g., TamaraMCPserver.py). The new code must be self-contained. External libraries are fine.
+
+Keep modules small, typed, documented, and covered by pytest.
+
+Goal
+Create a single executable entrypoint agent_poc.py that runs a terminal chat. The agent:
+
+answers questions from a local RAG index; and
+
+uses MCP-style tool calls that only pass user inputs to the PLC. The PLC computes & validates all dynamic limits and signals pass/fail via a single DB boolean. The agent polls this bit and reports status back to the user.
+
+Scope split (important)
+
+Agent (Python):
+
+Collect user inputs for a “formulation run” (POC modes: Run, Clean, PressureTest if needed).
+
+Perform basic/manual static checks only (e.g., TFR absolute range, FRR format, known enumerations).
+
+Send raw inputs to PLC; poll a DB bool (e.g., DB100.DBX0.0) for validation result.
+
+If TRUE: report “inputs accepted by PLC.” If FALSE: report “inputs rejected; see PLC panel/logs” (and optionally read an error byte if available, but treat it as optional).
+
+PLC (outside this task):
+
+Computes all dynamic limits/derivations (e.g., TFRmin/TFRmax under current chip, viscosity/temperature, pressure feasibility, manifold capacity given splits, runtime constraints).
+
+Owns final validation decision surfaced as the single DB boolean.
+
+For this POC, do not implement client-side sequence building or pressure math; the PLC is the source of truth. (We may add those later.)
+
+Manual/static checks to keep on the agent
+
+Presence & types for all required fields.
+
+TFR within documented absolute range (e.g., 0.8–15 mL/min).
+
+FRR structure (aq:sol), values > 0.
+
+Enumerations: ChipID ∈ {HERRINGBONE, BAFFLE}, Manifold ∈ {SMALL, LARGE}.
+
+Temperature within a reasonable lab range (e.g., 5–60 °C).
+
+Everything else (pressures, computed volumes vs manifold, min/max TFR, timing, etc.) is PLC-validated.
+
+RAG implementation (mirror 6_Tamara_workflow)
+
+Inspect the 6_Tamara_workflow directory and replicate its approach to organizing:
+
+knowledge_base/ (source docs: PDFs/markdown/text), and
+
+db/ or vector_db/ (persisted vector index).
+
+Keep the same or very similar folder names and on-disk layout so it “drops in” next to that workflow.
+
+Reasonable defaults: chunk ~1,000–1,500 chars, overlap ~200–250; cosine sim k=4–6; citations include file name + page.
+
+No internet access; only local files.
+
+Deliverables
+1) agent_poc.py (standalone)
+
+CLI chat loop (readline/Typer).
+
+RAG: build (or load) a local vector index from 6_Tamara_workflow/knowledge_base/** into 6_Tamara_workflow/vector_db/.
+
+MCP-style tools (plain Python callables the chat loop can invoke):
+
+collect_inputs(mode:str) -> dict
+
+Prompts for: TFR, FRR(aq:sol), TargetVolume, Temperature, ChipID, Manifold.
+
+static_validate(payload:dict) -> (ok:bool, messages:list[str])
+
+Only manual/static checks listed above.
+
+send_inputs_to_plc(payload:dict) -> None
+
+Encode and write raw inputs to PLC DB (addresses documented at top of file).
+
+poll_plc_validation(timeout_s:float=3.0) -> bool
+
+Reads a single DBX bit (e.g., DB100.DBX0.0). Returns True if PLC accepted; False otherwise.
+
+Conversation policy:
+
+Default to RAG answers.
+
+If the user asks to “run/formulate/clean/pressure test”, call tools in this order:
+
+collect_inputs → 2) static_validate → 3) send_inputs_to_plc → 4) poll_plc_validation.
+
+Report the PLC result plainly. If rejected, advise the user to adjust inputs or check PLC HMI; do not attempt client-side recomputation.
+
+PLC I/O:
+
+Use python-snap7.
+
+Config via .env: PLC_IP, PLC_RACK, PLC_SLOT, PLC_DB_INPUTS, PLC_DB_VALIDATION, and PLC_VALID_BIT_OFFSET (byte + bit or DBX address).
+
+Provide a SIM mode: if PLC_IP=SIM, use a local stub that stores last-written inputs and lets you flip the validation bit for tests.
+
+Logging:
+
+Structured logging (console + ./logs/agent_poc.log). Redact secrets.
+
+Log: the raw user inputs, static-validation messages, PLC write success/failure, and the final validation bit value.
+
+2) rag_build.py
+
+Script that (re)indexes 6_Tamara_workflow/knowledge_base/** into 6_Tamara_workflow/vector_db/.
+
+Prints top-3 chunks for two smoke-test queries on completion.
+
+3) Tests (tests/ with pytest)
+
+test_static_validation.py: unit tests for TFR bounds, FRR parsing, enums, temperature range.
+
+test_plc_tools_sim.py: writes inputs in SIM mode and asserts that poll_plc_validation() returns the simulated bit state; ensures DB addressing and encoding are consistent.
+
+test_rag_local.py: builds a tiny index from 1–2 sample docs and verifies top-k retrieval returns expected file names.
+
+Acceptance criteria
+
+Running python agent_poc.py starts a chat.
+
+Prompt: “Run with FRR 3:1, TFR 6 mL/min, 1 mL target, 22 °C, chip herringbone, small manifold” triggers:
+
+input collection → 2) static validation OK → 3) PLC write → 4) validation bit polled → 5) clear pass/fail message.
+
+pytest -q passes.
+
+RAG builds/loads from 6_Tamara_workflow/knowledge_base and persists to 6_Tamara_workflow/vector_db.
+
+No imports from existing project modules; only new files in this task plus external libs.
+
+Implementation notes
+
+Keep DB layout constants near the top of agent_poc.py with clear comments (e.g., mapping of each input field to DB offsets).
+
+Use a small encoder to pack numbers/strings consistently (e.g., REAL for floats; INT/DINT for integers; FRR as two INTs).
+
+Expose a --dry-run flag to skip PLC I/O but still go through the motions.
+
+Maintain a strict separation: Agent = chat, RAG, static checks, PLC I/O; PLC = dynamic math & decision.
+
+When referencing Stateflow naming, keep it lightweight (Run/Clean/PressureTest, Priming/Mixing/Run) and ignore any “Pulse” blocks/states.
+
+Out of scope: cloud deployment, web UI, production auth, full HMI parity.
+

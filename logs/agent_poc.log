@@ -1,0 +1,183 @@
+2025-08-29 14:38:00,475 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:38:00,476 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:38:00,551 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:38:03,452 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:38:42,889 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:38:43,434 - __main__ - ERROR - Error in chat loop: 1 validation error for Generation
+text
+  Input should be a valid string [type=string_type, input_value=ChatPromptValue(messages=... response_metadata={})]), input_type=ChatPromptValue]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-08-29 14:39:16,207 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:39:16,214 - __main__ - ERROR - Error in chat loop: 1 validation error for Generation
+text
+  Input should be a valid string [type=string_type, input_value=ChatPromptValue(messages=... response_metadata={})]), input_type=ChatPromptValue]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-08-29 14:40:38,882 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:40:38,883 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:40:38,883 - snap7.client - INFO - destroying snap7 client
+2025-08-29 14:40:45,883 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:40:45,884 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:40:45,995 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:40:48,454 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:40:57,397 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:40:57,583 - __main__ - ERROR - Error in chat loop: 1 validation error for Generation
+text
+  Input should be a valid string [type=string_type, input_value=ChatPromptValue(messages=... response_metadata={})]), input_type=ChatPromptValue]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-08-29 14:41:09,979 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:41:09,980 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:41:19,981 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:41:19,982 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:41:20,062 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:41:22,564 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:41:37,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:41:37,590 - __main__ - ERROR - Error in chat loop: 1 validation error for Generation
+text
+  Input should be a valid string [type=string_type, input_value=ChatPromptValue(messages=... response_metadata={})]), input_type=ChatPromptValue]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-08-29 14:42:50,240 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:42:50,241 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:42:54,819 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:42:54,820 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:42:54,953 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:42:57,082 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:43:04,314 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:43:29,591 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:43:34,340 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:43:34,342 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:43:34,342 - snap7.client - INFO - destroying snap7 client
+2025-08-29 14:47:40,308 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:47:40,309 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:47:40,382 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:47:42,711 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:47:43,841 - snap7.client - INFO - destroying snap7 client
+2025-08-29 14:48:14,088 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:48:14,089 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:48:14,175 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:48:16,716 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:48:17,818 - snap7.client - INFO - destroying snap7 client
+2025-08-29 14:48:49,271 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:48:49,272 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:48:49,391 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:48:52,057 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:49:00,583 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:57:32,977 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:57:32,978 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:57:32,979 - snap7.client - INFO - destroying snap7 client
+2025-08-29 14:57:38,092 - snap7.client - INFO - creating snap7 client
+2025-08-29 14:57:38,093 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 14:57:38,192 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 14:57:41,083 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 14:57:47,568 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 14:58:06,707 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 14:58:06,708 - __main__ - INFO - Disconnected from PLC
+2025-08-29 14:58:06,709 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:12:45,231 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:12:45,231 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:12:45,330 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:12:47,721 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:12:48,999 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:15:51,233 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:15:51,235 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:15:51,347 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:15:53,708 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:16:04,330 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 15:16:10,040 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:16:36,416 - __main__ - ERROR - Error collecting inputs: not enough values to unpack (expected 2, got 1)
+2025-08-29 15:16:36,417 - __main__ - ERROR - Error processing run request: 1
+2025-08-29 15:17:27,671 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:17:27,672 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:17:27,673 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:17:32,606 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:17:32,607 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:17:32,718 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:17:35,108 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:17:47,828 - __main__ - ERROR - Error collecting inputs: not enough values to unpack (expected 2, got 1)
+2025-08-29 15:17:47,829 - __main__ - ERROR - Error processing run request: 1
+2025-08-29 15:19:44,567 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=3.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:19:44,568 - __main__ - ERROR - Error processing run request: 'InputPayload' object has no attribute 'frr_aq'
+2025-08-29 15:21:39,426 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:21:39,426 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:21:39,427 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:21:44,492 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:21:44,494 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:21:44,573 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:21:47,055 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:22:12,747 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=4.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:22:12,748 - __main__ - ERROR - Error writing to PLC: bytearray index out of range
+2025-08-29 15:22:12,749 - __main__ - ERROR - Error processing run request: bytearray index out of range
+2025-08-29 15:24:36,928 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:24:36,929 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:24:36,930 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:24:41,765 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:24:41,766 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:24:41,847 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:24:44,153 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:25:03,569 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=3.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:25:03,599 - snap7.common - ERROR - b'CPU : Address out of range'
+2025-08-29 15:25:03,601 - __main__ - ERROR - Error writing to PLC: b'CPU : Address out of range'
+2025-08-29 15:25:03,603 - __main__ - ERROR - Error processing run request: b'CPU : Address out of range'
+2025-08-29 15:28:15,515 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:28:15,516 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:28:15,517 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:28:21,491 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:28:21,492 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:28:21,581 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:28:24,103 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:28:30,769 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 15:28:40,829 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:29:12,156 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=4.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:29:12,200 - snap7.common - ERROR - b'CPU : Address out of range'
+2025-08-29 15:29:12,200 - __main__ - ERROR - Error writing to PLC: b'CPU : Address out of range'
+2025-08-29 15:29:12,201 - __main__ - ERROR - Error processing run request: b'CPU : Address out of range'
+2025-08-29 15:35:06,506 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:35:06,509 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:35:06,510 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:35:54,308 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:35:54,310 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:35:54,390 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:35:56,705 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:36:15,790 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=3.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:36:15,806 - snap7.common - ERROR - b'CPU : Address out of range'
+2025-08-29 15:36:15,807 - __main__ - ERROR - Error writing to PLC: b'CPU : Address out of range'
+2025-08-29 15:36:15,809 - __main__ - ERROR - Error processing run request: b'CPU : Address out of range'
+2025-08-29 15:39:22,427 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:39:22,428 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:39:22,429 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:39:28,863 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:39:28,864 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:39:28,972 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:39:31,301 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:39:45,531 - __main__ - INFO - Collected inputs: InputPayload(tfr=3.0, frr=3, target_volume=3.0, temperature=22.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:39:45,672 - __main__ - INFO - Successfully wrote payload to PLC
+2025-08-29 15:39:45,673 - __main__ - INFO - Successfully wrote payload to PLC
+2025-08-29 15:39:45,673 - __main__ - INFO - Inputs written to PLC
+2025-08-29 15:40:13,789 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:40:13,790 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:40:13,791 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:40:29,633 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:40:29,634 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:40:29,713 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:40:31,843 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:40:55,379 - __main__ - INFO - Collected inputs: InputPayload(tfr=4.0, frr=4, target_volume=5.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 'BAFFLE'>, manifold=<Manifold.LARGE: 'LARGE'>, mode=<Mode.RUN: 'RUN'>)
+2025-08-29 15:40:55,649 - __main__ - INFO - Successfully wrote payload to PLC
+2025-08-29 15:40:55,650 - __main__ - INFO - Successfully wrote payload to PLC
+2025-08-29 15:40:55,651 - __main__ - INFO - Inputs written to PLC
+2025-08-29 15:41:06,755 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:41:06,755 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:41:06,756 - snap7.client - INFO - destroying snap7 client
+2025-08-29 15:41:30,258 - snap7.client - INFO - creating snap7 client
+2025-08-29 15:41:30,259 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-08-29 15:41:30,379 - __main__ - INFO - Successfully connected to PLC
+2025-08-29 15:41:32,681 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-29 15:41:39,187 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 15:41:44,216 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:42:09,161 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:42:09,527 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 15:42:12,977 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:47:41,431 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:47:41,799 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-08-29 15:47:45,057 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-08-29 15:47:52,555 - snap7.client - INFO - disconnecting snap7 client
+2025-08-29 15:47:52,556 - __main__ - INFO - Disconnected from PLC
+2025-08-29 15:47:52,556 - snap7.client - INFO - destroying snap7 client

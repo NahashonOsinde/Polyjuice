@@ -1,0 +1,25 @@
+name: LangChain
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - ipython
+  - jupyter
+  - pip:
+    - python-dotenv
+    - langchain
+    - langchain-core
+    - langchain-community
+    - langchain-openai
+    - langgraph
+    - chromadb
+    - openai
+    - tavily-python
+    - typing-extensions
+    - typing-inspection
+    - annotated-types
+    - packaging
+    - pydantic
+    - graphviz

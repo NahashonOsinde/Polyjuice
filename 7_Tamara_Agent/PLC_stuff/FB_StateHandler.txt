@@ -1,0 +1,417 @@
+FUNCTION_BLOCK "FB_StateHandler_NEW"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT 
+      i_b_ButtonRun : Bool;   // Input - Start Run operation button
+      i_b_ButtonStop : Bool;   // Input -  Abort Run/Clean/Test → Standby button
+      i_b_FaultReset : Bool;   // Input - Reset faults/clear alarms
+      i_b_E_Stop : Bool;   // Input - Emergency Stop operation button
+      i_b_FaultTest : Bool;   // Input - Test faults/alarms; commissioning only
+      i_b_ButtonClean : Bool;   // Input - Start Clean
+      i_b_ButtonPressTest : Bool;   // Input - Start pressure test
+   END_VAR
+
+   VAR_OUTPUT 
+      q_b_InfoStateInit : Bool;   // Output - Info state initialization (i_State = 0)
+      q_b_InfoStateReady : Bool;   // Output - Info state ready (i_State = 1 → after init)
+      q_b_InfoStateRun : Bool;   // Output -Info state running (i_State = 2)
+      q_b_InfoStateClean : Bool;   // Output - infor state clean (i_State = 3)
+      q_b_InfoStatePressureTest : Bool;   // Output - infor state pressure test (i_State = 4)
+      q_b_InfoStateSafePurge : Bool;   // Output - infor state safe purge (i_State = 5)
+      q_b_InfoStateFaulted : Bool;   // Output - info state faulted (i_State = 6)
+      q_b_InfoStateReset : Bool;   // Output - info state reset (i_State = 7)
+      q_b_InfoStateEStop : Bool;   // Output - info state Emergency stop (i_State = 8)
+   END_VAR
+
+   VAR_IN_OUT 
+      iq_stFlags : "UDT_SystemFlags";   // InOut - System flags structure (b_FirstScan, safety supervisor, etc)
+      iq_stModule : "UDT_Statehandler";   // InOut - State handler structure (i_State, i_SubState, b_Done, b_PressureFault, ...)
+      iq_stAlarm : "UDT_AlarmHandling";   // InOut - Alarm handling structure (alarm trigger word + summary)
+      iq_stCrunching : "UDT_TamaraCrunching";
+      iq_stCrunchingClean : "UDT_TamaraCrunching";
+      iq_stFormulation : "UDT_Formulation";
+      iq_stClean : "UDT_Clean";
+      iq_stPressureTest : "UDT_PressureTest";
+      iq_stPressureControl1 : "UDT_PressureControl";   // Regulator #1
+      iq_stPressureControl2 : "UDT_PressureControl";   // Regulator #2
+      iq_stRS232 : "UDT_RS232";
+   END_VAR
+
+   VAR 
+      i_State { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Int;
+      stOnDelay_Init {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;   // on-delay for initialisation
+      stOnDelay_Reset {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;   // on-delay for reset hold-time
+      stOnDelay_SeqStep {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;   // single TON used for sequencer sub-steps
+      trigRun {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;   // rising‐edge detectors for all commands...
+      trigClean {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      trigTest {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      trigStop {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      trigReset {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      trigEStop {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      trigFaultTest {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;
+      "Instance_FB_3-Clean" : "FB_3b-Clean";
+      "Instance_FB_1-PressureTest" : "FB_1-PressureTest";
+      Instance_FB_PressureControl_STH : "FB_PressureControl";
+      Instance_FB_2b_Formulation : "FB_2b-Formulation";
+   END_VAR
+
+   VAR_TEMP 
+      _tTimeET : Time;   // Diagnostics tag
+      _tRunTarget : Time;   // target PT for Run sub‐steps
+      _tCleanTarget : Time;   // target PT for Clean sub‐steps
+      _tPressTestTarget : Time;   // target PT for Test sub‐steps
+      "_q_b_InfoState-Faulted" : Bool;
+      "_q_b_InfoState-ON" : Bool;
+      "_q_b_InfoState-OFF" : Bool;
+   END_VAR
+
+   VAR CONSTANT 
+      w_FaultMask : Word := 16#003F;   // bits  0– 5 →  6 bits → 0x003F
+      w_WarnMask : Word := 16#0FE0;   // bits  5–11 →  7 bits → 0x0FE0
+      w_InfoMask : Word := 16#F000;   // bits 12–15 →  4 bits → 0xF000
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_StateHandler"
+	    // Comment/Function: This FB maps start/clean/test commands, faults & timers
+	    //                   into a hierarchical state machine with sub-steps. This FB contains all
+	    //                   logic for control and status of the machine state handler.
+	    //                   This module consists of 9 states: Initialisation (Init, 0),
+	    //                   Stop (Ready/Idle/Standby, 1), Run (Running/Formulation, 2), Clean (3),
+	    //                   Pressure test (4), Safe purge (5), Faulted (6), Reset (7), Emergency-Stop (8)
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon OSINDE / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 09-07-2025 | Nahashon OSINDE    | First released version
+	    //==================================================================================
+	END_REGION
+	
+	//=============================================================================
+	// Network 1: FIRST SCAN → STATE 0 (Standby Init)
+	// >>The statehandler starts with an initialization state after the PLC boots up.
+	// This is (can be) used in the software to initialize variables AND functions.
+	//-----------------------------------------------------------------------------
+	IF #iq_stFlags.b_FirstScan THEN
+	    #iq_stModule.Status.i_State := 0;
+	END_IF;
+	
+	//=============================================================================
+	// Network 2: STATE 0 → 1 (run init timer) & 0 → 1 (Standby)
+	// >> The application goes from the initialization state (0) to the ready state (1)
+	// after a predefined initialization time.
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 0 THEN
+	    // kick off init timer
+	    #stOnDelay_Init(IN := TRUE,
+	                    PT := #iq_stModule.Config.t_InitTime);
+	    #_tTimeET := #stOnDelay_Init.ET;      // for HMI diagnostics
+	    
+	    IF #stOnDelay_Init.Q THEN
+	        // init complete → Standby (Ready)
+	        #iq_stModule.Status.i_State := 1;
+	        #stOnDelay_Init(IN := FALSE,
+	                        PT := #iq_stModule.Config.t_InitTime);
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 3: Latch rising edges of all command buttons
+	//-----------------------------------------------------------------------------
+	#trigRun(CLK := #iq_stModule.Command.b_Run);
+	#trigClean(CLK := #iq_stModule.Command.b_Clean);
+	#trigTest(CLK := #iq_stModule.Command.b_PressureTest);
+	#trigStop(CLK := #iq_stModule.Command.b_Stop);
+	#trigReset(CLK := #iq_stModule.Command.b_Reset);
+	#trigEStop(CLK := #iq_stModule.Command.b_EmergencyStop);
+	#trigFaultTest(CLK := #iq_stModule.Command.b_FaultTest); // Check this again!!
+	
+	//=============================================================================
+	// Network 4: (STATE) ANY → SafePurge (5) on Safety or PressureFault. (Emergency purge override in Tamara)...CHECK THIS AGAIN!!!!!!
+	//-----------------------------------------------------------------------------
+	IF #iq_stFlags.b_SafetyStop OR #iq_stModule.Status.b_PressureFault THEN //Put a Pressure fault FB in the Cyclic interrupt block..?
+	    #iq_stModule.Status.i_State := 5;    // SafePurge
+	    #iq_stModule.Status.i_SubState := 1;
+	END_IF;
+	
+	//=============================================================================
+	// Network 5: ANY STATE → Faulted (6) on Alarm
+	// >>The statehandler goes from any state to the faulted state (6) when there is a
+	// fault on any of the equipment or machine modules (summarized in "FB_Alarm Handling").
+	//-----------------------------------------------------------------------------
+	IF #iq_stAlarm.Fault.i_Summary.%X0 AND (#iq_stModule.Status.i_State <> 6) THEN
+	    #iq_stModule.Status.i_State := 6;        // Faulted
+	END_IF;
+	
+	//=============================================================================
+	// Network 6: (CONTROL) RESET or STOP or E-STOP Transitions
+	//-----------------------------------------------------------------------------
+	
+	// 6a) From Ready(1), Faulted(6) or EStop(8) → Reset(7)
+	IF ( (#iq_stModule.Status.i_State = 1) OR
+	    (#iq_stModule.Status.i_State = 6) OR
+	    (#iq_stModule.Status.i_State = 8) ) AND #trigReset.Q
+	THEN
+	    #iq_stModule.Status.i_State := 7;
+	        #iq_stModule.Status.i_SubState := 0;
+	END_IF;
+	
+	// 6b) From any non-EStop STATE → EStop(8)
+	IF (#iq_stModule.Status.i_State <> 8)
+	    AND #trigEStop.Q
+	THEN
+	    #iq_stModule.Status.i_State := 8;
+	    #iq_stModule.Status.i_SubState := 0;
+	END_IF;
+	
+	// 6c) From Run/Clean/PressureTest (2,3,4) STATE → Standby(1) on Stop
+	IF ( (#iq_stModule.Status.i_State = 2) OR
+	   (#iq_stModule.Status.i_State = 3) OR
+	   (#iq_stModule.Status.i_State = 4) ) AND #trigStop.Q
+	THEN
+	    #iq_stModule.Status.i_State := 1;   // back to Ready (Standby)
+	END_IF;
+	
+	//=============================================================================
+	// Network 7: RESET hold-time → Ready(1)
+	// >> The statehandler maintains the reset state (4) for 2 seconds,
+	// then goes to the ready state (1) when all faults have been cleared (iq_stAlarm.Fault.i_Summary.%X0)
+	//-----------------------------------------------------------------------------
+	//IF #iq_stModule.Status.i_State = 7 THEN
+	IF #iq_stModule.Status.i_State = 7 AND NOT #iq_stAlarm.Fault.i_Summary.%X0 THEN
+	    // Add reset/stop buttons to each process FB...?
+	    (*
+	    #iq_stPressureTest.Status.b_Active := FALSE;
+	    #iq_stFormulation.Status.b_Active := FALSE;
+	    #iq_stClean.Status.b_Active := FALSE;
+	    *)
+	    //
+	    #stOnDelay_Reset(IN := TRUE,
+	                     PT := #iq_stModule.Config.t_ResetTime);
+	    #_tTimeET := #stOnDelay_Reset.ET;
+	    
+	    IF #stOnDelay_Reset.Q THEN
+	        #iq_stModule.Status.i_State := 1;
+	        #stOnDelay_Reset(IN := FALSE,
+	                         PT := #iq_stModule.Config.t_ResetTime);
+	        // #iq_stModule.Parameter.r_TimeRemaining := 0.0;
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 8: START SEQUENCES
+	//  1→Run(2) on Start, 1→Clean(3) on Clean, 1→PressTest(4) on Test
+	//  >> The application goes from the ready state (1) to the Run (formulation) state (2)
+	//    by pressing a hardware or software (not implemented yet) Run button.
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 1 THEN
+	    //Always set the Pressure to 0 mbar whenever we are in Standby/Idle
+	    #Instance_FB_PressureControl_STH(i_r_UserTargetPressure := 0.0,
+	                                     "q_r_InfoState-Pressure" => #iq_stPressureControl1.Status.r_ActualPressure,
+	                                     "q_b_InfoState-Faulted" => #"_q_b_InfoState-Faulted",
+	                                     "q_b_InfoState-ON" => #"_q_b_InfoState-Faulted",
+	                                     "q_b_InfoState-OFF" => #"_q_b_InfoState-Faulted",
+	                                     iq_stModule := #iq_stPressureControl1,
+	                                     iq_stRS232 := #iq_stRS232,
+	                                     iq_stSystemFlags := #iq_stFlags);
+	    
+	    IF #trigRun.Q THEN
+	        #iq_stModule.Status.i_State := 2;   // explicit Run
+	        #iq_stModule.Status.i_SubState := 1;
+	        #iq_stModule.Status.b_Done := FALSE;
+	        // clear the command so PC can re-issue it later
+	        #iq_stModule.Command.b_Run := FALSE;
+	    ELSIF #trigClean.Q THEN
+	        #iq_stModule.Status.i_State := 3;   // Clean
+	        #iq_stModule.Status.i_SubState := 1;
+	        #iq_stModule.Status.b_Done := FALSE;
+	        #iq_stModule.Command.b_Clean := FALSE;
+	    ELSIF #trigTest.Q THEN
+	        #iq_stModule.Status.i_State := 4;   // PressureTest
+	        #iq_stModule.Status.i_SubState := 1;
+	        #iq_stModule.Status.b_Done := FALSE;
+	        // clear the command so PC can re-issue it later
+	        #iq_stModule.Command.b_PressureTest := FALSE;
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 9: RUN SEQUENCE – 8 sub-states; CALL FB_2b-Formulation
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 2 AND NOT #iq_stModule.Status.b_Done THEN
+	    // feed command into sub‐FB
+	    //#iq_stFormulation.Command.b_Start := TRUE;
+	    #iq_stFormulation.Command.b_Start := #trigRun.Q;
+	    #Instance_FB_2b_Formulation(iq_stModule := #iq_stFormulation,
+	                                iq_stCrunching := #iq_stCrunching,
+	                                iq_stPressureCtrl1 := #iq_stPressureControl1,
+	                                iq_stPressureCtrl2 := #iq_stPressureControl2,
+	                                iq_stRS232 := #iq_stRS232,
+	                                iq_stSystemFlags := #iq_stFlags);
+	    
+	    #iq_stModule.Parameter.r_TimeRemaining := #iq_stFormulation.Parameter.r_TimeRemaining;
+	    
+	    IF #iq_stFormulation.Status.b_Done THEN
+	        #iq_stModule.Status.i_State := 1;  // back to Standby
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 10: CLEAN SEQUENCE – 4 sub-states; CALL FB_3-Clean
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 3 AND NOT #iq_stModule.Status.b_Done THEN
+	    #iq_stClean.Command.b_Start := #trigClean.Q;
+	    #"Instance_FB_3-Clean"(iq_stModule := #iq_stClean,
+	                           iq_stPressureCtrl1 := #iq_stPressureControl1,
+	                           iq_stPressureCtrl2 := #iq_stPressureControl2,
+	                           iq_stRS232 := #iq_stRS232,
+	                           iq_stSystemFlags := #iq_stFlags,
+	                           iq_stCrunching := #iq_stCrunching,
+	                           iq_stCrunchingClean := #iq_stCrunchingClean);
+	    
+	    #iq_stModule.Parameter.r_TimeRemaining := #iq_stClean.Parameter.r_TimeRemaining;
+	    
+	    IF #iq_stClean.Status.b_Done THEN
+	        #iq_stModule.Status.i_State := 1;
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 11: PRESSURETEST SEQUENCE – 3 sub-states; CALL FB_1-PressureTest
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 4 AND NOT #iq_stModule.Status.b_Done THEN
+	    #iq_stPressureTest.Command.b_Start := #trigTest.Q;
+	    #"Instance_FB_1-PressureTest"(iq_stModule := #iq_stPressureTest,
+	                                  iq_stPressureControl := #iq_stPressureControl1,
+	                                  iq_stRS232 := #iq_stRS232,
+	                                  iq_stSystemFlagS := #iq_stFlags);
+	    
+	    #iq_stModule.Parameter.r_TimeRemaining := #iq_stPressureTest.Parameter.r_TimeRemaining;
+	    
+	    IF #iq_stPressureTest.Status.b_Done THEN
+	        #iq_stModule.Status.i_State := 1;
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 12: SAFE PURGE (5) – forced by safety/fault
+	//-----------------------------------------------------------------------------
+	(*
+	IF #iq_stModule.Status.i_State = 5 THEN
+	    // … your valve‐open/purge logic elsewhere …
+	    // remain here until cleared by Reset or E-Stop
+	END_IF;
+	
+	//=============================================================================
+	// Network 13: FAULTED (6) – latched by alarm
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 6 THEN
+	    // remain until Reset
+	END_IF;
+	
+	//=============================================================================
+	// Network 14: E-STOP (8) – hard latch
+	//-----------------------------------------------------------------------------
+	IF #iq_stModule.Status.i_State = 8 THEN
+	    // remain until Reset
+	END_IF;
+	*)
+	//=============================================================================
+	// Network XX: Test/Reset all faults (REMOVE THIS AFTER COMMISSIONING)
+	// >> All faults are reset by moving 16#0 into the triggerword.
+	//    All faults are set by moving 16#ffff into the triggerword.
+	//-----------------------------------------------------------------------------
+	IF #i_b_FaultTest = TRUE THEN
+	    #iq_stModule.Fault.w_Trigger := 16#0;
+	END_IF;
+	
+	IF #i_b_FaultReset = TRUE THEN
+	    #iq_stModule.Fault.w_Trigger := 16#ffff;
+	END_IF;
+	
+	(*
+	Each machine/equipment module outputs 3 alarm types (Fault/Warning/Information) in 3 dedicated 
+	networks using a summary variable (Module.Fault.i_Summary). Faults are summarized using the .%X0 bit 
+	of the Fault.i_Summary variable, warnings are summarized using the .%X1 bit, and information messages are
+	summarized using the .%X2 bit. You can find these summary networks by looking for the network
+	titles "SUMMARY - Module Fault/Warning/Information"
+	*)
+	
+	//=============================================================================
+	// Network XX: SUMMARY - Module Fault (.%X0 -> .%X5), w_FaultMask(16#003F) takes into account bits 0 -5.
+	//-----------------------------------------------------------------------------
+	IF (#iq_stModule.Fault.w_Trigger AND #w_FaultMask) <> 0 THEN
+	    #iq_stModule.Fault.i_Summary.%X0 := TRUE;
+	END_IF;
+	
+	//=============================================================================
+	// Network XX: SUMMARY - Module Warning (.%X5 -> .%X11)
+	//-----------------------------------------------------------------------------
+	IF (#iq_stModule.Fault.w_Trigger AND #w_WarnMask) <> 0 THEN
+	    #iq_stModule.Fault.i_Summary.%X1 := TRUE;
+	END_IF;
+	
+	//=============================================================================
+	// Network XX: SUMMARY - Module Information (.%X12 -> .%X15)
+	//-----------------------------------------------------------------------------
+	IF (#iq_stModule.Fault.w_Trigger AND #w_InfoMask) <> 0 THEN
+	    #iq_stModule.Fault.i_Summary.%X2 := TRUE;
+	END_IF;
+	
+	//=============================================================================
+	// Network 15: STATUS FLAGS → HMI Outputs
+	// >>When in running state, an indicator light output (Green) is activated
+	// for indicating the running state to the operator (Not implemented, but could be useful).
+	//-----------------------------------------------------------------------------
+	// Update Status flags
+	#iq_stModule.Status.b_Init := (#iq_stModule.Status.i_State = 0);
+	#iq_stModule.Status.b_Standby := (#iq_stModule.Status.i_State = 1);
+	#iq_stModule.Status.b_Run := (#iq_stModule.Status.i_State = 2) AND NOT #iq_stModule.Status.b_Done;
+	#iq_stModule.Status.b_Clean := (#iq_stModule.Status.i_State = 3);
+	#iq_stModule.Status.b_PressureTest := (#iq_stModule.Status.i_State = 4);
+	#iq_stModule.Status.b_SafePurge := (#iq_stModule.Status.i_State = 5);
+	#iq_stModule.Status.b_Faulted := (#iq_stModule.Status.i_State = 6);
+	#iq_stModule.Status.b_Reset := (#iq_stModule.Status.i_State = 7);
+	#iq_stModule.Status.b_EmergencyStop := (#iq_stModule.Status.i_State = 8);
+	
+	// drive the HMI info bits
+	#q_b_InfoStateInit := #iq_stModule.Status.b_Init;
+	#q_b_InfoStateReady := #iq_stModule.Status.b_Standby;
+	#q_b_InfoStateRun := #iq_stModule.Status.b_Run;
+	#q_b_InfoStateClean := #iq_stModule.Status.b_Clean;
+	#q_b_InfoStatePressureTest := #iq_stModule.Status.b_PressureTest;
+	#q_b_InfoStateSafePurge := #iq_stModule.Status.b_SafePurge;
+	#q_b_InfoStateFaulted := #iq_stModule.Status.b_Faulted;
+	#q_b_InfoStateReset := #iq_stModule.Status.b_Reset;
+	#q_b_InfoStateEStop := #iq_stModule.Status.b_EmergencyStop;
+	
+	
+	//=============================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	// 1. Remove or repoint the leftover #i_b_FaultTest and summary networks, so
+	// they don’t overwrite your real Fault.w_Trigger and Fault.i_Summary, do this
+	// after commisioning the device.
+	// 2. Populate all the Config.t_* arrays with non-zero times (even a short 100 ms)
+	// so that each sub-step actually delays. Nonetheless, the actual logic will be set soon.
+	// 3. If necessary, add the implementation of the physical buttons and/alongside the HMI commands, might
+	// not be necessary since Tamara only has an ON button
+	// 4. Remove fault test and Reset test networks after commissioning
+	// 5. Check that when a user presses STOP, RESET or E-stop from the Statehandler all other superstates (RUN, CLEAN and P-Test)
+	//    go to their reset states i.e, everything is initialised....!!!!
+	// 6. Delete this variable, it serves no purpose in this FB; #iq_stModule.Status.i_SubState
+	
+	
+END_FUNCTION_BLOCK
+

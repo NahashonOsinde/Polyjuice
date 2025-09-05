@@ -1,0 +1,280 @@
+FUNCTION_BLOCK "FB_2b-Formulation"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      iq_stModule : "UDT_Formulation";
+      iq_stCrunching : "UDT_TamaraCrunching";
+      iq_stPressureCtrl1 : "UDT_PressureControl";   // Regulator #1
+      iq_stPressureCtrl2 : "UDT_PressureControl";   // Regulator #2
+      iq_stRS232 : "UDT_RS232";
+      iq_stSystemFlags : "UDT_SystemFlags";
+   END_VAR
+
+   VAR 
+      trigStart {InstructionName := 'R_TRIG'; LibVersion := '1.0'; S7_SetPoint := 'False'} : R_TRIG;
+      trigPause {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;   // rising-edge detector on your HMI “Pause” button
+      stOnDelay_Step {InstructionName := 'TON_TIME'; LibVersion := '1.0'} : TON_TIME;
+      stOnDelayR_Mix {InstructionName := 'TONR_TIME'; LibVersion := '1.0'} : TONR_TIME;
+      "Instance_FB_2a-Crunching" : "FB_2a-Crunching";
+      Instance_FB_PressureControl_Run : "FB_PressureControl";
+   END_VAR
+
+   VAR_TEMP 
+      _tMixTarget : Time;
+      _r_desired_Pressure1 : Real;
+      _r_desired_Pressure2 : Real;
+      _q_b_PressureFault1 : Bool;
+      _q_b_PressureRegOn1 : Bool;
+      _q_b_PressureRegOFF1 : Bool;
+      _q_b_PressureFault2 : Bool;
+      _q_b_PressureRegOn2 : Bool;
+      _q_b_PressureRegOFF2 : Bool;
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_2b-Formulation"
+	    // Comment/Function: This FB handles the logic associated with formulating Nano lipid particles.
+	    //                 : Handles the Formulation sequence: Amorcage → Priming → Mix/Run → MixOver
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon Osinde / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 24-07-2025 | Nahashon Osinde   | First released version
+	    //==================================================================================
+	END_REGION
+	
+	//=============================================================================
+	// Network 1: Start‐Edge Detection & Initialization
+	//=============================================================================
+	#trigStart(CLK := #iq_stModule.Command.b_Start);
+	#trigPause(CLK := #iq_stModule.Command.b_Pause);
+	IF #trigStart.Q AND NOT #iq_stModule.Status.b_Faulted THEN
+	    // reset & begin at Crunching
+	    #iq_stModule.Status.b_Active := TRUE;
+	    #iq_stModule.Status.b_Done := FALSE;
+	    #iq_stModule.Status.b_MixPaused := FALSE;
+	    #iq_stModule.Status.b_OK := FALSE;
+	    #iq_stModule.Status.i_Step := 0;    // 0 = Crunching sub‐step
+	END_IF;
+	
+	//----------------------------------------------------------------------------
+	// If not active, skip all subsequent logic
+	//----------------------------------------------------------------------------
+	IF #iq_stModule.Status.b_Active THEN
+	    //=============================================================================
+	    // Network 2: STEP 0 – Call Crunching FB & validate
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 0 THEN
+	        // invoke the crunching block just once
+	        #"Instance_FB_2a-Crunching"(#iq_stCrunching);
+	        
+	        // on invalid -> immediate FAIL
+	        IF NOT #iq_stCrunching.Status.b_Valid THEN
+	            #iq_stModule.Status.b_Active := FALSE;
+	            #iq_stModule.Status.b_Done := TRUE;
+	            #iq_stModule.Status.b_OK := FALSE;
+	            #iq_stModule.Status.i_Step := 6;      // skip to done
+	        ELSE
+	            // advance to Amorcage
+	            #iq_stModule.Status.i_Step := 1;
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 3: STEP 1 – RunPrep (operator “Confirm”)
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 1 THEN
+	        // UI: “Run: prepare machine… Press Confirm/Next”
+	        IF #iq_stModule.Command.b_Confirm THEN
+	            #iq_stModule.Command.b_Confirm := FALSE;
+	            #iq_stModule.Status.i_Step := 2;  // next → Amorcage
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 4: STEP 2 – Amorcage (0.5s)
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 2 THEN
+	        // compute target pressures
+	        #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureAmorcage1;
+	        #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureAmorcage2;
+	        
+	        // start the 0.5 s timer
+	        #stOnDelay_Step(IN := TRUE,
+	                        PT := #iq_stModule.Config.t_Amorcage);
+	        
+	        // update HMI countdown (ms→s)
+	        #iq_stModule.Parameter.r_TimeRemaining :=
+	        DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT) - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	        
+	        // on timeout -> next
+	        IF #stOnDelay_Step.Q THEN
+	            #stOnDelay_Step(IN := FALSE,
+	                            PT := T#0s);
+	            #iq_stModule.Status.i_Step := 3;
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 5: STEP 3 – Priming (0.3s)
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 3 THEN
+	        // compute target pressures
+	        #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressurePriming1;
+	        #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressurePriming2;
+	        
+	        // start the 0.3 s timer
+	        #stOnDelay_Step(IN := TRUE,
+	                        PT := #iq_stModule.Config.t_Priming);
+	        // HMI countdown
+	        #iq_stModule.Parameter.r_TimeRemaining :=
+	        DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT) - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	        
+	        IF #stOnDelay_Step.Q THEN
+	            #stOnDelay_Step(IN := FALSE,
+	                            PT := T#0s);
+	            #iq_stModule.Status.i_Step := 4;
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 6: STEP 4 – Mixing (t_Mixing) AND MixPause
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 4 THEN
+	        #_tMixTarget := DINT_TO_TIME(REAL_TO_DINT(#iq_stCrunching.Parameter.r_run_time)) * 1000; //seconds
+	        // A) toggle / latch Pause state only on Pause button edge
+	        IF #trigPause.Q THEN
+	            #iq_stModule.Status.b_MixPaused := NOT #iq_stModule.Status.b_MixPaused;
+	        END_IF;
+	        
+	        // B) If Paused -> hold pressures at zero, freeze ET
+	        IF #iq_stModule.Status.b_MixPaused THEN
+	            // freeze: don’t advance timer, but we still have to CALL it with the same PT
+	            #stOnDelayR_Mix(IN := FALSE,
+	                            PT := #_tMixTarget);
+	            // leave tonr_Mix.IN = FALSE, so ET is retained
+	            #iq_stModule.Parameter.r_TimeRemaining :=
+	            DINT_TO_REAL(TIME_TO_DINT(#stOnDelayR_Mix.PT) - TIME_TO_DINT(#stOnDelayR_Mix.ET)) * 0.001;
+	            // Pressures stay zero
+	            #_r_desired_Pressure1 := 0.0;
+	            #_r_desired_Pressure2 := 0.0;
+	            
+	            // C) If Running → normal Mix
+	        ELSE
+	            // Normal run: drive timer and pressures
+	            // 1) crunching‐computed pressures
+	            #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureRun1 * 1000;  //mbars
+	            #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureRun2 * 1000;
+	            
+	            // 2) drive the retentive timer
+	            #stOnDelayR_Mix(IN := TRUE,
+	                            PT := #_tMixTarget);
+	            
+	            #iq_stModule.Parameter.r_TimeRemaining :=
+	            DINT_TO_REAL(TIME_TO_DINT(#stOnDelayR_Mix.PT) - TIME_TO_DINT(#stOnDelayR_Mix.ET)) * 0.001;
+	            
+	            // 3) on timeout → finish Mix
+	            IF #stOnDelayR_Mix.Q THEN
+	                #stOnDelayR_Mix(IN := FALSE,
+	                                R  := TRUE,
+	                                PT := #_tMixTarget);        // stop and retain Q
+	                // Reinitialize to clear elapsed time
+	                
+	                #iq_stModule.Status.b_MixPaused := FALSE;         // clear pause for next time
+	                #iq_stModule.Status.i_Step := 5;
+	            END_IF;
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 7: STEP 5 – MixOver (t_MixOver) 
+	    //=============================================================================
+	    IF #iq_stModule.Status.i_Step = 5 THEN
+	        #_r_desired_Pressure1 := 0.0;
+	        #_r_desired_Pressure2 := 0.0;
+	        
+	        #stOnDelay_Step(IN := TRUE,
+	                        PT := #iq_stModule.Config.t_MixOver);
+	        #iq_stModule.Parameter.r_TimeRemaining :=
+	        DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT) - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	        
+	        IF #stOnDelay_Step.Q THEN
+	            #stOnDelay_Step(IN := FALSE,
+	                            PT := T#0s);
+	            // all done → PASS
+	            #iq_stModule.Status.b_Active := FALSE;
+	            #iq_stModule.Status.b_Done := TRUE;
+	            #iq_stModule.Status.b_OK := TRUE;
+	            #iq_stModule.Status.i_Step := 6;
+	        END_IF;
+	    END_IF;
+	    
+	    //=============================================================================
+	    // Network 8: STEP 6 (or not active) – Drive everything to zero & reset state
+	    //=============================================================================
+	    IF (#iq_stModule.Status.i_Step >= 6)  THEN
+	        // force zero-pressure
+	        #stOnDelay_Step(IN := FALSE,
+	                        PT := T#0s);
+	        
+	        #stOnDelayR_Mix(IN := FALSE,
+	                        R  := TRUE,
+	                        PT := #_tMixTarget);
+	        
+	        #iq_stModule.Parameter.r_TimeRemaining := 0.0;
+	        // drive both regs to zero
+	        #_r_desired_Pressure1 := 0.0;
+	        #_r_desired_Pressure2 := 0.0;
+	        
+	        // clear the start bit so it can be retriggered if we've finished
+	        #iq_stModule.Command.b_Start := FALSE;
+	        #iq_stModule.Command.b_Pause := FALSE;
+	        #iq_stModule.Status.b_MixPaused := FALSE;
+	        #iq_stModule.Status.i_Step := 0;
+	    END_IF;
+	END_IF;
+	
+	//=============================================================================
+	// Network 9: ALWAYS DRIVE REGULATORS (one call each)
+	// with whatever target was last computed (_r_…) 
+	//=============================================================================
+	// regulator #1
+	#Instance_FB_PressureControl_Run(i_r_UserTargetPressure := #_r_desired_Pressure1,
+	                                 "q_r_InfoState-Pressure" => #iq_stModule.Status.r_ActualPressure1,
+	                                 "q_b_InfoState-Faulted" => #_q_b_PressureFault1,
+	                                 "q_b_InfoState-ON" => #_q_b_PressureRegOn1,
+	                                 "q_b_InfoState-OFF" => #_q_b_PressureRegOFF1,
+	                                 iq_stModule := #iq_stPressureCtrl1,
+	                                 iq_stRS232 := #iq_stRS232,
+	                                 iq_stSystemFlags := #iq_stSystemFlags);
+	
+	// regulator #2
+	#Instance_FB_PressureControl_Run(i_r_UserTargetPressure := #_r_desired_Pressure2,
+	                                 "q_r_InfoState-Pressure" => #iq_stModule.Status.r_ActualPressure2,
+	                                 "q_b_InfoState-Faulted" => #_q_b_PressureFault2,
+	                                 "q_b_InfoState-ON" => #_q_b_PressureRegOn2,
+	                                 "q_b_InfoState-OFF" => #_q_b_PressureRegOFF2,
+	                                 iq_stModule := #iq_stPressureCtrl2,
+	                                 iq_stRS232 := #iq_stRS232,
+	                                 iq_stSystemFlags := #iq_stSystemFlags);
+	//=============================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	// 1. Modify the main IF...ELSE Block to IF...ELSIF.. Block to be similar to the 'FB_3b-Clean' Function Block. Otherwise there
+	// might be potential problems in executing Step 7 (Network 9)
+	// 2. Include the required timing values
+	// 3. Incorporate a STOP functionality, that stops the process and drives any timers to zero.
+	
+END_FUNCTION_BLOCK
+

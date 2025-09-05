@@ -1,0 +1,439 @@
+FUNCTION_BLOCK "FB_3b-Clean"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_IN_OUT 
+      iq_stModule : "UDT_Clean";
+      iq_stPressureCtrl1 : "UDT_PressureControl";   // Regulator #1
+      iq_stPressureCtrl2 : "UDT_PressureControl";   // Regulator #2
+      iq_stRS232 : "UDT_RS232";
+      iq_stSystemFlags : "UDT_SystemFlags";
+      iq_stCrunching : "UDT_TamaraCrunching";   // CrunchingClean
+      iq_stCrunchingClean : "UDT_TamaraCrunching";   // CrunchingClean
+   END_VAR
+
+   VAR 
+      trigStart {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;   // rising-edge trigger for Start
+      trigPause {InstructionName := 'R_TRIG'; LibVersion := '1.0'} : R_TRIG;   // rising-edge detector on your HMI “Pause” button
+      stOnDelay_Step {InstructionName := 'TONR_TIME'; LibVersion := '1.0'} : TONR_TIME;   // single non-retentive TON for sequencer steps (Emptying/Vidange/Drying)
+      Instance_FB_PressureControl_Clean : "FB_PressureControl";
+      "Instance_FB_3a-CrunchingClean" : "FB_3a-CrunchingClean";
+   END_VAR
+
+   VAR_TEMP 
+      _tCleanTarget : Time;   // ___
+      _r_desired_Pressure1 : Real;
+      _r_desired_Pressure2 : Real;
+      _q_b_PressureFault1 : Bool;
+      _q_b_PressureRegOn1 : Bool;
+      _q_b_PressureRegOFF1 : Bool;
+      _q_b_PressureFault2 : Bool;
+      _q_b_PressureRegOn2 : Bool;
+      _q_b_PressureRegOFF2 : Bool;
+   END_VAR
+
+
+BEGIN
+	REGION Description header
+	    //==================================================================================
+	    // (InsideTx) / (C) Copyright (2025)
+	    //----------------------------------------------------------------------------------
+	    // Title: FUNCTION_BLOCK "FB_3-Clean"
+	    // Comment/Function: This FB handles the logic associated with the Clean functionality of Tamara.
+	    //                 : Handles the Clean sequence: CleanPrep → CleanPurge → CleanFill → CleanCleanse
+	    // Library/Family: (that the source is dedicated to)
+	    // Author: RnD / Nahashon Osinde / contact
+	    // Target System: (test system with FW version)
+	    // Engineering: TIA Portal (V20 version)
+	    // Restrictions: (OB types, etc.)
+	    // Requirements: (hardware, technological package, etc.)
+	    //----------------------------------------------------------------------------------
+	    // Change log table:
+	    // Version     | Date       | Engineer in charge | Changes applied
+	    //-------------|------------|--------------------|------------------------------------
+	    // 001.000.000 | 28-07-2025 | Nahashon Osinde   | First released version
+	    //==================================================================================
+	END_REGION
+	
+	//=============================================================================
+	// Network 1: Edge‐detect Start & Pause. -> Add a STOP functionality
+	//=============================================================================
+	#trigStart(CLK := #iq_stModule.Command.b_Start);
+	#trigPause(CLK := #iq_stModule.Command.b_Pause);
+	
+	//Start rising edge
+	IF #trigStart.Q THEN
+	    #iq_stModule.Status.b_Active := TRUE;
+	    #iq_stModule.Status.b_Done := FALSE;
+	    #iq_stModule.Status.b_OK := FALSE;
+	    #iq_stModule.Status.b_CleanPaused := FALSE;
+	    #iq_stModule.Status.i_Step := 1;   // 1=CleanPrep
+	    #iq_stModule.Status.i_Substep := 0;   // reset sub-step
+	    // clear confirm so we only react to the next press
+	    #iq_stModule.Command.b_Confirm := FALSE;
+	END_IF;
+	
+	// on Pause -> toggle pause flag
+	IF #trigPause.Q THEN
+	    #iq_stModule.Status.b_CleanPaused := NOT #iq_stModule.Status.b_CleanPaused;
+	END_IF;
+	
+	//=============================================================================
+	// Network 2: Skip all logic when NOT Active OR Paused
+	//  (freeze timers, pressures=0, but retain i_Step/i_Substep for resume)
+	//=============================================================================
+	IF (#iq_stModule.Status.b_CleanPaused AND #iq_stModule.Status.i_Step < 5) THEN
+	//IF #iq_stModule.Status.b_CleanPaused THEN
+	// freeze any running timers so ET is retained
+	    #stOnDelay_Step(IN := FALSE,
+	                    //R  := TRUE,
+	                    PT := #stOnDelay_Step.PT);
+	    
+	    // zero desired pressures
+	    #_r_desired_Pressure1 := 0.0;
+	    #_r_desired_Pressure2 := 0.0;
+	    
+	    // update HMI countdown to show remaining hold time (ms→s)
+	    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                            - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	    // nothing else this scan
+	
+	    //=============================================================================
+	    // Network 3: STEP 1 – CleanPrep (operator “Confirm”)
+	    //=============================================================================
+	ELSIF #iq_stModule.Status.i_Step = 1 THEN
+	    // UI: “Cleaning: prepare machine… Press Confirm/Next”
+	        IF #iq_stModule.Command.b_Confirm THEN
+	        #iq_stModule.Command.b_Confirm := FALSE;
+	        #iq_stModule.Status.i_Step := 2;  // next → CleanPurge
+	        END_IF;
+	    
+	    //=============================================================================
+	    // Network 4: STEP 2 – CleanPurge (3 sub‐steps: Emptying, Vidange, Drying)
+	    //=============================================================================
+	ELSIF #iq_stModule.Status.i_Step = 2 THEN
+	        // compute purge pressures via CrunchingClean FB
+	    #"Instance_FB_3a-CrunchingClean"(iq_stModule := #iq_stCrunching,
+	                                     iq_stTamaraCrunching := #iq_stCrunchingClean);
+	        //#_r_Pmax := #iq_stCrunching.Parameter.r_PressureSourceMax;
+	        
+	        IF NOT #iq_stCrunching.Status.b_Valid THEN
+	            // immediate FAIL
+	            #iq_stModule.Status.b_Active := FALSE;
+	            #iq_stModule.Status.b_Done := TRUE;
+	            #iq_stModule.Status.b_OK := FALSE;
+	            #iq_stModule.Status.i_Step := 5;  // skip to Done
+	        ELSE
+	            // init sub‐step
+	            IF #iq_stModule.Status.i_Substep = 0 THEN
+	                #iq_stModule.Status.i_Substep := 1;
+	            END_IF;
+	            
+	            // run the “empty → vidange → dry” sub‐machine
+	            CASE #iq_stModule.Status.i_Substep OF
+	                    // — Substep 1: Emptying
+	                1:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeEmptying);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureEmpty1 * 1000; // To convert to mbars
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureEmpty2 * 1000;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeEmptying);
+	                        #iq_stModule.Status.i_Substep := 2;
+	                    END_IF;
+	                    
+	                    // — Substep 2: Vidange
+	                2:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeVidange);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeVidange);
+	                        #iq_stModule.Status.i_Substep := 3;
+	                    END_IF;
+	                    
+	                    // — Substep 3: Drying
+	                3:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeDrying);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeDrying);
+	                        // purge complete → advance to Fill
+	                        // force zero-pressure (drive both regs to zero)
+	                        #_r_desired_Pressure1 := 0.0;
+	                        #_r_desired_Pressure2 := 0.0;
+	                        // all done → PASS
+	                        #iq_stModule.Status.i_Step := 3; // The CleanseFill process should be initiated by the user via a HMI button
+	                        #iq_stModule.Status.i_Substep := 0;
+	                    END_IF;
+	                    
+	                ELSE
+	                    // safety fallback
+	                    #_r_desired_Pressure1 := 0.0;
+	                    #_r_desired_Pressure2 := 0.0;
+	            END_CASE;
+	        END_IF;
+	    
+	    //=============================================================================
+	    // Network 5: STEP 3 – CleanFill (operator “Confirm”)
+	    //=============================================================================
+	ELSIF #iq_stModule.Status.i_Step = 3 THEN
+	        // UI: “Fill cleaning solution… Press Confirm/Next”
+	        IF #iq_stModule.Command.b_Confirm THEN
+	            #iq_stModule.Command.b_Confirm := FALSE;
+	            #iq_stModule.Status.i_Step := 4;  // next → CleanCleanse
+	            #iq_stModule.Status.i_Substep := 0;
+	        END_IF;
+	    //END_IF;
+	    
+	    //=============================================================================
+	    // Network 6: STEP 4 – CleanCleanse (same 3 sub‐steps as Purge)
+	    //=============================================================================
+	ELSIF #iq_stModule.Status.i_Step = 4 THEN
+	        // compute cleanse pressures
+	    #"Instance_FB_3a-CrunchingClean"(iq_stModule := #iq_stCrunching,
+	                                     iq_stTamaraCrunching := #iq_stCrunchingClean);
+	        
+	        IF NOT #iq_stCrunching.Status.b_Valid THEN
+	            // immediate FAIL
+	            #iq_stModule.Status.b_Active := FALSE;
+	            #iq_stModule.Status.b_Done := TRUE;
+	            #iq_stModule.Status.b_OK := FALSE;
+	            #iq_stModule.Status.i_Step := 5;  // skip to Done
+	        ELSE
+	            IF #iq_stModule.Status.i_Substep = 0 THEN
+	                #iq_stModule.Status.i_Substep := 1;
+	            END_IF;
+	            
+	            CASE #iq_stModule.Status.i_Substep OF
+	                    // — Substep 1: Emptying
+	                1:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeEmptying);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureEmpty1 * 1000; // To convert to mbars;
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureEmpty2 * 1000; // To convert to mbars;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeEmptying);
+	                        #iq_stModule.Status.i_Substep := 2;
+	                    END_IF;
+	                    
+	                    // — Substep 2: Vidange
+	                2:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeVidange);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;;
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeVidange);
+	                        #iq_stModule.Status.i_Substep := 3;
+	                    END_IF;
+	                    
+	                    // — Substep 3: Drying
+	                3:
+	                    // HMI countdown
+	                    #iq_stModule.Parameter.r_TimeRemaining := DINT_TO_REAL(TIME_TO_DINT(#stOnDelay_Step.PT)
+	                                                                           - TIME_TO_DINT(#stOnDelay_Step.ET)) * 0.001;
+	                    IF NOT #stOnDelay_Step.IN THEN
+	                        #stOnDelay_Step(IN := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeDrying);
+	                    END_IF;
+	                    #_r_desired_Pressure1 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    #_r_desired_Pressure2 := #iq_stCrunching.Parameter.r_PressureConsMax * 1000; // To convert to mbars;
+	                    IF #stOnDelay_Step.Q THEN
+	                        #stOnDelay_Step(IN := FALSE,
+	                                        R  := TRUE,
+	                                        PT := #iq_stModule.Config.t_PurgeDrying);
+	                        // all done → PASS
+	                        #iq_stModule.Status.b_Active := FALSE;
+	                        #iq_stModule.Status.b_Done := TRUE;
+	                        #iq_stModule.Status.b_OK := TRUE;
+	                        #iq_stModule.Status.i_Step := 5;
+	                        #iq_stModule.Status.i_Substep := 0;
+	                    END_IF;
+	                    
+	                ELSE
+	                    // safety fallback
+	                    #_r_desired_Pressure1 := 0.0;
+	                    #_r_desired_Pressure2 := 0.0;
+	            END_CASE;
+	        END_IF;
+	    
+	    //=============================================================================
+	    // Network 7: STEP 5 (or not active) – Drive everything to zero & reset state
+	    //=============================================================================
+	// ELSIF (#iq_stModule.Status.i_Step >= 5) OR NOT #iq_stModule.Status.b_Active THEN    
+	// (NOT #iq_stModule.Status.b_Active) OR 
+	ELSIF #iq_stModule.Status.i_Step >= 5 OR NOT #iq_stModule.Status.b_Active  THEN //Check this NETWORK LOGIC AGAIN
+	//ELSE
+	        // force zero-pressure
+	        #stOnDelay_Step(IN := FALSE,
+	                        R  := TRUE,
+	                        PT := T#0s);
+	        #iq_stModule.Parameter.r_TimeRemaining := 0.0;
+	        // drive both regs to zero
+	        #_r_desired_Pressure1 := 0.0;
+	        #_r_desired_Pressure2 := 0.0;
+	        
+	        // clear the start bit so it can be retriggered if we've finished
+	        #iq_stModule.Command.b_Start := FALSE;
+	        #iq_stModule.Status.i_Step := 0;
+	        #iq_stModule.Status.i_Substep := 0;
+	        
+	        #iq_stModule.Status.b_Active := FALSE;
+	        #iq_stModule.Status.b_Done := TRUE;
+	    
+	END_IF;  // end Active AND not Paused, top‐level IF…ELSIF…ELSE
+	
+	//=============================================================================
+	// Network 8: ALWAYS DRIVE BOTH REGULATORS
+	// with whatever target was last computed (_r_desired_Pressure1/2)
+	//=============================================================================
+	#Instance_FB_PressureControl_Clean(
+	                                   i_r_UserTargetPressure := #_r_desired_Pressure1,
+	                                   "q_r_InfoState-Pressure" => #iq_stModule.Status.r_ActualPressure1,
+	                                   "q_b_InfoState-Faulted" => #_q_b_PressureFault1,
+	                                   "q_b_InfoState-ON" => #_q_b_PressureRegOn1,
+	                                   "q_b_InfoState-OFF" => #_q_b_PressureRegOFF1,
+	                                   iq_stModule := #iq_stPressureCtrl1,
+	                                   iq_stRS232 := #iq_stRS232,
+	                                   iq_stSystemFlags := #iq_stSystemFlags
+	);
+	
+	#Instance_FB_PressureControl_Clean(
+	                                   i_r_UserTargetPressure := #_r_desired_Pressure2,
+	                                   "q_r_InfoState-Pressure" => #iq_stModule.Status.r_ActualPressure2,
+	                                   "q_b_InfoState-Faulted" => #_q_b_PressureFault2,
+	                                   "q_b_InfoState-ON" => #_q_b_PressureRegOn2,
+	                                   "q_b_InfoState-OFF" => #_q_b_PressureRegOFF2,
+	                                   iq_stModule := #iq_stPressureCtrl2,
+	                                   iq_stRS232 := #iq_stRS232,
+	                                   iq_stSystemFlags := #iq_stSystemFlags
+	);
+	
+	// ================================================================================
+	// To Do:
+	//-----------------------------------------------------------------------------
+	// 1. Check on the Pause functionality of this FB
+	// 2. HMI prompts include “fill cleaning solution” here,... etc- To guide the user through the process
+	// 3. Include the timings for Empty, Vidange and Drying
+	// 
+	(*
+	To eliminate the near-duplicate “push→empty→vidange→dry” logic in both CleanPurge and CleanCleanse, we can factor the
+	4-substep sequence into a single reusable routine:
+	
+	1) Parameterize via Arrays in the UDT
+	Extend the UDT_Clean with two sets of arrays—one for the Purge phase, one for the Cleanse phase:
+	
+	UDT_Clean.Config : STRUCT
+	  t_Purge      : ARRAY[1..4] OF TIME;        // [Pushing, Emptying, Vidange, Drying]
+	  r_Purge1     : ARRAY[1..4] OF REAL;        // regulator #1 setpoints
+	  r_Purge2     : ARRAY[1..4] OF REAL;        // regulator #2 setpoints
+	
+	  t_Cleanse    : ARRAY[1..4] OF TIME;        // same 4 durations
+	  r_Cleanse1   : ARRAY[1..4] OF REAL;        // ...
+	  r_Cleanse2   : ARRAY[1..4] OF REAL;
+	END_STRUCT
+	Then in the FB, collapse Step 2 and Step 4 into one piece of code:
+	
+	// pick which phase arrays to use
+	IF iq_stModule.Status.i_Step = 2 THEN
+	  PhaseTimes   := iq_stModule.Config.t_Purge;
+	  PhasePress1  := iq_stModule.Config.r_Purge1;
+	  PhasePress2  := iq_stModule.Config.r_Purge2;
+	ELSIF iq_stModule.Status.i_Step = 4 THEN
+	  PhaseTimes   := iq_stModule.Config.t_Cleanse;
+	  PhasePress1  := iq_stModule.Config.r_Cleanse1;
+	  PhasePress2  := iq_stModule.Config.r_Cleanse2;
+	END_IF;
+	
+	// run the common 4-substep state-machine
+	IF iq_stModule.Status.i_Step IN [2,4] THEN
+	  IF iq_stModule.Status.i_Substep = 0 THEN
+	    iq_stModule.Status.i_Substep := 1;   // start at “pushing”
+	  END_IF;
+	
+	  // these two timers are declared in VAR
+	  CASE iq_stModule.Status.i_Substep OF
+	
+	    // — Substep 1: Pushing
+	    1:
+	      IF NOT stOnDelay_Push.IN THEN
+	        stOnDelay_Push(IN := TRUE, PT := PhaseTimes[1]);
+	      END_IF;
+	      _r_desired1 := PhasePress1[1];
+	      _r_desired2 := PhasePress2[1];
+	      IF stOnDelay_Push.Q THEN
+	        stOnDelay_Push(IN := FALSE, PT := PhaseTimes[1]);
+	        iq_stModule.Status.i_Substep := 2;
+	      END_IF;
+	
+	    // — Substep 2..4: Emptying, Vidange, Drying
+	    2,3,4:
+	      idx := iq_stModule.Status.i_Substep; // 2,3 or 4
+	      IF NOT stOnDelay_Step.IN THEN
+	        stOnDelay_Step(IN := TRUE, PT := PhaseTimes[idx]);
+	      END_IF;
+	      _r_desired1 := PhasePress1[idx];
+	      _r_desired2 := PhasePress2[idx];
+	      IF stOnDelay_Step.Q THEN
+	        stOnDelay_Step(IN := FALSE, PT := PhaseTimes[idx]);
+	        IF idx < 4 THEN
+	          iq_stModule.Status.i_Substep := idx + 1; 
+	        ELSE
+	          // finished this phase
+	          iq_stModule.Status.i_Step    := iq_stModule.Status.i_Step + 1;
+	          iq_stModule.Status.i_Substep := 0;
+	        END_IF;
+	      END_IF;
+	
+	    ELSE
+	      // safety fallback
+	      _r_desired1 := 0.0;
+	      _r_desired2 := 0.0;
+	  END_CASE;
+	END_IF;
+	*)
+	
+	
+	
+	
+	
+END_FUNCTION_BLOCK
+
