@@ -1,7 +1,7 @@
 .env
 .DS_Store
-./6_Tamara_workflow/db
-./7_Tamara_Agent/db
+6_Tamara_workflow/db/
+7_Tamara_Agent/db/
 
 
 
