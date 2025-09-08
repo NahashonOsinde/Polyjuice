@@ -12,7 +12,7 @@ Whitelisted mapping (DB9 = DB_Experiments_):
 - FRR (INT)           → DB9.DBW202
 - TARGET_VOL (REAL)   → DB9.DBD204
 - TEMP (REAL)         → DB9.DBD208
-- CHIP_ID (INT)       → DB9.DBW212   (0=HERRINGBONE, 1=BAFFLE)
+- CHIP_ID (INT)       → DB9.DBW212   (0=BAFFLE, 1=HERRINGBONE)
 - MANIFOLD (INT)      → DB9.DBW214   (1=SMALL, 2=LARGE)
 - STATUS (INT)       → DB9.DBW216   (1=RUN, 2=CLEAN, 3=PRESSURE_TEST)
 - COMMAND_START (BOOL)→ DB9.DBB218.0   (1=START, 0=STOP)
@@ -81,8 +81,8 @@ class MachineMode(IntEnum):
     PRESSURE_TEST = 4
 
 class ChipID(IntEnum):
-    HERRINGBONE = 0
-    BAFFLE = 1
+    BAFFLE = 0
+    HERRINGBONE = 1
 
 class ManifoldID(IntEnum):
     SMALL = 0
@@ -117,7 +117,7 @@ class InputPayload:
     frr: int  # Flow Rate Ratio (integer)
     target_volume: float  # Target Volume (mL)
     temperature: float  # Temperature (°C)
-    chip_id: ChipID  # HERRINGBONE/BAFFLE
+    chip_id: ChipID  # BAFFLE/HERRINGBONE
     manifold_id: ManifoldID  # SMALL/LARGE
     lab_pressure: float  # Lab pressure (mbar)
     org_solvent_id: OrgSolventID  # ETHANOL/IPA/ACETONE/METHANOL/CUSTOM
@@ -809,6 +809,16 @@ class PLCInterface:
     def read_status(self) -> int:
         """Read the current machine status (MachineMode)."""
         return self._read_int('MACHINE_MODE')
+        
+    def set_machine_mode(self, mode: int) -> None:
+        """Set the machine mode (status).
+        
+        Args:
+            mode: Status code to set (e.g., 1 for READY)
+        """
+        with self.transaction() as tx:
+            tx.write_int('MACHINE_MODE', mode)
+        logger.info(f"Machine mode set to {mode}")
 
 # ----------------------------------------------------------------------------
 # Simple CLI for quick tests
@@ -843,7 +853,7 @@ def demo() -> None:
         temperature = float(input("Temperature (°C): ").strip())
         lab_pressure = float(input("Lab pressure (mbar): ").strip())
         
-        chip_id = _prompt_choice("Chip ID", ["HERRINGBONE", "BAFFLE"])
+        chip_id = _prompt_choice("Chip ID", ["BAFFLE", "HERRINGBONE"])
         manifold = _prompt_choice("Manifold", ["SMALL", "LARGE"])
         solvent = _prompt_choice("Solvent", ["ETHANOL", "IPA", "ACETONE", "METHANOL", "CUSTOM"])
         

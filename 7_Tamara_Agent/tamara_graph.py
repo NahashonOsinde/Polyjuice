@@ -228,12 +228,13 @@ def build_rag_chain():
 # Graph state
 # ------------------------------------------------------------------------------------
 
-class GraphState(TypedDict):
+class GraphState(TypedDict, total=False):
     messages: List[Any]               # alternating HumanMessage/AIMessage
     intent: Optional[Literal["ask_kb", "run", "clean", "ptest", "other"]]
     pending_action: Optional[str]     # "run"|"clean"|"ptest" when waiting for confirmation
     confirmed: bool
     last_tool_result: Optional[str]
+    last_mode_check: float           # timestamp of last operation mode check
 
 # ------------------------------------------------------------------------------------
 # Router
@@ -507,10 +508,10 @@ def _collect_inputs_from_cli(kind: str) -> InputPayload:
             
             # Chip selection
             while True:
-                chip_id = input("Chip ID (HERRINGBONE/BAFFLE): ").strip().upper()
-                if chip_id in ["HERRINGBONE", "BAFFLE"]:
+                chip_id = input("Chip ID (BAFFLE/HERRINGBONE): ").strip().upper()
+                if chip_id in ["BAFFLE", "HERRINGBONE"]:
                     break
-                print("Please enter either HERRINGBONE or BAFFLE")
+                print("Please enter either BAFFLE or HERRINGBONE")
             
             # Manifold selection
             while True:
@@ -922,6 +923,18 @@ def build_graph():
 # Simple REPL (Read-Eval-Print Loop) around the graph
 # ------------------------------------------------------------------------------------
 
+def ensure_ready_state() -> None:
+    """Set machine mode to READY (1)."""
+    plc = PLCInterface()
+    try:
+        plc.set_machine_mode(PLC_STATUS["READY"])
+        log.info("Machine mode set to READY")
+    except Exception as e:
+        log.error(f"Failed to set READY state: {e}", exc_info=True)
+        raise
+    finally:
+        plc.disconnect()
+
 def check_operation_mode() -> bool:
     """Check if TAMARA is in AGENTIC mode.
     
@@ -941,6 +954,27 @@ def check_operation_mode() -> bool:
     finally:
         plc.disconnect()
 
+def periodic_mode_check(state: GraphState) -> None:
+    """Periodically check if we're still in AGENTIC mode."""
+    try:
+        if not check_operation_mode():
+            log.warning("TAMARA switched to CONVENTIONAL mode")
+            state["messages"].append(AIMessage(
+                content="WARNING: TAMARA has been switched to CONVENTIONAL mode.\n"
+                "Please switch back to AGENTIC mode on the HMI to continue operations."
+            ))
+            # Set machine to READY state
+            ensure_ready_state()
+            return False
+        return True
+    except Exception as e:
+        log.error(f"Failed periodic mode check: {e}", exc_info=True)
+        state["messages"].append(AIMessage(
+            content=f"Error checking operation mode: {str(e)}\n"
+            "Please ensure TAMARA is connected and in AGENTIC mode."
+        ))
+        return False
+
 def repl(draw: bool = False):
     app = build_graph()
 
@@ -959,7 +993,7 @@ def repl(draw: bool = False):
         except Exception as e:
             log.error(f"Could not render graph: {e}")
 
-    # Check operation mode before starting
+    # Check operation mode and set READY state before starting
     print("== TAMARA Agent (LangGraph) ==")
     print("Checking operation mode...")
     try:
@@ -971,13 +1005,26 @@ def repl(draw: bool = False):
             print("2. Switch it to AGENTIC mode")
             print("3. Run this script again")
             return
+            
+        # Set initial READY state
+        print("Setting initial READY state...")
+        ensure_ready_state()
+        
     except Exception as e:
         print(f"\nERROR: Failed to check operation mode: {e}")
         print("Please ensure TAMARA is connected and try again.")
         return
 
     print("Operation mode: AGENTIC")
-    state: GraphState = {"messages": [], "intent": None, "pending_action": None, "confirmed": False, "last_tool_result": None}
+    # Initialize state with all required fields
+    state: GraphState = {
+        "messages": [],
+        "intent": None,
+        "pending_action": None,
+        "confirmed": False,
+        "last_tool_result": None,
+        "last_mode_check": time.time()  # Initialize mode check timestamp
+    }
 
     print("== TAMARA Agent (LangGraph) ==")
     print("Type 'exit' to quit. Try: 'run', 'clean', 'pressure test', or ask knowledge questions.")
@@ -988,6 +1035,19 @@ def repl(draw: bool = False):
                 continue
             if user.lower() in ("exit", "quit"):
                 break
+
+            # Check if it's time for periodic mode check (every 5 seconds)
+            if time.time() - state["last_mode_check"] > 5:
+                if not periodic_mode_check(state):
+                    print("\nOperation mode check failed. Please fix and try again.")
+                    break
+                state["last_mode_check"] = time.time()
+
+            # Handle stop command
+            if user.lower() == "stop":
+                ensure_ready_state()
+                state["messages"].append(AIMessage(content="Operation stopped and machine set to READY state."))
+                continue
 
             # Add user message & run graph once
             state["messages"].append(HumanMessage(content=user))

@@ -2,6 +2,7 @@
 .DS_Store
 6_Tamara_workflow/db/
 7_Tamara_Agent/db/
+7_Tamara_Agent/db/chroma_db_with_metadata_Knowledge_base/
 
 
 
