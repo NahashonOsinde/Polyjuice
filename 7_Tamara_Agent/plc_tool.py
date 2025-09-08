@@ -350,22 +350,51 @@ class PLCTransaction:
             
         except Exception as e:
             # On any error, try to roll back by clearing all written values
-            try:
-                for write in self.writes:
+            rollback_errors = []
+            for write in self.writes:
+                try:
                     if write['type'] == 'REAL':
                         self.plc._write_real(write['tag'], 0.0)
+                        # Verify rollback
+                        if abs(self.plc._read_real(write['tag'])) > 1e-6:
+                            rollback_errors.append(f"Failed to rollback {write['tag']} to 0.0")
                     elif write['type'] == 'INT':
                         self.plc._write_int(write['tag'], 0)
+                        # Verify rollback
+                        if self.plc._read_int(write['tag']) != 0:
+                            rollback_errors.append(f"Failed to rollback {write['tag']} to 0")
                     elif write['type'] == 'BOOL':
                         self.plc._write_bool(write['tag'], False)
+                        # Verify rollback
+                        if self.plc._read_bool(write['tag']):
+                            rollback_errors.append(f"Failed to rollback {write['tag']} to False")
                     elif write['type'] == 'STRING':
                         self.plc._write_string(write['tag'], "", write['max_len'])
-            except Exception as rollback_error:
-                logger.error(f"Rollback failed: {rollback_error}")
-            raise ValueError(f"Transaction failed and rolled back: {str(e)}")
+                        # Verify rollback
+                        if self.plc._read_string(write['tag']) != "":
+                            rollback_errors.append(f"Failed to rollback {write['tag']} to empty string")
+                except Exception as rollback_error:
+                    rollback_errors.append(f"Error during rollback of {write['tag']}: {str(rollback_error)}")
+                    logger.error(f"Rollback error for {write['tag']}: {rollback_error}", exc_info=True)
+            
+            if rollback_errors:
+                error_msg = f"Transaction failed: {str(e)}\nRollback errors:\n" + "\n".join(rollback_errors)
+                logger.error(error_msg)
+                raise ValueError(error_msg)
+            else:
+                logger.info("Transaction failed but rollback successful")
+                raise ValueError(f"Transaction failed and rolled back successfully: {str(e)}")
 
 class PLCInterface:
     """Locked-down PLC interface for TAMARA."""
+    def __enter__(self):
+        """Context manager entry."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit."""
+        self.disconnect()
+        return False  # Don't suppress exceptions
     def __init__(self, ip: str | None = None, rack: int = 0, slot: int = 1, simulate: bool | None = None) -> None:
         # Use provided values or environment variables with defaults
         self.ip = ip or os.getenv('PLC_IP', '192.168.0.1')

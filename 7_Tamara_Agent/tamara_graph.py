@@ -925,15 +925,13 @@ def build_graph():
 
 def ensure_ready_state() -> None:
     """Set machine mode to READY (1)."""
-    plc = PLCInterface()
-    try:
-        plc.set_machine_mode(PLC_STATUS["READY"])
-        log.info("Machine mode set to READY")
-    except Exception as e:
-        log.error(f"Failed to set READY state: {e}", exc_info=True)
-        raise
-    finally:
-        plc.disconnect()
+    with PLCInterface() as plc:
+        try:
+            plc.set_machine_mode(PLC_STATUS["READY"])
+            log.info("Machine mode set to READY")
+        except Exception as e:
+            log.error(f"Failed to set READY state: {e}", exc_info=True)
+            raise
 
 def check_operation_mode() -> bool:
     """Check if TAMARA is in AGENTIC mode.
@@ -941,18 +939,15 @@ def check_operation_mode() -> bool:
     Returns:
         bool: True if in AGENTIC mode, False if in CONVENTIONAL mode
     """
-    plc = PLCInterface()
-    try:
-        # Read operation mode from PLC
-        mode = plc.read_operation_mode()
-        log.info(f"Current operation mode: {mode.name}")
-        return mode == OperationMode.AGENTIC
-        
-    except Exception as e:
-        log.error(f"Failed to read operation mode: {e}", exc_info=True)
-        raise
-    finally:
-        plc.disconnect()
+    with PLCInterface() as plc:
+        try:
+            # Read operation mode from PLC
+            mode = plc.read_operation_mode()
+            log.info(f"Current operation mode: {mode.name}")
+            return mode == OperationMode.AGENTIC
+        except Exception as e:
+            log.error(f"Failed to read operation mode: {e}", exc_info=True)
+            raise
 
 def periodic_mode_check(state: GraphState) -> None:
     """Periodically check if we're still in AGENTIC mode."""
@@ -1036,12 +1031,13 @@ def repl(draw: bool = False):
             if user.lower() in ("exit", "quit"):
                 break
 
-            # Check if it's time for periodic mode check (every 5 seconds)
-            if time.time() - state["last_mode_check"] > 5:
-                if not periodic_mode_check(state):
-                    print("\nOperation mode check failed. Please fix and try again.")
-                    break
-                state["last_mode_check"] = time.time()
+            # Check operation mode before any state transition
+            if user.lower() in ["run", "clean", "pressure test", "stop", "pause", "play", "resume"]:
+                if not check_operation_mode():
+                    print("\nERROR: TAMARA is in CONVENTIONAL mode.")
+                    print("Please switch to AGENTIC mode on the HMI before continuing.")
+                    ensure_ready_state()
+                    continue
 
             # Handle stop command
             if user.lower() == "stop":
