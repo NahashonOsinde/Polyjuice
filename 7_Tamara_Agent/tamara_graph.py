@@ -68,7 +68,11 @@ except Exception:
     Image = None  # type: ignore
 
 # Local PLC tool
-from plc_tool import PLCInterface, InputPayload, ChipID, Manifold, Mode
+from plc_tool import (
+    PLCInterface, InputPayload, CustomSolvent,
+    OperationMode, MachineMode, ChipID, ManifoldID, OrgSolventID, ModeCmds,
+    DB_CONFIG, snap7  # Import DB_CONFIG and snap7 for operation mode check
+)
 
 # PLC Status Constants
 PLC_STATUS = {
@@ -171,7 +175,7 @@ def build_rag_chain():
     retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 15})
     llm = ChatOpenAI(
         model=os.getenv("OPENAI_MODEL", "gpt-3.5-turbo"),
-        temperature=0,
+        temperature=0.1, # temperature is the randomness of the model's output, 0 is the most deterministic, 1 is the most random(creative)
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
 
@@ -272,22 +276,23 @@ def route(state: GraphState, *, llm=None) -> GraphState:
             status_code = plc.read_status()
             log.info(f"Current status code: {status_code}")
             
+            # Map status code to mode
+            mode = None
             if status_code == PLC_STATUS["RUNNING"]:
-                # Set pause bit and verify
-                log.info("Setting PAUSE_PLAY bit to TRUE...")
-                plc.write_command_bit("COMMAND_PAUSE_PLAY", True)
+                mode = MachineMode.RUN
+            elif status_code == PLC_STATUS["CLEANING"]:
+                mode = MachineMode.CLEAN
+            elif status_code == PLC_STATUS["PRESSURE_TEST"]:
+                mode = MachineMode.PRESSURE_TEST
                 
-                log.info("Verifying PAUSE_PLAY bit...")
-                if plc.read_command_bit("COMMAND_PAUSE_PLAY"):
-                    log.info("PAUSE_PLAY bit verified as TRUE")
-                    state["messages"].append(AIMessage(content="Operation paused. Say 'play' to resume."))
-                else:
-                    log.warning("PAUSE_PLAY bit verification failed")
-                    state["messages"].append(AIMessage(content="Warning: Failed to set pause command. Try again."))
-                    log.warning("Failed to verify PAUSE_PLAY bit was set")
+            if mode is not None:
+                # Set pause bit using pulse_cmd for the current mode
+                log.info(f"Setting PAUSE_PLAY bit to TRUE for {mode.name} mode...")
+                plc.pulse_cmd(mode, ModeCmds.PAUSE_PLAY, True)
+                state["messages"].append(AIMessage(content=f"{mode.name} operation paused. Say 'play' to resume."))
             else:
-                log.info(f"Cannot pause - status code {status_code} is not Running({PLC_STATUS['RUNNING']})")
-                state["messages"].append(AIMessage(content="Cannot pause - operation is not running. Use 'status' to check current state."))
+                log.info(f"Cannot pause - status code {status_code} not in active modes")
+                state["messages"].append(AIMessage(content="Cannot pause - no operation is active. Use 'status' to check current state."))
         except Exception as e:
             state["messages"].append(AIMessage(content=f"Error setting pause command: {str(e)}"))
             log.error(f"Failed to set PAUSE_PLAY bit: {e}", exc_info=True)
@@ -308,22 +313,23 @@ def route(state: GraphState, *, llm=None) -> GraphState:
             status_code = plc.read_status()
             log.info(f"Current status code: {status_code}")
             
+            # Map status code to mode
+            mode = None
             if status_code == PLC_STATUS["RUNNING"]:
-                # Clear pause bit and verify
-                log.info("Setting PAUSE_PLAY bit to FALSE...")
-                plc.write_command_bit("COMMAND_PAUSE_PLAY", False)
+                mode = MachineMode.RUN
+            elif status_code == PLC_STATUS["CLEANING"]:
+                mode = MachineMode.CLEAN
+            elif status_code == PLC_STATUS["PRESSURE_TEST"]:
+                mode = MachineMode.PRESSURE_TEST
                 
-                log.info("Verifying PAUSE_PLAY bit...")
-                if not plc.read_command_bit("COMMAND_PAUSE_PLAY"):
-                    log.info("PAUSE_PLAY bit verified as FALSE")
-                    state["messages"].append(AIMessage(content="Operation resumed."))
-                else:
-                    log.warning("PAUSE_PLAY bit verification failed")
-                    state["messages"].append(AIMessage(content="Warning: Failed to clear pause command. Try again."))
-                    log.warning("Failed to verify PAUSE_PLAY bit was cleared")
+            if mode is not None:
+                # Clear pause bit using pulse_cmd for the current mode
+                log.info(f"Setting PAUSE_PLAY bit to FALSE for {mode.name} mode...")
+                plc.pulse_cmd(mode, ModeCmds.PAUSE_PLAY, False)
+                state["messages"].append(AIMessage(content=f"{mode.name} operation resumed."))
             else:
-                log.info(f"Cannot resume - status code {status_code} is not Running({PLC_STATUS['RUNNING']})")
-                state["messages"].append(AIMessage(content="Cannot resume - operation is not paused. Use 'status' to check current state."))
+                log.info(f"Cannot resume - status code {status_code} not in active modes")
+                state["messages"].append(AIMessage(content="Cannot resume - no operation is active. Use 'status' to check current state."))
         except Exception as e:
             state["messages"].append(AIMessage(content=f"Error clearing pause command: {str(e)}"))
             log.error(f"Failed to clear PAUSE_PLAY bit: {e}", exc_info=True)
@@ -345,18 +351,20 @@ def route(state: GraphState, *, llm=None) -> GraphState:
             log.info(f"Current status code: {status_code}")
             
             if status_code in [PLC_STATUS["RUNNING"], PLC_STATUS["CLEANING"], PLC_STATUS["PRESSURE_TEST"]]:
-                # Set stop bit and verify
+                # Set stop bit using pulse_cmd for current mode
                 log.info("Setting STOP bit to TRUE...")
-                plc.write_command_bit("COMMAND_STOP", True)
-                
-                log.info("Verifying STOP bit...")
-                if plc.read_command_bit("COMMAND_STOP"):
-                    log.info("STOP bit verified as TRUE")
-                    state["messages"].append(AIMessage(content="Operation stopped."))
+                if status_code == PLC_STATUS["RUNNING"]:
+                    mode = MachineMode.RUN
+                elif status_code == PLC_STATUS["CLEANING"]:
+                    mode = MachineMode.CLEAN
+                elif status_code == PLC_STATUS["PRESSURE_TEST"]:
+                    mode = MachineMode.PRESSURE_TEST
                 else:
-                    log.warning("STOP bit verification failed")
-                    state["messages"].append(AIMessage(content="Warning: Failed to set stop command. Try again."))
-                    log.warning("Failed to verify STOP bit was set")
+                    raise ValueError(f"Unexpected status code: {status_code}")
+                    
+                # Stop command automatically clears other bits in the mode
+                plc.pulse_cmd(mode, ModeCmds.STOP, True)
+                state["messages"].append(AIMessage(content=f"{mode.name} operation stopped."))
             else:
                 log.info(f"Cannot stop - status code {status_code} not in [{PLC_STATUS['RUNNING']},{PLC_STATUS['CLEANING']},{PLC_STATUS['PRESSURE_TEST']}] (Running/Cleaning/PTest)")
                 state["messages"].append(AIMessage(content="Cannot stop - no operation is running. Use 'status' to check current state."))
@@ -486,39 +494,91 @@ def static_validate(payload: InputPayload) -> Tuple[bool, List[str]]:
     return is_valid, messages
 
 def _collect_inputs_from_cli(kind: str) -> InputPayload:
+    """Collect and validate all TAMARA inputs including solvent parameters."""
     print(f"[{kind}] Enter parameters…")
     while True:
         try:
+            # Core parameters
             tfr = float(input("Total Flow Rate (mL/min): ").strip())
             frr = int(input("Flow Rate Ratio (integer): ").strip())
             target_volume = float(input("Target Volume (mL): ").strip())
             temperature = float(input("Temperature (°C): ").strip())
+            lab_pressure = float(input("Lab pressure (mbar): ").strip())
             
+            # Chip selection
             while True:
                 chip_id = input("Chip ID (HERRINGBONE/BAFFLE): ").strip().upper()
                 if chip_id in ["HERRINGBONE", "BAFFLE"]:
                     break
                 print("Please enter either HERRINGBONE or BAFFLE")
             
+            # Manifold selection
             while True:
                 manifold = input("Manifold (SMALL/LARGE): ").strip().upper()
                 if manifold in ["SMALL", "LARGE"]:
                     break
                 print("Please enter either SMALL or LARGE")
 
-            # Basic sanity checks (same ranges as agent_poc)
+            # Solvent selection
+            print("\nOrganic solvent options:")
+            for s in OrgSolventID:
+                print(f"  {s.name}")
+            while True:
+                solvent = input("Select organic solvent: ").strip().upper()
+                if solvent in [s.name for s in OrgSolventID]:
+                    break
+                print("Please enter a valid solvent option")
+            
+            # Custom solvent parameters if needed
+            custom_solvent = None
+            if solvent == "CUSTOM":
+                name = input("Custom solvent name: ").strip()
+                if len(name) > 16:
+                    raise ValueError("Custom solvent name must be 16 characters or less")
+                    
+                viscosity = float(input("Viscosity at 20°C (μPa·s): ").strip())
+                sensitivity = float(input("Temperature sensitivity (μPa·s/°C): ").strip())
+                molar_volume = float(input("Molar volume (mL/mol): ").strip())
+                
+                custom_solvent = CustomSolvent(
+                    name=name,
+                    viscosity=viscosity,
+                    sensitivity=sensitivity,
+                    molar_volume=molar_volume
+                )
+
+            # Basic sanity checks
             msgs = []
             if not (0.8 <= tfr <= 15.0): msgs.append("TFR must be between 0.8 and 15.0 mL/min")
             if frr <= 0: msgs.append("FRR must be a positive integer")
             if not (5.0 <= temperature <= 60.0): msgs.append("Temperature must be between 5°C and 60°C")
             if target_volume <= 0: msgs.append("Target volume must be positive")
+            if lab_pressure <= 0: msgs.append("Lab pressure must be positive")
             if msgs:
                 raise ValueError("; ".join(msgs))
 
+            # Map machine mode based on operation type
+            machine_mode = {
+                "run": MachineMode.RUN,
+                "clean": MachineMode.CLEAN,
+                "ptest": MachineMode.PRESSURE_TEST
+            }[kind]
+
             return InputPayload(
-                tfr=tfr, frr=frr, target_volume=target_volume, temperature=temperature,
-                chip_id=ChipID(chip_id), manifold=Manifold(manifold),
-                mode=Mode.RUN if kind=="run" else (Mode.CLEAN if kind=="clean" else Mode.PRESSURE_TEST)
+                # Core parameters (required)
+                tfr=tfr,
+                frr=frr,
+                target_volume=target_volume,
+                temperature=temperature,
+                chip_id=ChipID[chip_id],
+                manifold_id=ManifoldID[manifold],
+                lab_pressure=lab_pressure,
+                org_solvent_id=OrgSolventID[solvent],
+                
+                # Optional parameters
+                operation_mode=OperationMode.AGENTIC,
+                machine_mode=machine_mode,
+                custom_solvent=custom_solvent
             )
         except ValueError as e:
             print(f"Error: {e}")
@@ -526,19 +586,64 @@ def _collect_inputs_from_cli(kind: str) -> InputPayload:
                 raise
 
 def _do_plc_action(kind: str) -> str:
+    """Execute a PLC operation with proper mode handling and command protocol.
+    
+    Args:
+        kind: Operation type ("run", "clean", or "ptest")
+        
+    Returns:
+        Status message for the user
+        
+    The sequence is:
+    1. Collect and validate inputs
+    2. Write inputs and wait for Crunch_Valid
+    3. Set machine mode
+    4. Clear all command bits
+    5. Set START for the target mode
+    6. Wait for user confirmation
+    7. Set CONFIRM bit when confirmed
+    """
     plc = PLCInterface()
     try:
+        # Collect and validate inputs
         payload = _collect_inputs_from_cli(kind)
+        
+        # Write inputs to PLC
         plc.write_payload_to_plc(payload)
-        # Poll the validation bit for up to 3 seconds
+        
+        # Poll Crunch_Valid with timeout and backoff
         t0 = time.time()
         ok = False
-        while time.time() - t0 < 3.0:
-            if plc.read_validation_bit():
+        backoff = 0.05  # Start with 50ms
+        max_backoff = 0.2  # Cap at 200ms
+        timeout = 10.0  # Total timeout 10s
+        
+        while time.time() - t0 < timeout:
+            if plc.read_crunch_valid():
                 ok = True
                 break
-            time.sleep(0.1)
-        return f"{kind.capitalize()} inputs accepted by PLC." if ok else f"{kind.capitalize()} inputs were not accepted (or timeout)."
+            time.sleep(backoff)
+            backoff = min(backoff * 1.5, max_backoff)  # Exponential backoff
+            
+        if not ok:
+            return f"{kind.capitalize()} inputs were not validated by PLC (timeout after {timeout}s)"
+            
+        # Clear all command bits and set mode
+        plc.clear_all_cmd_bits()
+        
+        # Map operation to machine mode
+        mode_map = {
+            "run": MachineMode.RUN,
+            "clean": MachineMode.CLEAN,
+            "ptest": MachineMode.PRESSURE_TEST
+        }
+        mode = mode_map[kind]
+        
+        # Set START bit for this mode
+        plc.pulse_cmd(mode, ModeCmds.START, True)
+        
+        return f"{kind.capitalize()} inputs accepted and validated. Ready for confirmation."
+        
     except Exception as e:
         return f"Error during {kind}: {str(e)}"
     finally:
@@ -546,35 +651,70 @@ def _do_plc_action(kind: str) -> str:
 
 def do_run(state: GraphState) -> GraphState:
     """Execute RUN operation with validated parameters."""
-    # Check if we have the pending action (this means parameters were collected)
     if not state.get("pending_action"):
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Check if user confirmed (this will be handled in the REPL loop)
-    state["messages"].append(AIMessage(content="Ready to start RUN operation. Type 'confirm' to proceed or 'cancel' to abort."))
+    # Prepare confirmation message with safety checks
+    msg = (
+        "Ready to start RUN operation.\n\n"
+        "Please verify:\n"
+        "1. Required fluids are loaded in reservoirs\n"
+        "2. Chip is correctly seated and oriented\n"
+        "3. Manifold is properly connected\n"
+        "4. Lid is CLOSED\n"
+        "5. Lines are secure\n"
+        "6. Drain bottle is in place\n"
+        "7. Pressure supply is within specifications\n\n"
+        "Type 'confirm' to proceed or 'cancel' to abort."
+    )
+    state["messages"].append(AIMessage(content=msg))
     return state
 
 def do_clean(state: GraphState) -> GraphState:
     """Execute CLEAN operation with validated parameters."""
-    # Check if we have the pending action (this means parameters were collected)
     if not state.get("pending_action"):
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Check if user confirmed (this will be handled in the REPL loop)
-    state["messages"].append(AIMessage(content="Ready to start CLEAN operation. Type 'confirm' to proceed or 'cancel' to abort."))
+    # Prepare confirmation message with safety checks
+    msg = (
+        "Ready to start CLEAN operation.\n\n"
+        "Please verify:\n"
+        "1. Cleaning solution is loaded in reservoirs\n"
+        "2. Chip is correctly seated and oriented\n"
+        "3. Manifold is properly connected\n"
+        "4. Lid is CLOSED\n"
+        "5. Lines are secure\n"
+        "6. Drain bottle has sufficient capacity\n"
+        "7. Pressure supply is within specifications\n\n"
+        "WARNING: Once started, the cleaning cycle must complete for safety.\n"
+        "Type 'confirm' to proceed or 'cancel' to abort."
+    )
+    state["messages"].append(AIMessage(content=msg))
     return state
 
 def do_ptest(state: GraphState) -> GraphState:
     """Execute PRESSURE TEST operation with validated parameters."""
-    # Check if we have the pending action (this means parameters were collected)
     if not state.get("pending_action"):
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Check if user confirmed (this will be handled in the REPL loop)
-    state["messages"].append(AIMessage(content="Ready to start PRESSURE TEST operation. Type 'confirm' to proceed or 'cancel' to abort."))
+    # Prepare confirmation message with safety checks
+    msg = (
+        "Ready to start PRESSURE TEST operation.\n\n"
+        "Please verify:\n"
+        "1. System is properly prepared for pressure testing\n"
+        "2. Chip is correctly seated and oriented\n"
+        "3. Manifold is properly connected\n"
+        "4. Lid is CLOSED and secured\n"
+        "5. Lines are secure and rated for test pressure\n"
+        "6. Area is clear of personnel\n"
+        "7. Emergency stop is accessible\n\n"
+        "WARNING: Stand clear during pressure test.\n"
+        "Type 'confirm' to proceed or 'cancel' to abort."
+    )
+    state["messages"].append(AIMessage(content=msg))
     return state
 
 # ------------------------------------------------------------------------------------
@@ -658,7 +798,7 @@ def build_graph():
                 t0 = time.time()
                 ok = False
                 while time.time() - t0 < 3.0:
-                    if plc.read_validation_bit():
+                    if plc.read_crunch_valid():
                         ok = True
                         break
                     time.sleep(0.1)
@@ -779,8 +919,27 @@ def build_graph():
     return graph.compile()
 
 # ------------------------------------------------------------------------------------
-# Simple REPL around the graph
+# Simple REPL (Read-Eval-Print Loop) around the graph
 # ------------------------------------------------------------------------------------
+
+def check_operation_mode() -> bool:
+    """Check if TAMARA is in AGENTIC mode.
+    
+    Returns:
+        bool: True if in AGENTIC mode, False if in CONVENTIONAL mode
+    """
+    plc = PLCInterface()
+    try:
+        # Read operation mode from PLC
+        mode = plc.read_operation_mode()
+        log.info(f"Current operation mode: {mode.name}")
+        return mode == OperationMode.AGENTIC
+        
+    except Exception as e:
+        log.error(f"Failed to read operation mode: {e}", exc_info=True)
+        raise
+    finally:
+        plc.disconnect()
 
 def repl(draw: bool = False):
     app = build_graph()
@@ -800,6 +959,24 @@ def repl(draw: bool = False):
         except Exception as e:
             log.error(f"Could not render graph: {e}")
 
+    # Check operation mode before starting
+    print("== TAMARA Agent (LangGraph) ==")
+    print("Checking operation mode...")
+    try:
+        if not check_operation_mode():
+            print("\nERROR: TAMARA is in CONVENTIONAL mode.")
+            print("Please switch to AGENTIC mode on the HMI before running this script.")
+            print("\nInstructions:")
+            print("1. On the HMI, locate the Operation Mode toggle")
+            print("2. Switch it to AGENTIC mode")
+            print("3. Run this script again")
+            return
+    except Exception as e:
+        print(f"\nERROR: Failed to check operation mode: {e}")
+        print("Please ensure TAMARA is connected and try again.")
+        return
+
+    print("Operation mode: AGENTIC")
     state: GraphState = {"messages": [], "intent": None, "pending_action": None, "confirmed": False, "last_tool_result": None}
 
     print("== TAMARA Agent (LangGraph) ==")
@@ -842,16 +1019,25 @@ def repl(draw: bool = False):
                     log.info(f"Starting {action} operation...")
                     plc = PLCInterface()
                     try:
-                        # Reset command bits
-                        plc.write_command_bit("COMMAND_PAUSE_PLAY", False)
-                        plc.write_command_bit("COMMAND_STOP", False)
+                        # Map action to machine mode
+                        mode_map = {
+                            "run": MachineMode.RUN,
+                            "clean": MachineMode.CLEAN,
+                            "ptest": MachineMode.PRESSURE_TEST
+                        }
+                        mode = mode_map[action]
                         
-                        # Set start bit
-                        plc.write_command_bit("COMMAND_START", True)
+                        # Clear all command bits first
+                        plc.clear_all_cmd_bits()
                         
-                        # Verify
-                        start_set = plc.read_command_bit("COMMAND_START")
-                        if start_set:
+                        # Set START bit for this mode
+                        plc.pulse_cmd(mode, ModeCmds.START, True)
+                        
+                        # Verify START is set and PAUSE_PLAY is clear
+                        start_set = plc._read_bool(f"COMMANDS_{mode.name}.b_START")
+                        pause_clear = not plc._read_bool(f"COMMANDS_{mode.name}.b_PAUSE_PLAY")
+                        
+                        if start_set and pause_clear:
                             print(f"\nAI: {action.upper()} operation started successfully!")
                             state["confirmed"] = True
                             state["pending_action"] = None
