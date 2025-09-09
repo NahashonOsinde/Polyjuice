@@ -1,0 +1,396 @@
+2025-09-09 09:47:10,908 - ERROR - b' TCP : Unreachable peer'
+2025-09-09 09:47:10,909 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:47:10,932 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:47:10,938 - ERROR - Error in REPL loop: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1217, in repl
+    if not check_operation_mode():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:50:19,224 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:19,225 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:19,310 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:19,370 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:19,371 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:19,372 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:19,374 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:19,376 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:19,378 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:19,511 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:19,604 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:50:19,605 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:50:19,606 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:19,607 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:19,608 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:26,307 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:26,307 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:26,428 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:26,479 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:26,481 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:26,482 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:26,484 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:26,485 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:50:26,490 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'run' (pending_action: None)
+2025-09-09 09:50:43,049 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:43,050 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:43,153 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:44,060 - plc_tool - INFO - [plc_tool.py:713] - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=9.0, Temp=23.0, Chip=HERRINGBONE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:50:44,099 - tamara.operations - INFO - [tamara_graph.py:992] - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=9.0, temperature=23.0, chip_id=<ChipID.HERRINGBONE: 1>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:50:44,100 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:44,101 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:44,102 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:44,105 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757404219.609}
+2025-09-09 09:50:48,957 - tamara.operations - INFO - [tamara_graph.py:1256] - Starting run operation...
+2025-09-09 09:50:48,958 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:48,959 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:49,072 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:49,072 - plc_tool - INFO - [plc_tool.py:737] - Clearing all command bits
+2025-09-09 09:50:49,073 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:50:49,074 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,075 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,075 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,076 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.0
+2025-09-09 09:50:49,146 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:50:49,172 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,172 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,173 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,173 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,174 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:50:49,246 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,270 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:50:49,270 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.2
+2025-09-09 09:50:49,375 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:50:49,422 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:50:49,422 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,423 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,423 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:49,424 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.3
+2025-09-09 09:50:49,513 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:50:49,540 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:49,540 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,541 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,541 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,542 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.0
+2025-09-09 09:50:49,575 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:49,619 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,619 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,620 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,621 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,621 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.1
+2025-09-09 09:50:49,692 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,726 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:50:49,726 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,727 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,728 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,728 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.2
+2025-09-09 09:50:49,778 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:50:49,789 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:50:49,789 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,790 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,790 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:49,791 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.3
+2025-09-09 09:50:49,827 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:50:49,879 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:49,880 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:49,881 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:49,882 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,882 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.0
+2025-09-09 09:50:49,970 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:50,007 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:50:50,007 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,008 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,008 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:50,009 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.1
+2025-09-09 09:50:50,044 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:50:50,056 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:50:50,056 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,057 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,057 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:50,058 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.2
+2025-09-09 09:50:50,112 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:50:50,144 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:50:50,145 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,146 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,147 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:50,148 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.3
+2025-09-09 09:50:50,241 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:50:50,290 - plc_tool - INFO - [plc_tool.py:746] - All command bits cleared and verified
+2025-09-09 09:50:50,290 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:50:50,291 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:50,292 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:50,292 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:50,293 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,293 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.0
+2025-09-09 09:50:50,351 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:50,352 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:50,352 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,353 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,354 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,355 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.0
+2025-09-09 09:50:50,409 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:50,409 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:50:50,410 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:50,411 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:50,411 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,412 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.0
+2025-09-09 09:50:50,493 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:50:50,527 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:50:50,568 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:50,570 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,543 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:52,544 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:52,617 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:52,640 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:52,640 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:52,641 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,641 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:52,642 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757404219.609, 'confirmed': True}
+2025-09-09 09:50:52,644 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:50:52,644 - tamara.operations - INFO - [tamara_graph.py:460] - Handling PAUSE command...
+2025-09-09 09:50:52,645 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:52,645 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:52,789 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:52,789 - tamara.operations - INFO - [tamara_graph.py:464] - Reading current status...
+2025-09-09 09:50:52,827 - tamara.operations - INFO - [tamara_graph.py:466] - Current status code: 2
+2025-09-09 09:50:52,828 - tamara.operations - INFO - [tamara_graph.py:479] - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:50:52,829 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:50:52,829 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:50:52,831 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:52,832 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:52,833 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:52,833 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:50:52,930 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:50:52,967 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:50:52,968 - tamara.operations - INFO - [tamara_graph.py:489] - Disconnecting from PLC...
+2025-09-09 09:50:52,971 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:52,972 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,974 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:55,001 - chromadb.telemetry.product.posthog - INFO - [posthog.py:22] - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:50:55,922 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:50:56,517 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:50:57,355 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:50:57,363 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:05,414 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:05,415 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:05,419 - snap7.common - ERROR - [error.py:142] - b' TCP : Unreachable peer'
+2025-09-09 09:51:05,420 - plc_tool - ERROR - [plc_tool.py:427] - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:51:05,423 - plc_tool - INFO - [plc_tool.py:188] - SIM: Connected
+2025-09-09 09:51:05,424 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:05,425 - plc_tool - INFO - [plc_tool.py:216] - SIM: Read DB9.DBB198 = ['0x0', '0x0']
+2025-09-09 09:51:05,426 - tamara.operations - ERROR - [tamara_graph.py:1130] - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:51:05,428 - plc_tool - INFO - [plc_tool.py:193] - SIM: Disconnected
+2025-09-09 09:51:05,429 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:05,429 - tamara.operations - ERROR - [tamara_graph.py:1298] - Error in REPL loop: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1217, in repl
+    if not check_operation_mode():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:51:08,856 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:08,857 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:08,955 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:08,988 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:08,988 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:08,989 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:08,989 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:08,990 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:08,991 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'play' (pending_action: None)
+2025-09-09 09:51:08,992 - tamara.operations - INFO - [tamara_graph.py:497] - Handling PLAY/RESUME command...
+2025-09-09 09:51:08,992 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:08,993 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:09,147 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:09,147 - tamara.operations - INFO - [tamara_graph.py:501] - Reading current status...
+2025-09-09 09:51:09,186 - tamara.operations - INFO - [tamara_graph.py:503] - Current status code: 2
+2025-09-09 09:51:09,187 - tamara.operations - INFO - [tamara_graph.py:516] - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-09 09:51:09,187 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-09 09:51:09,187 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:51:09,190 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:51:09,255 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:51:09,282 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:51:09,283 - tamara.operations - INFO - [tamara_graph.py:526] - Disconnecting from PLC...
+2025-09-09 09:51:09,284 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:09,284 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:09,285 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:09,767 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:51:10,212 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:51:11,929 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:51:11,940 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content="To resume the paused run, simply press the 'play' button on the controller interface. This will instruct the system to continue the operation from where it was paused.", additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:16,800 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:16,800 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:16,870 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:16,907 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:16,907 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:16,908 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:16,920 - snap7.common - ERROR - [error.py:142] - b' TCP : Unreachable peer'
+2025-09-09 09:51:16,921 - plc_tool - ERROR - [plc_tool.py:427] - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:51:16,923 - plc_tool - INFO - [plc_tool.py:188] - SIM: Connected
+2025-09-09 09:51:16,923 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:206] - SIM: Write DB9.DBB200 = ['0x0', '0x1']
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:216] - SIM: Read DB9.DBB200 = ['0x0', '0x1']
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:51:16,925 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:51:16,926 - plc_tool - INFO - [plc_tool.py:193] - SIM: Disconnected
+2025-09-09 09:51:16,926 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:26,857 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:26,857 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:26,993 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:27,025 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:27,025 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:27,028 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:27,029 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:27,029 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:27,030 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:27,204 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:27,300 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:51:27,301 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:51:27,302 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:27,303 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:27,303 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:29,716 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:59:09,436 - ERROR - b' TCP : Unreachable peer'
+2025-09-09 09:59:09,437 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:59:09,442 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0

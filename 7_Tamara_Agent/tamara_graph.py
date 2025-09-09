@@ -169,24 +169,98 @@ PLC_STATUS = {
     "E_STOP": PLCStatus.E_STOP
 }
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(),
-        logging.handlers.RotatingFileHandler(
+# Ensure logs directory exists
+os.makedirs('logs', exist_ok=True)
+
+def setup_logging(enable_detailed: bool = False) -> None:
+    """Configure TAMARA logging system with appropriate handlers and formatters.
+    
+    This function sets up a comprehensive logging system with different log files
+    for different categories of logs. Each category has its own file and level:
+    
+    Files:
+    - tamara_graph_critical.log: Safety-critical events, errors, failures
+    - tamara_graph_operations.log: Operation starts, stops, state changes
+    - tamara_graph_safety.log: Safety checks, validations, mode changes
+    - tamara_graph_plc.log: PLC communication details
+    - tamara_graph_user.log: User interactions and commands
+    - tamara_graph_debug.log: Detailed debugging information
+    - tamara_graph.log: Combined log (all categories)
+    
+    Args:
+        enable_detailed: If True, enables verbose logging across all categories
+    """
+    # Base logging level
+    base_level = logging.DEBUG if enable_detailed else logging.CRITICAL
+    
+    # Formatters
+    basic_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    detailed_formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
+    )
+    
+    # Category-specific handlers
+    handlers = {
+        'critical': logging.FileHandler('logs/tamara_graph_critical.log'),
+        'operations': logging.FileHandler('logs/tamara_graph_operations.log'),
+        'safety': logging.FileHandler('logs/tamara_graph_safety.log'),
+        'plc': logging.FileHandler('logs/tamara_graph_plc.log'),
+        'user': logging.FileHandler('logs/tamara_graph_user.log'),
+        'debug': logging.FileHandler('logs/tamara_graph_debug.log'),
+        'combined': logging.handlers.RotatingFileHandler(
             'logs/tamara_graph.log',
             maxBytes=1024*1024,
             backupCount=5,
-            encoding='utf-8'  # Explicitly set UTF-8 encoding
-        )
-    ]
-)
-log = logging.getLogger(__name__)
+            encoding='utf-8'
+        ),
+        'console': logging.StreamHandler()
+    }
+    
+    # Configure levels and formatters
+    handlers['critical'].setLevel(logging.CRITICAL)
+    handlers['operations'].setLevel(logging.INFO if enable_detailed else logging.WARNING)
+    handlers['safety'].setLevel(logging.INFO if enable_detailed else logging.WARNING)
+    handlers['plc'].setLevel(logging.DEBUG if enable_detailed else logging.INFO)
+    handlers['user'].setLevel(logging.INFO if enable_detailed else logging.WARNING)
+    handlers['debug'].setLevel(logging.DEBUG if enable_detailed else logging.ERROR)
+    handlers['combined'].setLevel(logging.DEBUG if enable_detailed else logging.INFO)
+    handlers['console'].setLevel(base_level)
+    
+    # Apply formatters
+    for handler in handlers.values():
+        handler.setFormatter(detailed_formatter if enable_detailed else basic_formatter)
+    
+    # Configure root logger
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.DEBUG if enable_detailed else logging.INFO)
+    
+    # Remove any existing handlers
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
+    
+    # Add all handlers to root logger
+    for handler in handlers.values():
+        root_logger.addHandler(handler)
+    
+    # Create category loggers
+    global log_critical, log_operations, log_safety, log_plc, log_user, log_debug
+    log_critical = logging.getLogger('tamara.critical')
+    log_operations = logging.getLogger('tamara.operations')
+    log_safety = logging.getLogger('tamara.safety')
+    log_plc = logging.getLogger('tamara.plc')
+    log_user = logging.getLogger('tamara.user')
+    log_debug = logging.getLogger('tamara.debug')
 
-# Ensure logs directory exists
-os.makedirs('logs', exist_ok=True)
+# Initialize loggers
+log_critical = logging.getLogger('tamara.critical')
+log_operations = logging.getLogger('tamara.operations')
+log_safety = logging.getLogger('tamara.safety')
+log_plc = logging.getLogger('tamara.plc')
+log_user = logging.getLogger('tamara.user')
+log_debug = logging.getLogger('tamara.debug')
+
+# Backwards compatibility
+log = log_operations  # Main logger for existing code
 
 # Script directory for relative paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -1227,5 +1301,15 @@ def repl(draw: bool = False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="TAMARA LangGraph agent")
     parser.add_argument("--draw", action="store_true", help="Render the graph to tamara_graph.png")
+    parser.add_argument("--log", action="store_true", help="Enable detailed logging across all categories")
+    parser.add_argument("--log-level", 
+                       choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+                       default="CRITICAL",
+                       help="Set base logging level when --log is not used")
     args = parser.parse_args()
+    
+    # Configure logging based on arguments
+    setup_logging(enable_detailed=args.log)
+    
+    # Start REPL
     repl(draw=args.draw)

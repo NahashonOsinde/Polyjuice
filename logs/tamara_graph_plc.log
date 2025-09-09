@@ -1,0 +1,1315 @@
+2025-09-09 09:41:50,652 - INFO - creating snap7 client
+2025-09-09 09:41:50,653 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:41:50,761 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:41:50,779 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:41:50,784 - INFO - disconnecting snap7 client
+2025-09-09 09:41:50,784 - INFO - PLC disconnected
+2025-09-09 09:41:50,786 - INFO - destroying snap7 client
+2025-09-09 09:41:50,786 - INFO - creating snap7 client
+2025-09-09 09:41:50,787 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:41:50,940 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:41:51,038 - INFO - Machine mode set to 1
+2025-09-09 09:41:51,038 - INFO - Machine mode set to READY
+2025-09-09 09:41:51,039 - INFO - disconnecting snap7 client
+2025-09-09 09:41:51,040 - INFO - PLC disconnected
+2025-09-09 09:41:51,040 - INFO - destroying snap7 client
+2025-09-09 09:42:02,119 - INFO - creating snap7 client
+2025-09-09 09:42:02,119 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:42:02,219 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:42:02,257 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:42:02,257 - INFO - disconnecting snap7 client
+2025-09-09 09:42:02,257 - INFO - PLC disconnected
+2025-09-09 09:42:02,257 - INFO - destroying snap7 client
+2025-09-09 09:42:02,258 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757403711.0411832}
+2025-09-09 09:42:02,261 - INFO - Routing message: 'run' (pending_action: None)
+2025-09-09 09:42:28,512 - INFO - creating snap7 client
+2025-09-09 09:42:28,512 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:42:28,636 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:42:29,516 - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=8.0, Temp=23.0, Chip=HERRINGBONE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:42:29,549 - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=8.0, temperature=23.0, chip_id=<ChipID.HERRINGBONE: 1>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:42:29,549 - INFO - disconnecting snap7 client
+2025-09-09 09:42:29,550 - INFO - PLC disconnected
+2025-09-09 09:42:29,550 - INFO - destroying snap7 client
+2025-09-09 09:42:29,552 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757403711.0411832}
+2025-09-09 09:42:45,613 - INFO - Starting run operation...
+2025-09-09 09:42:45,614 - INFO - creating snap7 client
+2025-09-09 09:42:45,615 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:42:45,684 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:42:45,684 - INFO - Clearing all command bits
+2025-09-09 09:42:45,684 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:42:45,684 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:45,685 - INFO -   byte_offset: 258
+2025-09-09 09:42:45,686 - INFO -   bit_offset: 0
+2025-09-09 09:42:45,686 - INFO -   raw_start: 258.0
+2025-09-09 09:42:45,760 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:42:45,802 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:42:45,802 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:45,802 - INFO -   byte_offset: 258
+2025-09-09 09:42:45,802 - INFO -   bit_offset: 1
+2025-09-09 09:42:45,803 - INFO -   raw_start: 258.1
+2025-09-09 09:42:45,898 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:42:45,947 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:42:45,947 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:45,947 - INFO -   byte_offset: 258
+2025-09-09 09:42:45,948 - INFO -   bit_offset: 1
+2025-09-09 09:42:45,948 - INFO -   raw_start: 258.2
+2025-09-09 09:42:46,035 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:42:46,067 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:42:46,067 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:46,068 - INFO -   byte_offset: 258
+2025-09-09 09:42:46,068 - INFO -   bit_offset: 3
+2025-09-09 09:42:46,068 - INFO -   raw_start: 258.3
+2025-09-09 09:42:46,142 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:42:46,162 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:42:46,162 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:42:46,163 - INFO -   byte_offset: 260
+2025-09-09 09:42:46,163 - INFO -   bit_offset: 0
+2025-09-09 09:42:46,163 - INFO -   raw_start: 260.0
+2025-09-09 09:42:46,186 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:42:46,208 - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:42:46,208 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:42:46,209 - INFO -   byte_offset: 260
+2025-09-09 09:42:46,210 - INFO -   bit_offset: 1
+2025-09-09 09:42:46,211 - INFO -   raw_start: 260.1
+2025-09-09 09:42:46,249 - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:42:46,280 - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:42:46,280 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:42:46,281 - INFO -   byte_offset: 260
+2025-09-09 09:42:46,281 - INFO -   bit_offset: 1
+2025-09-09 09:42:46,281 - INFO -   raw_start: 260.2
+2025-09-09 09:42:46,344 - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:42:46,384 - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:42:46,384 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:42:46,385 - INFO -   byte_offset: 260
+2025-09-09 09:42:46,385 - INFO -   bit_offset: 3
+2025-09-09 09:42:46,385 - INFO -   raw_start: 260.3
+2025-09-09 09:42:46,437 - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:42:46,471 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:42:46,471 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:42:46,471 - INFO -   byte_offset: 262
+2025-09-09 09:42:46,472 - INFO -   bit_offset: 0
+2025-09-09 09:42:46,472 - INFO -   raw_start: 262.0
+2025-09-09 09:42:46,569 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:42:46,601 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:42:46,601 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:42:46,601 - INFO -   byte_offset: 262
+2025-09-09 09:42:46,602 - INFO -   bit_offset: 1
+2025-09-09 09:42:46,602 - INFO -   raw_start: 262.1
+2025-09-09 09:42:46,665 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:42:46,689 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:42:46,689 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:42:46,690 - INFO -   byte_offset: 262
+2025-09-09 09:42:46,690 - INFO -   bit_offset: 1
+2025-09-09 09:42:46,691 - INFO -   raw_start: 262.2
+2025-09-09 09:42:46,795 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:42:46,852 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:42:46,853 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:42:46,853 - INFO -   byte_offset: 262
+2025-09-09 09:42:46,853 - INFO -   bit_offset: 3
+2025-09-09 09:42:46,854 - INFO -   raw_start: 262.3
+2025-09-09 09:42:46,950 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:42:46,968 - INFO - All command bits cleared and verified
+2025-09-09 09:42:46,968 - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:42:46,969 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:42:46,969 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:42:46,969 - INFO -   byte_offset: 260
+2025-09-09 09:42:46,969 - INFO -   bit_offset: 0
+2025-09-09 09:42:46,971 - INFO -   raw_start: 260.0
+2025-09-09 09:42:46,995 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:42:46,995 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:42:46,995 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:42:46,995 - INFO -   byte_offset: 262
+2025-09-09 09:42:46,995 - INFO -   bit_offset: 0
+2025-09-09 09:42:46,997 - INFO -   raw_start: 262.0
+2025-09-09 09:42:47,077 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:42:47,077 - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:42:47,078 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:47,078 - INFO -   byte_offset: 258
+2025-09-09 09:42:47,079 - INFO -   bit_offset: 0
+2025-09-09 09:42:47,079 - INFO -   raw_start: 258.0
+2025-09-09 09:42:47,159 - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:42:47,179 - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:42:47,225 - INFO - disconnecting snap7 client
+2025-09-09 09:42:47,225 - INFO - PLC disconnected
+2025-09-09 09:42:56,954 - INFO - creating snap7 client
+2025-09-09 09:42:56,954 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:42:57,037 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:42:57,085 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:42:57,085 - INFO - disconnecting snap7 client
+2025-09-09 09:42:57,086 - INFO - PLC disconnected
+2025-09-09 09:42:57,087 - INFO - destroying snap7 client
+2025-09-09 09:42:57,087 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757403711.0411832, 'confirmed': True}
+2025-09-09 09:42:57,089 - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:42:57,089 - INFO - Handling PAUSE command...
+2025-09-09 09:42:57,091 - INFO - creating snap7 client
+2025-09-09 09:42:57,091 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:42:57,236 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:42:57,236 - INFO - Reading current status...
+2025-09-09 09:42:57,271 - INFO - Current status code: 2
+2025-09-09 09:42:57,271 - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:42:57,272 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:42:57,272 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:42:57,272 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:42:57,273 - INFO -   byte_offset: 258
+2025-09-09 09:42:57,273 - INFO -   bit_offset: 1
+2025-09-09 09:42:57,273 - INFO -   raw_start: 258.1
+2025-09-09 09:42:57,366 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:42:57,398 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:42:57,398 - INFO - Disconnecting from PLC...
+2025-09-09 09:42:57,399 - INFO - disconnecting snap7 client
+2025-09-09 09:42:57,400 - INFO - PLC disconnected
+2025-09-09 09:42:57,400 - INFO - destroying snap7 client
+2025-09-09 09:42:59,280 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:43:00,351 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:43:00,860 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:43:02,861 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:43:02,863 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC for pausing the operation. Checking validation...', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757403711.0411832}
+2025-09-09 09:43:20,806 - INFO - creating snap7 client
+2025-09-09 09:43:20,806 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:43:20,916 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:43:20,967 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:43:20,967 - INFO - disconnecting snap7 client
+2025-09-09 09:43:20,967 - INFO - PLC disconnected
+2025-09-09 09:43:20,969 - INFO - destroying snap7 client
+2025-09-09 09:43:20,970 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC for pausing the operation. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757403711.0411832}
+2025-09-09 09:43:20,971 - INFO - Routing message: 'play' (pending_action: None)
+2025-09-09 09:43:20,971 - INFO - Handling PLAY/RESUME command...
+2025-09-09 09:43:20,971 - INFO - creating snap7 client
+2025-09-09 09:43:20,972 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:43:21,137 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:43:21,137 - INFO - Reading current status...
+2025-09-09 09:43:21,193 - INFO - Current status code: 2
+2025-09-09 09:43:21,193 - INFO - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-09 09:43:21,193 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-09 09:43:21,194 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:43:21,194 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:43:21,194 - INFO -   byte_offset: 258
+2025-09-09 09:43:21,195 - INFO -   bit_offset: 1
+2025-09-09 09:43:21,195 - INFO -   raw_start: 258.1
+2025-09-09 09:43:21,238 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:43:21,253 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:43:21,253 - INFO - Disconnecting from PLC...
+2025-09-09 09:43:21,253 - INFO - disconnecting snap7 client
+2025-09-09 09:43:21,253 - INFO - PLC disconnected
+2025-09-09 09:43:21,255 - INFO - destroying snap7 client
+2025-09-09 09:43:22,154 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:43:22,839 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:43:23,684 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:43:23,687 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC for pausing the operation. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content="To resume the paused run, simply press the 'play' button on the interface. This will instruct the system to continue the operation from where it was paused.", additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757403711.0411832}
+2025-09-09 09:43:34,802 - INFO - creating snap7 client
+2025-09-09 09:43:34,802 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:43:34,942 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:43:34,988 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:43:34,988 - INFO - disconnecting snap7 client
+2025-09-09 09:43:34,989 - INFO - PLC disconnected
+2025-09-09 09:43:34,990 - INFO - destroying snap7 client
+2025-09-09 09:43:34,990 - INFO - creating snap7 client
+2025-09-09 09:43:34,990 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:43:35,151 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:43:35,203 - INFO - Machine mode set to 1
+2025-09-09 09:43:35,204 - INFO - Machine mode set to READY
+2025-09-09 09:43:35,204 - INFO - disconnecting snap7 client
+2025-09-09 09:43:35,205 - INFO - PLC disconnected
+2025-09-09 09:43:35,205 - INFO - destroying snap7 client
+2025-09-09 09:46:57,224 - INFO - destroying snap7 client
+2025-09-09 09:47:07,702 - INFO - creating snap7 client
+2025-09-09 09:47:07,703 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:07,787 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:07,823 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:47:07,824 - INFO - disconnecting snap7 client
+2025-09-09 09:47:07,825 - INFO - PLC disconnected
+2025-09-09 09:47:07,825 - INFO - destroying snap7 client
+2025-09-09 09:47:07,826 - INFO - creating snap7 client
+2025-09-09 09:47:07,826 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:08,017 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:08,083 - INFO - Machine mode set to 1
+2025-09-09 09:47:08,083 - INFO - Machine mode set to READY
+2025-09-09 09:47:08,085 - INFO - disconnecting snap7 client
+2025-09-09 09:47:08,085 - INFO - PLC disconnected
+2025-09-09 09:47:08,086 - INFO - destroying snap7 client
+2025-09-09 09:47:10,905 - INFO - creating snap7 client
+2025-09-09 09:47:10,906 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:10,908 - ERROR - b' TCP : Unreachable peer'
+2025-09-09 09:47:10,909 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:47:10,931 - INFO - SIM: Connected
+2025-09-09 09:47:10,932 - INFO - destroying snap7 client
+2025-09-09 09:47:10,932 - INFO - SIM: Read DB9.DBB198 = ['0x0', '0x0']
+2025-09-09 09:47:10,932 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:47:10,937 - INFO - SIM: Disconnected
+2025-09-09 09:47:10,937 - INFO - PLC disconnected
+2025-09-09 09:47:10,938 - ERROR - Error in REPL loop: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1217, in repl
+    if not check_operation_mode():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:47:22,718 - INFO - creating snap7 client
+2025-09-09 09:47:22,719 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:22,834 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:22,882 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:47:22,883 - INFO - disconnecting snap7 client
+2025-09-09 09:47:22,884 - INFO - PLC disconnected
+2025-09-09 09:47:22,884 - INFO - destroying snap7 client
+2025-09-09 09:47:22,885 - INFO - creating snap7 client
+2025-09-09 09:47:22,885 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:23,045 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:23,123 - INFO - Machine mode set to 1
+2025-09-09 09:47:23,124 - INFO - Machine mode set to READY
+2025-09-09 09:47:23,125 - INFO - disconnecting snap7 client
+2025-09-09 09:47:23,125 - INFO - PLC disconnected
+2025-09-09 09:47:23,125 - INFO - destroying snap7 client
+2025-09-09 09:47:25,036 - INFO - creating snap7 client
+2025-09-09 09:47:25,037 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:25,141 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:25,186 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:47:25,186 - INFO - disconnecting snap7 client
+2025-09-09 09:47:25,186 - INFO - PLC disconnected
+2025-09-09 09:47:25,187 - INFO - destroying snap7 client
+2025-09-09 09:47:25,187 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757404043.126331}
+2025-09-09 09:47:25,191 - INFO - Routing message: 'run' (pending_action: None)
+2025-09-09 09:47:41,913 - INFO - creating snap7 client
+2025-09-09 09:47:41,914 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:42,044 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:42,973 - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=6.0, Temp=23.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:47:43,022 - INFO - State after PLC validation: input_payload=InputPayload(tfr=3.0, frr=3, target_volume=6.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:47:43,022 - INFO - disconnecting snap7 client
+2025-09-09 09:47:43,023 - INFO - PLC disconnected
+2025-09-09 09:47:43,023 - INFO - destroying snap7 client
+2025-09-09 09:47:43,025 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757404043.126331}
+2025-09-09 09:47:47,022 - INFO - Starting run operation...
+2025-09-09 09:47:47,024 - INFO - creating snap7 client
+2025-09-09 09:47:47,025 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:47,168 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:47,168 - INFO - Clearing all command bits
+2025-09-09 09:47:47,168 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:47:47,169 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:47,169 - INFO -   byte_offset: 258
+2025-09-09 09:47:47,169 - INFO -   bit_offset: 0
+2025-09-09 09:47:47,169 - INFO -   raw_start: 258.0
+2025-09-09 09:47:47,253 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:47:47,279 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:47:47,279 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:47,280 - INFO -   byte_offset: 258
+2025-09-09 09:47:47,280 - INFO -   bit_offset: 1
+2025-09-09 09:47:47,281 - INFO -   raw_start: 258.1
+2025-09-09 09:47:47,368 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:47:47,402 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:47:47,402 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:47,403 - INFO -   byte_offset: 258
+2025-09-09 09:47:47,403 - INFO -   bit_offset: 1
+2025-09-09 09:47:47,404 - INFO -   raw_start: 258.2
+2025-09-09 09:47:47,499 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:47:47,543 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:47:47,543 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:47,544 - INFO -   byte_offset: 258
+2025-09-09 09:47:47,544 - INFO -   bit_offset: 3
+2025-09-09 09:47:47,544 - INFO -   raw_start: 258.3
+2025-09-09 09:47:47,640 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:47:47,660 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:47:47,660 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:47:47,662 - INFO -   byte_offset: 260
+2025-09-09 09:47:47,662 - INFO -   bit_offset: 0
+2025-09-09 09:47:47,663 - INFO -   raw_start: 260.0
+2025-09-09 09:47:47,685 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:47:47,695 - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:47:47,696 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:47:47,696 - INFO -   byte_offset: 260
+2025-09-09 09:47:47,697 - INFO -   bit_offset: 1
+2025-09-09 09:47:47,697 - INFO -   raw_start: 260.1
+2025-09-09 09:47:47,750 - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:47:47,786 - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:47:47,786 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:47:47,787 - INFO -   byte_offset: 260
+2025-09-09 09:47:47,787 - INFO -   bit_offset: 1
+2025-09-09 09:47:47,787 - INFO -   raw_start: 260.2
+2025-09-09 09:47:47,865 - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:47:47,900 - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:47:47,900 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:47:47,901 - INFO -   byte_offset: 260
+2025-09-09 09:47:47,901 - INFO -   bit_offset: 3
+2025-09-09 09:47:47,901 - INFO -   raw_start: 260.3
+2025-09-09 09:47:47,975 - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:47:48,004 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:47:48,005 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:47:48,005 - INFO -   byte_offset: 262
+2025-09-09 09:47:48,006 - INFO -   bit_offset: 0
+2025-09-09 09:47:48,007 - INFO -   raw_start: 262.0
+2025-09-09 09:47:48,080 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:47:48,112 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:47:48,112 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:47:48,112 - INFO -   byte_offset: 262
+2025-09-09 09:47:48,113 - INFO -   bit_offset: 1
+2025-09-09 09:47:48,113 - INFO -   raw_start: 262.1
+2025-09-09 09:47:48,180 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:47:48,190 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:47:48,190 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:47:48,191 - INFO -   byte_offset: 262
+2025-09-09 09:47:48,191 - INFO -   bit_offset: 1
+2025-09-09 09:47:48,193 - INFO -   raw_start: 262.2
+2025-09-09 09:47:48,213 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:47:48,224 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:47:48,224 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:47:48,225 - INFO -   byte_offset: 262
+2025-09-09 09:47:48,225 - INFO -   bit_offset: 3
+2025-09-09 09:47:48,225 - INFO -   raw_start: 262.3
+2025-09-09 09:47:48,329 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:47:48,375 - INFO - All command bits cleared and verified
+2025-09-09 09:47:48,375 - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:47:48,376 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:47:48,376 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:47:48,377 - INFO -   byte_offset: 260
+2025-09-09 09:47:48,377 - INFO -   bit_offset: 0
+2025-09-09 09:47:48,377 - INFO -   raw_start: 260.0
+2025-09-09 09:47:48,472 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:47:48,472 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:47:48,473 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:47:48,473 - INFO -   byte_offset: 262
+2025-09-09 09:47:48,474 - INFO -   bit_offset: 0
+2025-09-09 09:47:48,474 - INFO -   raw_start: 262.0
+2025-09-09 09:47:48,509 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:47:48,509 - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:47:48,510 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:48,510 - INFO -   byte_offset: 258
+2025-09-09 09:47:48,510 - INFO -   bit_offset: 0
+2025-09-09 09:47:48,511 - INFO -   raw_start: 258.0
+2025-09-09 09:47:48,529 - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:47:48,564 - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:47:48,645 - INFO - disconnecting snap7 client
+2025-09-09 09:47:48,645 - INFO - PLC disconnected
+2025-09-09 09:47:50,780 - INFO - creating snap7 client
+2025-09-09 09:47:50,781 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:50,904 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:50,941 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:47:50,942 - INFO - disconnecting snap7 client
+2025-09-09 09:47:50,942 - INFO - PLC disconnected
+2025-09-09 09:47:50,942 - INFO - destroying snap7 client
+2025-09-09 09:47:50,943 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757404043.126331, 'confirmed': True}
+2025-09-09 09:47:50,944 - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:47:50,944 - INFO - Handling PAUSE command...
+2025-09-09 09:47:50,944 - INFO - creating snap7 client
+2025-09-09 09:47:50,944 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:47:51,098 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:47:51,098 - INFO - Reading current status...
+2025-09-09 09:47:51,140 - INFO - Current status code: 2
+2025-09-09 09:47:51,140 - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:47:51,141 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:47:51,141 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:47:51,142 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:47:51,143 - INFO -   byte_offset: 258
+2025-09-09 09:47:51,143 - INFO -   bit_offset: 1
+2025-09-09 09:47:51,143 - INFO -   raw_start: 258.1
+2025-09-09 09:47:51,226 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:47:51,254 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:47:51,254 - INFO - Disconnecting from PLC...
+2025-09-09 09:47:51,255 - INFO - disconnecting snap7 client
+2025-09-09 09:47:51,255 - INFO - PLC disconnected
+2025-09-09 09:47:51,255 - INFO - destroying snap7 client
+2025-09-09 09:47:53,294 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:47:54,394 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:47:55,272 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:47:56,708 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:47:56,711 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n\n1. Ensure the lid of TAMARA is closed securely.\n2. Locate the pause button on the control panel or software interface.\n3. Press the pause button to halt the operation.\n4. Check the system to ensure all components are in a safe state.\n\nIf you encounter any issues or need further assistance, feel free to ask.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404043.126331}
+2025-09-09 09:48:01,310 - INFO - creating snap7 client
+2025-09-09 09:48:01,310 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:48:01,410 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:48:01,462 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:48:01,462 - INFO - disconnecting snap7 client
+2025-09-09 09:48:01,462 - INFO - PLC disconnected
+2025-09-09 09:48:01,464 - INFO - destroying snap7 client
+2025-09-09 09:48:01,464 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n\n1. Ensure the lid of TAMARA is closed securely.\n2. Locate the pause button on the control panel or software interface.\n3. Press the pause button to halt the operation.\n4. Check the system to ensure all components are in a safe state.\n\nIf you encounter any issues or need further assistance, feel free to ask.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404043.126331}
+2025-09-09 09:48:01,465 - INFO - Routing message: 'play' (pending_action: None)
+2025-09-09 09:48:01,465 - INFO - Handling PLAY/RESUME command...
+2025-09-09 09:48:01,466 - INFO - creating snap7 client
+2025-09-09 09:48:01,466 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:48:01,647 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:48:01,647 - INFO - Reading current status...
+2025-09-09 09:48:01,680 - INFO - Current status code: 2
+2025-09-09 09:48:01,680 - INFO - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-09 09:48:01,680 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-09 09:48:01,681 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:48:01,681 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:48:01,681 - INFO -   byte_offset: 258
+2025-09-09 09:48:01,681 - INFO -   bit_offset: 1
+2025-09-09 09:48:01,682 - INFO -   raw_start: 258.1
+2025-09-09 09:48:01,732 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:48:01,743 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:48:01,743 - INFO - Disconnecting from PLC...
+2025-09-09 09:48:01,744 - INFO - disconnecting snap7 client
+2025-09-09 09:48:01,744 - INFO - PLC disconnected
+2025-09-09 09:48:01,744 - INFO - destroying snap7 client
+2025-09-09 09:48:03,393 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:48:03,653 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:48:04,780 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:48:04,782 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n\n1. Ensure the lid of TAMARA is closed securely.\n2. Locate the pause button on the control panel or software interface.\n3. Press the pause button to halt the operation.\n4. Check the system to ensure all components are in a safe state.\n\nIf you encounter any issues or need further assistance, feel free to ask.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the operation, press the play button on the control panel or software interface. Check that all components are in the correct state before resuming the run. If you encounter any issues or need further assistance, feel free to ask.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404043.126331}
+2025-09-09 09:48:11,975 - INFO - creating snap7 client
+2025-09-09 09:48:11,975 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:48:12,078 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:48:12,121 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:48:12,121 - INFO - disconnecting snap7 client
+2025-09-09 09:48:12,122 - INFO - PLC disconnected
+2025-09-09 09:48:12,122 - INFO - destroying snap7 client
+2025-09-09 09:48:12,122 - INFO - creating snap7 client
+2025-09-09 09:48:12,123 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:48:12,282 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:48:12,385 - INFO - Machine mode set to 1
+2025-09-09 09:48:12,385 - INFO - Machine mode set to READY
+2025-09-09 09:48:12,386 - INFO - disconnecting snap7 client
+2025-09-09 09:48:12,386 - INFO - PLC disconnected
+2025-09-09 09:48:12,386 - INFO - destroying snap7 client
+2025-09-09 09:49:56,497 - INFO - destroying snap7 client
+2025-09-09 09:50:19,224 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:19,225 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:19,227 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:19,310 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:19,311 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:50:19,370 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:19,371 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:19,372 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:19,374 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:19,376 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:19,378 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:19,379 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:19,511 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:19,513 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:200 size:2 data:bytearray(b'\x00\x01')
+2025-09-09 09:50:19,551 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:200, size:2
+2025-09-09 09:50:19,604 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:50:19,605 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:50:19,606 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:19,607 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:19,608 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:26,307 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:26,307 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:26,308 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:26,428 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:26,429 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:50:26,479 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:26,481 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:26,482 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:26,484 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:26,485 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:50:26,490 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'run' (pending_action: None)
+2025-09-09 09:50:43,049 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:43,050 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:43,051 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:43,153 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:43,154 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:198 size:2 data:bytearray(b'\x00\x02')
+2025-09-09 09:50:43,203 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:200 size:2 data:bytearray(b'\x00\x02')
+2025-09-09 09:50:43,239 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:204 size:4 data:bytearray(b'@\x80\x00\x00')
+2025-09-09 09:50:43,249 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:208 size:2 data:bytearray(b'\x00\x04')
+2025-09-09 09:50:43,286 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:210 size:4 data:bytearray(b'A\x10\x00\x00')
+2025-09-09 09:50:43,328 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:214 size:4 data:bytearray(b'A\xb8\x00\x00')
+2025-09-09 09:50:43,351 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:218 size:2 data:bytearray(b'\x00\x01')
+2025-09-09 09:50:43,385 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:220 size:2 data:bytearray(b'\x00\x01')
+2025-09-09 09:50:43,425 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:242 size:4 data:bytearray(b'D\xfa\x00\x00')
+2025-09-09 09:50:43,456 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:222 size:2 data:bytearray(b'\x00\x00')
+2025-09-09 09:50:43,479 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:224 size:18 data:bytearray(b'\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+2025-09-09 09:50:43,534 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:246 size:4 data:bytearray(b'\x00\x00\x00\x00')
+2025-09-09 09:50:43,547 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:250 size:4 data:bytearray(b'\x00\x00\x00\x00')
+2025-09-09 09:50:43,556 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:254 size:4 data:bytearray(b'\x00\x00\x00\x00')
+2025-09-09 09:50:43,580 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:50:43,603 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:200, size:2
+2025-09-09 09:50:43,633 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:204, size:4
+2025-09-09 09:50:43,666 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:208, size:2
+2025-09-09 09:50:43,703 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:210, size:4
+2025-09-09 09:50:43,730 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:214, size:4
+2025-09-09 09:50:43,753 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:218, size:2
+2025-09-09 09:50:43,776 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:220, size:2
+2025-09-09 09:50:43,821 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:242, size:4
+2025-09-09 09:50:43,856 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:222, size:2
+2025-09-09 09:50:43,891 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:224, size:2
+2025-09-09 09:50:43,952 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:246, size:4
+2025-09-09 09:50:43,985 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:250, size:4
+2025-09-09 09:50:44,023 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:254, size:4
+2025-09-09 09:50:44,060 - plc_tool - INFO - [plc_tool.py:713] - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=9.0, Temp=23.0, Chip=HERRINGBONE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:50:44,061 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:202, size:1
+2025-09-09 09:50:44,099 - tamara.operations - INFO - [tamara_graph.py:992] - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=9.0, temperature=23.0, chip_id=<ChipID.HERRINGBONE: 1>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:50:44,100 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:44,101 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:44,102 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:44,105 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757404219.609}
+2025-09-09 09:50:48,957 - tamara.operations - INFO - [tamara_graph.py:1256] - Starting run operation...
+2025-09-09 09:50:48,958 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:48,959 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:48,959 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:49,072 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:49,072 - plc_tool - INFO - [plc_tool.py:737] - Clearing all command bits
+2025-09-09 09:50:49,073 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:50:49,074 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,075 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,075 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,076 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.0
+2025-09-09 09:50:49,076 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,103 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x01
+2025-09-09 09:50:49,104 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:49,104 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,105 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,146 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:50:49,147 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,172 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,172 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,173 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,173 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,174 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:50:49,174 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,201 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,202 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:49,203 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,203 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,246 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,248 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,270 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:50:49,270 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,272 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.2
+2025-09-09 09:50:49,273 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,316 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,317 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:49,317 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,318 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,375 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:50:49,375 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,422 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:50:49,422 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:49,423 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:49,423 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:49,424 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.3
+2025-09-09 09:50:49,424 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,483 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,484 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 3: 0x08
+2025-09-09 09:50:49,485 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,486 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,513 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:50:49,513 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:49,540 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:49,540 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,541 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,541 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,542 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.0
+2025-09-09 09:50:49,542 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,553 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,554 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:49,554 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,555 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:260 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,575 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:49,576 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,619 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,619 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,620 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,621 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,621 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.1
+2025-09-09 09:50:49,622 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,667 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,668 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:49,668 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,669 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:260 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,692 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:50:49,692 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,726 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:50:49,726 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,727 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,728 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:49,728 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.2
+2025-09-09 09:50:49,729 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,753 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,754 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:49,755 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,755 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:260 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,778 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:50:49,779 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,789 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:50:49,789 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:49,790 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:49,790 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:49,791 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.3
+2025-09-09 09:50:49,791 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,801 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,802 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 3: 0x08
+2025-09-09 09:50:49,802 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,803 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:260 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,827 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:50:49,828 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:49,879 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:49,880 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:49,881 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:49,882 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:49,882 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.0
+2025-09-09 09:50:49,882 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:49,923 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:49,923 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:49,924 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:49,924 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:262 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:49,970 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:49,970 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,007 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:50:50,007 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,008 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,008 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:50,009 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.1
+2025-09-09 09:50:50,009 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,031 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,031 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:50,032 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:50,033 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:262 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:50,044 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:50:50,044 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,056 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:50:50,056 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,057 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,057 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:50,058 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.2
+2025-09-09 09:50:50,058 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,083 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,084 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:50,084 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:50,085 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:262 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:50,112 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:50:50,113 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,144 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:50:50,145 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,146 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,147 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 3
+2025-09-09 09:50:50,148 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.3
+2025-09-09 09:50:50,148 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,199 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,200 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 3: 0x08
+2025-09-09 09:50:50,201 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:50,202 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:262 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:50,241 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:50:50,241 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,290 - plc_tool - INFO - [plc_tool.py:746] - All command bits cleared and verified
+2025-09-09 09:50:50,290 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:50:50,291 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:50,292 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_CLEAN
+2025-09-09 09:50:50,292 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 260
+2025-09-09 09:50:50,293 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,293 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 260.0
+2025-09-09 09:50:50,294 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:260, size:1
+2025-09-09 09:50:50,309 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,309 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:50,310 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:50,311 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:260 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:50,351 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:50:50,352 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:50,352 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:50:50,353 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 262
+2025-09-09 09:50:50,354 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,355 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 262.0
+2025-09-09 09:50:50,355 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:262, size:1
+2025-09-09 09:50:50,384 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,385 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:50,386 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x00
+2025-09-09 09:50:50,387 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:262 size:1 data:bytearray(b'\x00')
+2025-09-09 09:50:50,409 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:50:50,409 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:50:50,410 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:50,411 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:50,411 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 0
+2025-09-09 09:50:50,412 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.0
+2025-09-09 09:50:50,412 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:50,447 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x00
+2025-09-09 09:50:50,447 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 0: 0x01
+2025-09-09 09:50:50,448 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x01
+2025-09-09 09:50:50,449 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x01')
+2025-09-09 09:50:50,493 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:50:50,494 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:50,527 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:50:50,528 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:50,553 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:50,568 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:50,570 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,543 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:52,544 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:52,545 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:52,617 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:52,618 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:50:52,640 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:50:52,640 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:52,641 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,641 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:52,642 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757404219.609, 'confirmed': True}
+2025-09-09 09:50:52,644 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:50:52,644 - tamara.operations - INFO - [tamara_graph.py:460] - Handling PAUSE command...
+2025-09-09 09:50:52,645 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:50:52,645 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:50:52,646 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:50:52,789 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:50:52,789 - tamara.operations - INFO - [tamara_graph.py:464] - Reading current status...
+2025-09-09 09:50:52,790 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:200, size:2
+2025-09-09 09:50:52,827 - tamara.operations - INFO - [tamara_graph.py:466] - Current status code: 2
+2025-09-09 09:50:52,828 - tamara.operations - INFO - [tamara_graph.py:479] - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:50:52,829 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:50:52,829 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:50:52,831 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:50:52,832 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:50:52,833 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:50:52,833 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:50:52,834 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:52,880 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x01
+2025-09-09 09:50:52,881 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:50:52,881 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x03
+2025-09-09 09:50:52,882 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x03')
+2025-09-09 09:50:52,930 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:50:52,933 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:50:52,967 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:50:52,968 - tamara.operations - INFO - [tamara_graph.py:489] - Disconnecting from PLC...
+2025-09-09 09:50:52,971 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:50:52,972 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:50:52,974 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:50:55,001 - chromadb.telemetry.product.posthog - INFO - [posthog.py:22] - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:50:55,044 - chromadb.config - DEBUG - [config.py:359] - Starting component System
+2025-09-09 09:50:55,045 - chromadb.config - DEBUG - [config.py:359] - Starting component Posthog
+2025-09-09 09:50:55,160 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Raw-Response': 'true'}, 'files': None, 'idempotency_key': 'stainless-python-retry-6c28c794-2e06-4331-873f-c1b34b93a524', 'json_data': {'messages': [{'content': 'Given a chat history and the latest user question which might reference context in the chat history, reformulate the question to be fully self-contained, standalone and understood without the chat history.Do NOT answer the question, just reformulate it if needed and otherwise return it as is.', 'role': 'system'}, {'content': 'run', 'role': 'user'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'Parameters accepted by PLC. Proceeding with safety checks...', 'role': 'assistant'}, {'content': "Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", 'role': 'assistant'}, {'content': "Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", 'role': 'assistant'}, {'content': 'pause', 'role': 'user'}, {'content': '', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.1}}
+2025-09-09 09:50:55,174 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-09-09 09:50:55,176 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-09-09 09:50:55,243 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE3BBA590>
+2025-09-09 09:50:55,244 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BAE3ED04D0> server_hostname='api.openai.com' timeout=None
+2025-09-09 09:50:55,273 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE3EF3190>
+2025-09-09 09:50:55,274 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:55,275 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:50:55,276 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:50:55,277 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:50:55,278 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:55,592 - urllib3.connectionpool - DEBUG - [connectionpool.py:1049] - Starting new HTTPS connection (1): us.i.posthog.com:443
+2025-09-09 09:50:55,920 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:50:56 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'390'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'403'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199713'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'86ms'), (b'x-request-id', b'req_0649c45488f941bcb93c26b68f27d79b'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=RcgVZTDiHsiIGpMRCt1JmTT3BrL2Y7LlLYRx3jD2mlU-1757404256-1.0.1.1-ZaEfyqBcvLzRevs1_pY5yUtzGPH4_5VJqXBNnQ2t3r5d2ApuZd3u8SViRxdgWxjvC4Shud7wx2JQ5xqxdMbbRWYeSyV7Ypop.1zwnNs9USY; path=/; expires=Tue, 09-Sep-25 08:20:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=5A0_MMO3TE_ZqUACWxGElXB3WxkQ1ZIRgeI0xHNJH50-1757404256023-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c518f4395a97b6-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:50:55,922 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:50:55,922 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:50:55,927 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:50:55,927 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:50:55,927 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:50:55,928 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Tue, 09 Sep 2025 07:50:56 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-ptk0s2hrfabc1deqjddrizcg'), ('openai-processing-ms', '390'), ('openai-project', 'proj_OPWGWWgvZLgUQMtyGVFfD55f'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '403'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199713'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '86ms'), ('x-request-id', 'req_0649c45488f941bcb93c26b68f27d79b'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=RcgVZTDiHsiIGpMRCt1JmTT3BrL2Y7LlLYRx3jD2mlU-1757404256-1.0.1.1-ZaEfyqBcvLzRevs1_pY5yUtzGPH4_5VJqXBNnQ2t3r5d2ApuZd3u8SViRxdgWxjvC4Shud7wx2JQ5xqxdMbbRWYeSyV7Ypop.1zwnNs9USY; path=/; expires=Tue, 09-Sep-25 08:20:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=5A0_MMO3TE_ZqUACWxGElXB3WxkQ1ZIRgeI0xHNJH50-1757404256023-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '97c518f4395a97b6-CDG'), ('content-encoding', 'br'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-09-09 09:50:55,929 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_0649c45488f941bcb93c26b68f27d79b
+2025-09-09 09:50:56,008 - urllib3.connectionpool - DEBUG - [connectionpool.py:544] - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-09-09 09:50:56,104 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-60db55d5-54a2-447c-acd7-1574623ed079', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000001BADEDDA5C0>, 'json_data': {'input': [[13191, 499, 4587, 3493, 810, 2317, 477, 38263, 701, 1715, 30]], 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2025-09-09 09:50:56,105 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2025-09-09 09:50:56,105 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-09-09 09:50:56,138 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE4F85F10>
+2025-09-09 09:50:56,139 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BAE2320320> server_hostname='api.openai.com' timeout=None
+2025-09-09 09:50:56,157 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE4F85FD0>
+2025-09-09 09:50:56,158 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:56,159 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:50:56,160 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:50:56,160 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:50:56,161 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:56,516 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:50:56 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-model', b'text-embedding-3-small'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'113'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'via', b'envoy-router-6b8654bc69-7g96k'), (b'x-envoy-upstream-service-time', b'116'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'999989'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_b782c0dfc89b4ee394926a72533dc34f'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=6TuvqeoXkfBnxNuD3IGom1iW0lIQWdW828H3j4Kh4yU-1757404256-1.0.1.1-4fa5ZQZ80iTRH7jfBuggPbPdly0NGSSnuj2U2OhgHVb_0C4zzm2pK5WnIxeswBhfsYr7vsd_H7pf7QdK5rNaqklGZG5pBGG9V0XhsaBOzds; path=/; expires=Tue, 09-Sep-25 08:20:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=SBP87VKtJpJX0js3X.BVvWrhbNdlYUk1I0KB4Qalpt0-1757404256620-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c518f9bad8dacb-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:50:56,517 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:50:56,518 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:50:56,519 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:50:56,519 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:50:56,519 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:50:56,521 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers([('date', 'Tue, 09 Sep 2025 07:50:56 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-allow-origin', '*'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-model', 'text-embedding-3-small'), ('openai-organization', 'user-ptk0s2hrfabc1deqjddrizcg'), ('openai-processing-ms', '113'), ('openai-project', 'proj_OPWGWWgvZLgUQMtyGVFfD55f'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('via', 'envoy-router-6b8654bc69-7g96k'), ('x-envoy-upstream-service-time', '116'), ('x-ratelimit-limit-requests', '3000'), ('x-ratelimit-limit-tokens', '1000000'), ('x-ratelimit-remaining-requests', '2999'), ('x-ratelimit-remaining-tokens', '999989'), ('x-ratelimit-reset-requests', '20ms'), ('x-ratelimit-reset-tokens', '0s'), ('x-request-id', 'req_b782c0dfc89b4ee394926a72533dc34f'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=6TuvqeoXkfBnxNuD3IGom1iW0lIQWdW828H3j4Kh4yU-1757404256-1.0.1.1-4fa5ZQZ80iTRH7jfBuggPbPdly0NGSSnuj2U2OhgHVb_0C4zzm2pK5WnIxeswBhfsYr7vsd_H7pf7QdK5rNaqklGZG5pBGG9V0XhsaBOzds; path=/; expires=Tue, 09-Sep-25 08:20:56 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=SBP87VKtJpJX0js3X.BVvWrhbNdlYUk1I0KB4Qalpt0-1757404256620-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '97c518f9bad8dacb-CDG'), ('content-encoding', 'br'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-09-09 09:50:56,521 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_b782c0dfc89b4ee394926a72533dc34f
+2025-09-09 09:50:56,701 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Raw-Response': 'true'}, 'files': None, 'idempotency_key': 'stainless-python-retry-2a47a4ba-b661-402a-9858-aeecdf265568', 'json_data': {'messages': [{'content': "You are an AI assistant specializing in TAMARA, a microfluidic system. \n        Your role is to provide accurate, precise, technical, step-by-step answers, and helpful information \n        about TAMARA's operation, specifications, and best practices. Include safety considerations when relevant.\n        \n        When answering:\n        1. Be precise and technical when discussing specifications\n        2. Provide step-by-step guidance for operational questions\n        3. Include relevant safety considerations\n        4. If you're unsure or the information isn't in the context, say so\n        5. Keep responses focused and relevant to TAMARA\n        \n        Use ONLY the following context to answer the question:\n        \n|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------\n\n|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------\n\n-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n-----|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n| No                                                                                                                                                                                                       |\n\n| No                                                                                                                                                                                                       |\n\n|------------------------------|---------------------------------------------------|-------------------------------------------------|--------------------------------------------|----------------------------------------------------------|----------------------------------------------|-------------------------------------------|\n\n| Error                                              | Cause                                                                                                                                  | Solution                                                                                                                                                                                                                                                                                      |\n\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n| Name                           | Details                                                                                                                                                                                                                                        |\n\n|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n\n| Error                                                          | Cause                                                                                             | Solution                                                                                                                                                                                                                                                                                                       |\n\n| Functional specifications ..........................................................................................................................................15                        |                                                                                                                                                                   |\n        \n        Base your answers solely on the provided context.", 'role': 'system'}, {'content': 'run', 'role': 'user'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'Parameters accepted by PLC. Proceeding with safety checks...', 'role': 'assistant'}, {'content': "Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", 'role': 'assistant'}, {'content': "Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", 'role': 'assistant'}, {'content': 'pause', 'role': 'user'}, {'content': '', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.1}}
+2025-09-09 09:50:56,703 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-09-09 09:50:56,704 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:56,704 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:50:56,704 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:50:56,705 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:50:56,705 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:50:56,747 - urllib3.connectionpool - DEBUG - [connectionpool.py:544] - https://us.i.posthog.com:443 "POST /batch/ HTTP/1.1" 200 15
+2025-09-09 09:50:57,353 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:50:57 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'403'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'410'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'198252'), (b'x-ratelimit-reset-requests', b'15.853s'), (b'x-ratelimit-reset-tokens', b'524ms'), (b'x-request-id', b'req_f5ee21d6c7824a509f4eb937a8e534c1'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c518fd28f897b6-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:50:57,355 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:50:57,356 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:50:57,359 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:50:57,359 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:50:57,360 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:50:57,360 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Tue, 09 Sep 2025 07:50:57 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-ptk0s2hrfabc1deqjddrizcg', 'openai-processing-ms': '403', 'openai-project': 'proj_OPWGWWgvZLgUQMtyGVFfD55f', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '410', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '198252', 'x-ratelimit-reset-requests': '15.853s', 'x-ratelimit-reset-tokens': '524ms', 'x-request-id': 'req_f5ee21d6c7824a509f4eb937a8e534c1', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '97c518fd28f897b6-CDG', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-09-09 09:50:57,361 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_f5ee21d6c7824a509f4eb937a8e534c1
+2025-09-09 09:50:57,363 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:05,414 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:05,415 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:05,416 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:05,418 - snap7.common - DEBUG - [error.py:159] - error text for 0x2751
+2025-09-09 09:51:05,419 - snap7.common - ERROR - [error.py:142] - b' TCP : Unreachable peer'
+2025-09-09 09:51:05,420 - plc_tool - ERROR - [plc_tool.py:427] - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:51:05,423 - plc_tool - INFO - [plc_tool.py:188] - SIM: Connected
+2025-09-09 09:51:05,424 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:05,425 - plc_tool - INFO - [plc_tool.py:216] - SIM: Read DB9.DBB198 = ['0x0', '0x0']
+2025-09-09 09:51:05,426 - tamara.operations - ERROR - [tamara_graph.py:1130] - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:51:05,428 - plc_tool - INFO - [plc_tool.py:193] - SIM: Disconnected
+2025-09-09 09:51:05,429 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:05,429 - tamara.operations - ERROR - [tamara_graph.py:1298] - Error in REPL loop: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1217, in repl
+    if not check_operation_mode():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:51:08,856 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:08,857 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:08,857 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:08,955 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:08,955 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:51:08,988 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:08,988 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:08,989 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:08,989 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:08,990 - tamara.operations - INFO - [tamara_graph.py:1231] - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:08,991 - tamara.operations - INFO - [tamara_graph.py:456] - Routing message: 'play' (pending_action: None)
+2025-09-09 09:51:08,992 - tamara.operations - INFO - [tamara_graph.py:497] - Handling PLAY/RESUME command...
+2025-09-09 09:51:08,992 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:08,993 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:08,993 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:09,147 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:09,147 - tamara.operations - INFO - [tamara_graph.py:501] - Reading current status...
+2025-09-09 09:51:09,148 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:200, size:2
+2025-09-09 09:51:09,186 - tamara.operations - INFO - [tamara_graph.py:503] - Current status code: 2
+2025-09-09 09:51:09,187 - tamara.operations - INFO - [tamara_graph.py:516] - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-09 09:51:09,187 - plc_tool - INFO - [plc_tool.py:777] - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-09 09:51:09,187 - plc_tool - INFO - [plc_tool.py:542] - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:543] -   section: COMMANDS_RUN
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:544] -   byte_offset: 258
+2025-09-09 09:51:09,188 - plc_tool - INFO - [plc_tool.py:545] -   bit_offset: 1
+2025-09-09 09:51:09,190 - plc_tool - INFO - [plc_tool.py:546] -   raw_start: 258.1
+2025-09-09 09:51:09,190 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:51:09,229 - plc_tool - DEBUG - [plc_tool.py:555] - Current byte value: 0x03
+2025-09-09 09:51:09,230 - plc_tool - DEBUG - [plc_tool.py:559] - Bit mask for bit 1: 0x02
+2025-09-09 09:51:09,231 - plc_tool - DEBUG - [plc_tool.py:566] - New byte value: 0x01
+2025-09-09 09:51:09,231 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:258 size:1 data:bytearray(b'\x01')
+2025-09-09 09:51:09,255 - plc_tool - INFO - [plc_tool.py:572] - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:51:09,255 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:258, size:1
+2025-09-09 09:51:09,282 - plc_tool - INFO - [plc_tool.py:798] - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:51:09,283 - tamara.operations - INFO - [tamara_graph.py:526] - Disconnecting from PLC...
+2025-09-09 09:51:09,284 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:09,284 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:09,285 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:09,290 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Raw-Response': 'true'}, 'files': None, 'idempotency_key': 'stainless-python-retry-ce834ef1-edbb-408c-b240-9dac2cded3d5', 'json_data': {'messages': [{'content': 'Given a chat history and the latest user question which might reference context in the chat history, reformulate the question to be fully self-contained, standalone and understood without the chat history.Do NOT answer the question, just reformulate it if needed and otherwise return it as is.', 'role': 'system'}, {'content': 'run', 'role': 'user'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'Parameters accepted by PLC. Proceeding with safety checks...', 'role': 'assistant'}, {'content': "Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", 'role': 'assistant'}, {'content': "Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", 'role': 'assistant'}, {'content': 'pause', 'role': 'user'}, {'content': "RUN operation paused. Say 'play' to resume.", 'role': 'assistant'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'play', 'role': 'user'}, {'content': '', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.1}}
+2025-09-09 09:51:09,292 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-09-09 09:51:09,293 - httpcore.connection - DEBUG - [_trace.py:47] - close.started
+2025-09-09 09:51:09,293 - httpcore.connection - DEBUG - [_trace.py:47] - close.complete
+2025-09-09 09:51:09,294 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-09-09 09:51:09,327 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE218C210>
+2025-09-09 09:51:09,328 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BAE3ED04D0> server_hostname='api.openai.com' timeout=None
+2025-09-09 09:51:09,351 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE565EBD0>
+2025-09-09 09:51:09,352 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:09,353 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:51:09,354 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:51:09,354 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:51:09,355 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:09,766 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:51:09 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'191'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'193'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9998'), (b'x-ratelimit-remaining-tokens', b'199687'), (b'x-ratelimit-reset-requests', b'11.85s'), (b'x-ratelimit-reset-tokens', b'93ms'), (b'x-request-id', b'req_c09dff048e8d44c6a4b07867f56f73be'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c5194c3ea29e7e-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:51:09,767 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:51:09,768 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:51:09,770 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:51:09,770 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:51:09,770 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:51:09,771 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Tue, 09 Sep 2025 07:51:09 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-ptk0s2hrfabc1deqjddrizcg', 'openai-processing-ms': '191', 'openai-project': 'proj_OPWGWWgvZLgUQMtyGVFfD55f', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '193', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9998', 'x-ratelimit-remaining-tokens': '199687', 'x-ratelimit-reset-requests': '11.85s', 'x-ratelimit-reset-tokens': '93ms', 'x-request-id': 'req_c09dff048e8d44c6a4b07867f56f73be', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '97c5194c3ea29e7e-CDG', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-09-09 09:51:09,771 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_c09dff048e8d44c6a4b07867f56f73be
+2025-09-09 09:51:09,773 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/embeddings', 'files': None, 'idempotency_key': 'stainless-python-retry-3970c52c-468b-4f28-8bcf-0bb35bdc0511', 'post_parser': <function Embeddings.create.<locals>.parser at 0x000001BAB00BBBA0>, 'json_data': {'input': [[29663, 5784, 30]], 'model': 'text-embedding-3-small', 'encoding_format': 'base64'}}
+2025-09-09 09:51:09,774 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/embeddings
+2025-09-09 09:51:09,774 - httpcore.connection - DEBUG - [_trace.py:47] - close.started
+2025-09-09 09:51:09,775 - httpcore.connection - DEBUG - [_trace.py:47] - close.complete
+2025-09-09 09:51:09,775 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=None socket_options=None
+2025-09-09 09:51:09,791 - httpcore.connection - DEBUG - [_trace.py:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE5648590>
+2025-09-09 09:51:09,791 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001BAE2320320> server_hostname='api.openai.com' timeout=None
+2025-09-09 09:51:09,814 - httpcore.connection - DEBUG - [_trace.py:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001BAE5648550>
+2025-09-09 09:51:09,816 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:09,817 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:51:09,817 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:51:09,818 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:51:09,819 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:10,211 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:51:10 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-allow-origin', b'*'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-model', b'text-embedding-3-small'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'241'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'via', b'envoy-router-6747b45bb5-wqd2p'), (b'x-envoy-upstream-service-time', b'245'), (b'x-ratelimit-limit-requests', b'3000'), (b'x-ratelimit-limit-tokens', b'1000000'), (b'x-ratelimit-remaining-requests', b'2999'), (b'x-ratelimit-remaining-tokens', b'999997'), (b'x-ratelimit-reset-requests', b'20ms'), (b'x-ratelimit-reset-tokens', b'0s'), (b'x-request-id', b'req_f6d2b345fa3346a8b9b5420dd739aab6'), (b'cf-cache-status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c5194f1d1cd0bf-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:51:10,212 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:51:10,212 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:51:10,213 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:51:10,213 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:51:10,214 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:51:10,214 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/embeddings "200 OK" Headers({'date': 'Tue, 09 Sep 2025 07:51:10 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-allow-origin': '*', 'access-control-expose-headers': 'X-Request-ID', 'openai-model': 'text-embedding-3-small', 'openai-organization': 'user-ptk0s2hrfabc1deqjddrizcg', 'openai-processing-ms': '241', 'openai-project': 'proj_OPWGWWgvZLgUQMtyGVFfD55f', 'openai-version': '2020-10-01', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'via': 'envoy-router-6747b45bb5-wqd2p', 'x-envoy-upstream-service-time': '245', 'x-ratelimit-limit-requests': '3000', 'x-ratelimit-limit-tokens': '1000000', 'x-ratelimit-remaining-requests': '2999', 'x-ratelimit-remaining-tokens': '999997', 'x-ratelimit-reset-requests': '20ms', 'x-ratelimit-reset-tokens': '0s', 'x-request-id': 'req_f6d2b345fa3346a8b9b5420dd739aab6', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '97c5194f1d1cd0bf-CDG', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-09-09 09:51:10,215 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_f6d2b345fa3346a8b9b5420dd739aab6
+2025-09-09 09:51:10,221 - openai._base_client - DEBUG - [_base_client.py:482] - Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Raw-Response': 'true'}, 'files': None, 'idempotency_key': 'stainless-python-retry-eae6b5e0-332e-43df-ab69-d039e2fee4bc', 'json_data': {'messages': [{'content': 'You are an AI assistant specializing in TAMARA, a microfluidic system. \n        Your role is to provide accurate, precise, technical, step-by-step answers, and helpful information \n        about TAMARA\'s operation, specifications, and best practices. Include safety considerations when relevant.\n        \n        When answering:\n        1. Be precise and technical when discussing specifications\n        2. Provide step-by-step guidance for operational questions\n        3. Include relevant safety considerations\n        4. If you\'re unsure or the information isn\'t in the context, say so\n        5. Keep responses focused and relevant to TAMARA\n        \n        Use ONLY the following context to answer the question:\n        \nAn ongoing run can be paused &amp; resumed at any time. Bear in mind  that  this  can  affect  your nanoparticle sample quality.\n\nRun data explanation: Volume  of  Mix : Total  output volume produced Time left: Remaining time at the end of a run. Should be 0 if the run has not been interrupted. Volume of liquid Left in Manifold :  Remaining  volume  of liquid in the reservoir : Provide  info  on  whether  the be remain\n\n| Standard procedure: New run ...........................................................................................................................25                                     |                                                                                                                                                                   |\n\nQuick Launch: When clicking on the saved run name, you directly access the run load screen (1.2).\n\nSaved runs management: Edit/reorder saved  run  settings  list,  or  launch  a  past run.\n\n## 3.2 Save run management\n\nUse this tool to manage and/or launch a saved run.\n\nSaves management: Click on a saved run. Using the bottom icons: bring to top, bring up, bring down or delete it.\n\n## Volume of cleaning solution\n\nThe suggested volume of cleaning solution corresponds to  the  maximum  amount  of liquids the reservoir can hold. You can potentially use less to save solvent.\n\n## Successful clean\n\nAlways make sure that liquid is coming out through the chip outlet! If not, stop your run and change chip or check your pressure supply.\n\n## Load / Save mode\n\n## 3.1 Access saved runs\n\nFrom the home page, you can either launch a quick run or access the save options.\n\n| System maintenance ...................................................................................................................................................47                      |                                                                                                                                                                   |\n\n## Quick save\n\nYou can quickly save your run condition  by  hitting  the  save button. Give it a name, and you will  be  able  to  access  it  from the  home  page  or  the  saved run management menu (3.2)\n\n## Quick overview of the run settings\n\nNever  fill  the  reservoir with  more  liquid  than the indicated maximum volume. Always maintain a minimum distance of 1cm between the liquid surface and the top of the reservoir.\n\n## Clean 5.\n\n- Press on the play button to launch your clean\n- Wait until all the cleaning solution has been injected\n- Once done, press on next to go back to the home page\n\nAfter cleaning your system, always ensure it is perfectly dry before launching a new run. You can run an extra purge to ensure it.\n\nNote that when a clogging occurs in a chip, the contents of one reservoir may enter another, leading to contamination. In extreme situations, the fluids could even flow back towards the controller. To mitigate this, a set of internal safety filters is installed to stop any reverse flow from progressing further. This reversed flow is directed into a safety collector located at the module\'s back, which you should empty.\n\n## I observe bubble at the start or at the end of my run, is that normal ?\n\n## 1.3 Run in progress\n\nWait until your run is completed\n\nPause (Left  most  button):  Put  your  synthesis on hold/resume it.\n\nStop (Right most button): Finish your synthesis and go to the summary page.\n\n## 1.4 Run completed\n\nOnce your run is completed, you should access  this  page.  If  not,  this  means  that your run has failed and you should follow the suggestions on the screen.\n\nReport: Get access to an advanced report with more information on your run conditions\n\nTo clean the chip, gasket and reservoir, please follow the instruction of the clean section presented  above.  For  the  gasket,  you  can  clean  it  with  any  silicone-compatible  cleaning solution (NaOH, RNAseAway, Ethanol…)\n\n## How often should I clean the chip?\n\nPlease  clean  the  chip  and  the  reservoir  after  each  run  to  avoid  cross  contamination  and agglomeration.\n\nAfter every clean, please make sure the chip is perfectly dry before launching a new run.\n\nTo minimize this, make sure that no bubble is present is your reservoir when launching a run. When working with small volumes, you can "tap" the reservoir remove bubbles stucked in the fluidic path.\n\n## I observe cross contamination during my run. How did that happen ?\n\nCross contamination can occur if the cleaning process has not been properly carried out.\n\nShould you want to make sure no cross contamination happens, use one chip per experiment and thoroughly autoclave your reservoirs.\n\nDone: Finish your run and go back to the home page\n\n## Setting values\n\nBoundary  values  are  variable and will  depend  on  the  hardware parameters  (i.e  reservoir  size, maximum pressure…). The right hand  side  of  your  screen  will turn purple should any of your input values outside this range.\n\n## Quick save\n\n## Purge 3.\n\n- Purge the reservoir from any remaining liquids in the system by applying pressure to it. Launch it by pressing on the play button .\n- Once the purge is completed, go to the next step by clicking on next .\n\nYou can pause the purge at any time by pressing the yellow play button\n\n## Load cleaning solution 4.\n\nQuick launch: Click on a saved run, then click  on  the  load  button  to  directly  go to the run load screen (1.2) and run your sample.\n\nHow to make your saved run parameters  appear  on  the home page? Bring your saved run parameters  to  the  top  5  of the list to make them appear on the home page.\n\n## Menu\n\n## 4.1 Menu Home\n\nBy clicking on the items on the menu, you can access all the advanced options of the TAMARA Controller module.\n\n## 4.2 Run history\n\nREMINDER : Please note that while we allow chip cleaning, cleaning the chip for reuse may not be possible with every sample, as chip reusability can vary significantly depending on factors such as composition, concentration and volume. To maximize chip reusability, follow each step of the process carefully. Always remember to finish your procedure with a purge to ensure the chip is dry for your next run.\n        \n        Base your answers solely on the provided context.', 'role': 'system'}, {'content': 'run', 'role': 'user'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'Parameters accepted by PLC. Proceeding with safety checks...', 'role': 'assistant'}, {'content': "Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", 'role': 'assistant'}, {'content': "Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", 'role': 'assistant'}, {'content': 'pause', 'role': 'user'}, {'content': "RUN operation paused. Say 'play' to resume.", 'role': 'assistant'}, {'content': 'Parameters sent to PLC. Checking validation...', 'role': 'assistant'}, {'content': 'play', 'role': 'user'}, {'content': '', 'role': 'user'}], 'model': 'gpt-3.5-turbo', 'stream': False, 'temperature': 0.1}}
+2025-09-09 09:51:10,223 - openai._base_client - DEBUG - [_base_client.py:978] - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-09-09 09:51:10,224 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:10,225 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_headers.complete
+2025-09-09 09:51:10,225 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.started request=<Request [b'POST']>
+2025-09-09 09:51:10,226 - httpcore.http11 - DEBUG - [_trace.py:47] - send_request_body.complete
+2025-09-09 09:51:10,227 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.started request=<Request [b'POST']>
+2025-09-09 09:51:11,928 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 09 Sep 2025 07:51:12 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-ptk0s2hrfabc1deqjddrizcg'), (b'openai-processing-ms', b'1459'), (b'openai-project', b'proj_OPWGWWgvZLgUQMtyGVFfD55f'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'1468'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9997'), (b'x-ratelimit-remaining-tokens', b'198008'), (b'x-ratelimit-reset-requests', b'19.615s'), (b'x-ratelimit-reset-tokens', b'597ms'), (b'x-request-id', b'req_c5c019aeb8d54cd28c43fca7a804286a'), (b'cf-cache-status', b'DYNAMIC'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'97c51951aadc9e7e-CDG'), (b'Content-Encoding', b'br'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-09-09 09:51:11,929 - httpx - INFO - [_client.py:1025] - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:51:11,929 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.started request=<Request [b'POST']>
+2025-09-09 09:51:11,935 - httpcore.http11 - DEBUG - [_trace.py:47] - receive_response_body.complete
+2025-09-09 09:51:11,935 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.started
+2025-09-09 09:51:11,936 - httpcore.http11 - DEBUG - [_trace.py:47] - response_closed.complete
+2025-09-09 09:51:11,936 - openai._base_client - DEBUG - [_base_client.py:1016] - HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers({'date': 'Tue, 09 Sep 2025 07:51:12 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'access-control-expose-headers': 'X-Request-ID', 'openai-organization': 'user-ptk0s2hrfabc1deqjddrizcg', 'openai-processing-ms': '1459', 'openai-project': 'proj_OPWGWWgvZLgUQMtyGVFfD55f', 'openai-version': '2020-10-01', 'x-envoy-upstream-service-time': '1468', 'x-ratelimit-limit-requests': '10000', 'x-ratelimit-limit-tokens': '200000', 'x-ratelimit-remaining-requests': '9997', 'x-ratelimit-remaining-tokens': '198008', 'x-ratelimit-reset-requests': '19.615s', 'x-ratelimit-reset-tokens': '597ms', 'x-request-id': 'req_c5c019aeb8d54cd28c43fca7a804286a', 'cf-cache-status': 'DYNAMIC', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '97c51951aadc9e7e-CDG', 'content-encoding': 'br', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-09-09 09:51:11,938 - openai._base_client - DEBUG - [_base_client.py:1024] - request_id: req_c5c019aeb8d54cd28c43fca7a804286a
+2025-09-09 09:51:11,940 - tamara.operations - INFO - [tamara_graph.py:1233] - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content="To resume the paused run, simply press the 'play' button on the controller interface. This will instruct the system to continue the operation from where it was paused.", additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404219.609}
+2025-09-09 09:51:16,800 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:16,800 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:16,801 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:16,870 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:16,871 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:51:16,907 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:16,907 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:16,908 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:16,908 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:16,910 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:16,919 - snap7.common - DEBUG - [error.py:159] - error text for 0x2751
+2025-09-09 09:51:16,920 - snap7.common - ERROR - [error.py:142] - b' TCP : Unreachable peer'
+2025-09-09 09:51:16,921 - plc_tool - ERROR - [plc_tool.py:427] - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:51:16,923 - plc_tool - INFO - [plc_tool.py:188] - SIM: Connected
+2025-09-09 09:51:16,923 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:206] - SIM: Write DB9.DBB200 = ['0x0', '0x1']
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:216] - SIM: Read DB9.DBB200 = ['0x0', '0x1']
+2025-09-09 09:51:16,924 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:51:16,925 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:51:16,926 - plc_tool - INFO - [plc_tool.py:193] - SIM: Disconnected
+2025-09-09 09:51:16,926 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:26,857 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:26,857 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:26,858 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:26,993 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:26,993 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:198, size:2
+2025-09-09 09:51:27,025 - tamara.operations - INFO - [tamara_graph.py:1127] - Current operation mode: AGENTIC
+2025-09-09 09:51:27,025 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:27,028 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:27,029 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:27,029 - snap7.client - INFO - [client.py:78] - creating snap7 client
+2025-09-09 09:51:27,030 - snap7.client - INFO - [client.py:194] - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:51:27,031 - snap7.client - DEBUG - [client.py:842] - setting param number 2 to 102
+2025-09-09 09:51:27,204 - plc_tool - INFO - [plc_tool.py:423] - PLC connected (192.168.0.1)
+2025-09-09 09:51:27,204 - snap7.client - DEBUG - [client.py:253] - db_write db_number:9 start:200 size:2 data:bytearray(b'\x00\x01')
+2025-09-09 09:51:27,263 - snap7.client - DEBUG - [client.py:222] - db_read, db_number:9, start:200, size:2
+2025-09-09 09:51:27,300 - plc_tool - INFO - [plc_tool.py:850] - Machine mode set to 1
+2025-09-09 09:51:27,301 - tamara.operations - INFO - [tamara_graph.py:1112] - Machine mode set to READY
+2025-09-09 09:51:27,302 - snap7.client - INFO - [client.py:174] - disconnecting snap7 client
+2025-09-09 09:51:27,303 - plc_tool - INFO - [plc_tool.py:436] - PLC disconnected
+2025-09-09 09:51:27,303 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:29,716 - snap7.client - INFO - [client.py:92] - destroying snap7 client
+2025-09-09 09:51:30,055 - httpcore.connection - DEBUG - [_trace.py:47] - close.started
+2025-09-09 09:51:30,057 - httpcore.connection - DEBUG - [_trace.py:47] - close.complete
+2025-09-09 09:51:30,058 - httpcore.connection - DEBUG - [_trace.py:47] - close.started
+2025-09-09 09:51:30,059 - httpcore.connection - DEBUG - [_trace.py:47] - close.complete
+2025-09-09 09:59:09,429 - INFO - creating snap7 client
+2025-09-09 09:59:09,429 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:09,436 - ERROR - b' TCP : Unreachable peer'
+2025-09-09 09:59:09,437 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-09 09:59:09,440 - INFO - SIM: Connected
+2025-09-09 09:59:09,442 - INFO - destroying snap7 client
+2025-09-09 09:59:09,442 - INFO - SIM: Read DB9.DBB198 = ['0x0', '0x0']
+2025-09-09 09:59:09,442 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1126, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-09 09:59:09,444 - INFO - SIM: Disconnected
+2025-09-09 09:59:09,444 - INFO - PLC disconnected
+2025-09-09 09:59:16,174 - INFO - creating snap7 client
+2025-09-09 09:59:16,175 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:16,314 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:16,340 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:59:16,341 - INFO - disconnecting snap7 client
+2025-09-09 09:59:16,341 - INFO - PLC disconnected
+2025-09-09 09:59:16,342 - INFO - destroying snap7 client
+2025-09-09 09:59:16,342 - INFO - creating snap7 client
+2025-09-09 09:59:16,343 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:16,502 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:16,586 - INFO - Machine mode set to 1
+2025-09-09 09:59:16,586 - INFO - Machine mode set to READY
+2025-09-09 09:59:16,587 - INFO - disconnecting snap7 client
+2025-09-09 09:59:16,587 - INFO - PLC disconnected
+2025-09-09 09:59:16,588 - INFO - destroying snap7 client
+2025-09-09 09:59:19,858 - INFO - creating snap7 client
+2025-09-09 09:59:19,858 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:19,999 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:20,053 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:59:20,053 - INFO - disconnecting snap7 client
+2025-09-09 09:59:20,055 - INFO - PLC disconnected
+2025-09-09 09:59:20,055 - INFO - destroying snap7 client
+2025-09-09 09:59:20,056 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757404756.5884664}
+2025-09-09 09:59:20,060 - INFO - Routing message: 'run' (pending_action: None)
+2025-09-09 09:59:41,436 - INFO - creating snap7 client
+2025-09-09 09:59:41,437 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:41,554 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:42,447 - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=5.0, Temp=24.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:59:42,480 - INFO - State after PLC validation: input_payload=InputPayload(tfr=3.0, frr=3, target_volume=5.0, temperature=24.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:59:42,480 - INFO - disconnecting snap7 client
+2025-09-09 09:59:42,481 - INFO - PLC disconnected
+2025-09-09 09:59:42,481 - INFO - destroying snap7 client
+2025-09-09 09:59:42,482 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757404756.5884664}
+2025-09-09 09:59:46,386 - INFO - Starting run operation...
+2025-09-09 09:59:46,387 - INFO - creating snap7 client
+2025-09-09 09:59:46,387 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:46,509 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:46,509 - INFO - Clearing all command bits
+2025-09-09 09:59:46,509 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:59:46,510 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:46,510 - INFO -   byte_offset: 258
+2025-09-09 09:59:46,510 - INFO -   bit_offset: 0
+2025-09-09 09:59:46,511 - INFO -   raw_start: 258.0
+2025-09-09 09:59:46,590 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:59:46,624 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:59:46,624 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:46,625 - INFO -   byte_offset: 258
+2025-09-09 09:59:46,625 - INFO -   bit_offset: 1
+2025-09-09 09:59:46,625 - INFO -   raw_start: 258.1
+2025-09-09 09:59:46,720 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:59:46,764 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:59:46,764 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:46,765 - INFO -   byte_offset: 258
+2025-09-09 09:59:46,765 - INFO -   bit_offset: 1
+2025-09-09 09:59:46,765 - INFO -   raw_start: 258.2
+2025-09-09 09:59:46,818 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:59:46,828 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:59:46,828 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:46,828 - INFO -   byte_offset: 258
+2025-09-09 09:59:46,829 - INFO -   bit_offset: 3
+2025-09-09 09:59:46,829 - INFO -   raw_start: 258.3
+2025-09-09 09:59:46,849 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:59:46,880 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:59:46,880 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:59:46,880 - INFO -   byte_offset: 260
+2025-09-09 09:59:46,881 - INFO -   bit_offset: 0
+2025-09-09 09:59:46,881 - INFO -   raw_start: 260.0
+2025-09-09 09:59:46,945 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:59:47,010 - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:59:47,010 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:59:47,011 - INFO -   byte_offset: 260
+2025-09-09 09:59:47,011 - INFO -   bit_offset: 1
+2025-09-09 09:59:47,011 - INFO -   raw_start: 260.1
+2025-09-09 09:59:47,101 - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:59:47,132 - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:59:47,132 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:59:47,132 - INFO -   byte_offset: 260
+2025-09-09 09:59:47,133 - INFO -   bit_offset: 1
+2025-09-09 09:59:47,133 - INFO -   raw_start: 260.2
+2025-09-09 09:59:47,206 - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:59:47,225 - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:59:47,225 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:59:47,225 - INFO -   byte_offset: 260
+2025-09-09 09:59:47,226 - INFO -   bit_offset: 3
+2025-09-09 09:59:47,226 - INFO -   raw_start: 260.3
+2025-09-09 09:59:47,280 - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:59:47,307 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:59:47,307 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:59:47,308 - INFO -   byte_offset: 262
+2025-09-09 09:59:47,308 - INFO -   bit_offset: 0
+2025-09-09 09:59:47,310 - INFO -   raw_start: 262.0
+2025-09-09 09:59:47,354 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:59:47,364 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:59:47,364 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:59:47,364 - INFO -   byte_offset: 262
+2025-09-09 09:59:47,365 - INFO -   bit_offset: 1
+2025-09-09 09:59:47,365 - INFO -   raw_start: 262.1
+2025-09-09 09:59:47,455 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:59:47,524 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:59:47,524 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:59:47,524 - INFO -   byte_offset: 262
+2025-09-09 09:59:47,525 - INFO -   bit_offset: 1
+2025-09-09 09:59:47,525 - INFO -   raw_start: 262.2
+2025-09-09 09:59:47,595 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:59:47,628 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:59:47,628 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:59:47,629 - INFO -   byte_offset: 262
+2025-09-09 09:59:47,629 - INFO -   bit_offset: 3
+2025-09-09 09:59:47,629 - INFO -   raw_start: 262.3
+2025-09-09 09:59:47,673 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:59:47,688 - INFO - All command bits cleared and verified
+2025-09-09 09:59:47,688 - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:59:47,688 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:59:47,689 - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:59:47,689 - INFO -   byte_offset: 260
+2025-09-09 09:59:47,689 - INFO -   bit_offset: 0
+2025-09-09 09:59:47,690 - INFO -   raw_start: 260.0
+2025-09-09 09:59:47,772 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:59:47,772 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:59:47,772 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:59:47,773 - INFO -   byte_offset: 262
+2025-09-09 09:59:47,773 - INFO -   bit_offset: 0
+2025-09-09 09:59:47,773 - INFO -   raw_start: 262.0
+2025-09-09 09:59:47,836 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:59:47,836 - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:59:47,836 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:47,836 - INFO -   byte_offset: 258
+2025-09-09 09:59:47,836 - INFO -   bit_offset: 0
+2025-09-09 09:59:47,838 - INFO -   raw_start: 258.0
+2025-09-09 09:59:47,881 - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:59:47,896 - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:59:47,972 - INFO - disconnecting snap7 client
+2025-09-09 09:59:47,972 - INFO - PLC disconnected
+2025-09-09 09:59:51,833 - INFO - creating snap7 client
+2025-09-09 09:59:51,833 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:51,963 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:52,014 - INFO - Current operation mode: AGENTIC
+2025-09-09 09:59:52,015 - INFO - disconnecting snap7 client
+2025-09-09 09:59:52,015 - INFO - PLC disconnected
+2025-09-09 09:59:52,016 - INFO - destroying snap7 client
+2025-09-09 09:59:52,016 - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757404756.5884664, 'confirmed': True}
+2025-09-09 09:59:52,018 - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:59:52,018 - INFO - Handling PAUSE command...
+2025-09-09 09:59:52,019 - INFO - creating snap7 client
+2025-09-09 09:59:52,019 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:59:52,183 - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:59:52,183 - INFO - Reading current status...
+2025-09-09 09:59:52,232 - INFO - Current status code: 2
+2025-09-09 09:59:52,232 - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:59:52,233 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:59:52,233 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:59:52,233 - INFO -   section: COMMANDS_RUN
+2025-09-09 09:59:52,234 - INFO -   byte_offset: 258
+2025-09-09 09:59:52,234 - INFO -   bit_offset: 1
+2025-09-09 09:59:52,234 - INFO -   raw_start: 258.1
+2025-09-09 09:59:52,281 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:59:52,313 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:59:52,314 - INFO - Disconnecting from PLC...
+2025-09-09 09:59:52,314 - INFO - disconnecting snap7 client
+2025-09-09 09:59:52,315 - INFO - PLC disconnected
+2025-09-09 09:59:52,316 - INFO - destroying snap7 client
+2025-09-09 09:59:54,539 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:59:55,670 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:59:56,135 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:59:57,669 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:59:57,676 - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n\n1. Ensure the lid of TAMARA is closed securely.\n2. Locate the pause button on the control panel or software interface.\n3. Press the pause button to halt the operation.\n4. Check the system to ensure all components are in a safe state.\n\nIf you encounter any issues during the pause process, refer to the user manual or contact technical support for assistance.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757404756.5884664}
+2025-09-09 10:00:00,834 - INFO - creating snap7 client
+2025-09-09 10:00:00,834 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 10:00:00,963 - INFO - PLC connected (192.168.0.1)
+2025-09-09 10:00:01,005 - INFO - Current operation mode: AGENTIC
+2025-09-09 10:00:01,005 - INFO - disconnecting snap7 client
+2025-09-09 10:00:01,006 - INFO - PLC disconnected
+2025-09-09 10:00:01,006 - INFO - destroying snap7 client
+2025-09-09 10:00:01,007 - INFO - creating snap7 client
+2025-09-09 10:00:01,007 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 10:00:01,176 - INFO - PLC connected (192.168.0.1)
+2025-09-09 10:00:01,251 - INFO - Machine mode set to 1
+2025-09-09 10:00:01,251 - INFO - Machine mode set to READY
+2025-09-09 10:00:01,252 - INFO - disconnecting snap7 client
+2025-09-09 10:00:01,252 - INFO - PLC disconnected
+2025-09-09 10:00:01,252 - INFO - destroying snap7 client
