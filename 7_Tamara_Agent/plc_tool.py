@@ -568,7 +568,7 @@ class PLCInterface:
                 # Write back
                 data = bytearray([new_byte])
                 self.client.db_write(cfg['db_number'], byte_offset, data)
-                
+            
             logger.info(f"Successfully wrote {tag} = {value}")
             
         except Exception as e:
@@ -947,7 +947,7 @@ def demo() -> None:
             
             print("4. Setting RUN.STOP")
             plc.pulse_cmd(MachineMode.RUN, ModeCmds.STOP, True)
-            
+        
     finally:
         plc.disconnect()
 

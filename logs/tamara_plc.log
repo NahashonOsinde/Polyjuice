@@ -3305,3 +3305,1398 @@ KeyError: 'last_mode_check'
 2025-09-08 15:28:15,615 - plc_tool - INFO - PLC disconnected
 2025-09-08 15:28:15,615 - snap7.client - INFO - destroying snap7 client
 2025-09-08 15:31:49,326 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:53:24,740 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:53:24,741 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:53:24,910 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:53:24,954 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:53:24,954 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:53:24,955 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:53:24,956 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:53:24,957 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:53:24,957 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:53:25,111 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:53:25,197 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 15:53:25,197 - __main__ - INFO - Machine mode set to READY
+2025-09-08 15:53:25,197 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:53:25,199 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:53:25,199 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:53:28,085 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:53:28,086 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:53:28,212 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:53:28,265 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:53:28,266 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:53:28,266 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:53:28,267 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:53:28,267 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339605.1993275}
+2025-09-08 15:53:28,268 - __main__ - ERROR - Unexpected error in REPL loop: 'NoneType' object has no attribute 'invoke'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1047, in repl
+    state = app.invoke(state)
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'invoke'
+2025-09-08 15:55:47,075 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:55:47,076 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:55:47,232 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:55:47,280 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:55:47,281 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:55:47,281 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:55:47,282 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:55:47,283 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:55:47,283 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:55:47,473 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:55:47,569 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 15:55:47,569 - __main__ - INFO - Machine mode set to READY
+2025-09-08 15:55:47,570 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:55:47,571 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:55:47,571 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:55:49,096 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:55:49,097 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:55:49,236 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:55:49,268 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:55:49,269 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:55:49,269 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:55:49,271 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:55:49,272 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339747.5724597}
+2025-09-08 15:55:49,273 - __main__ - ERROR - Error in REPL loop: 'NoneType' object has no attribute 'invoke'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1007, in repl
+    state = app.invoke(state)
+            ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'invoke'
+2025-09-08 15:58:41,559 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:58:41,560 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:58:41,735 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:58:41,788 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:58:41,790 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:58:41,791 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:58:41,791 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:58:41,792 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:58:41,792 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:58:41,984 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:58:42,061 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 15:58:42,061 - __main__ - INFO - Machine mode set to READY
+2025-09-08 15:58:42,062 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:58:42,062 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:58:42,063 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:58:44,217 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:58:44,218 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:58:44,360 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:58:44,410 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:58:44,412 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:58:44,413 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:58:44,414 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:58:44,416 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='RUN', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339922.063534}
+2025-09-08 15:58:44,422 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 15:59:03,880 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:59:03,881 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:59:03,997 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:59:05,318 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=5.0, Temp=23.0, Chip=BAFFLE, Manifold=SMALL
+- Solvent: ETHANOL
+2025-09-08 15:59:08,351 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:59:08,351 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:59:08,352 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:59:08,354 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='RUN', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339922.063534}
+2025-09-08 15:59:25,571 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:59:25,572 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:59:25,713 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 15:59:25,762 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 15:59:25,764 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 15:59:25,765 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:59:25,765 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:59:25,767 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='RUN', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339922.063534}
+2025-09-08 15:59:25,769 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 15:59:43,832 - snap7.client - INFO - creating snap7 client
+2025-09-08 15:59:43,832 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 15:59:43,836 - snap7.common - ERROR - b' TCP : Unreachable peer'
+2025-09-08 15:59:43,837 - plc_tool - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-08 15:59:43,839 - plc_tool - INFO - SIM: Connected
+2025-09-08 15:59:43,840 - snap7.client - INFO - destroying snap7 client
+2025-09-08 15:59:43,840 - plc_tool - INFO - SIM: Write DB9.DBB198 = ['0x0', '0x2']
+2025-09-08 15:59:43,841 - plc_tool - INFO - SIM: Write DB9.DBB200 = ['0x0', '0x2']
+2025-09-08 15:59:43,841 - plc_tool - INFO - SIM: Write DB9.DBB204 = ['0x40', '0x40', '0x0', '0x0']
+2025-09-08 15:59:43,842 - plc_tool - INFO - SIM: Write DB9.DBB208 = ['0x0', '0x3']
+2025-09-08 15:59:43,842 - plc_tool - INFO - SIM: Write DB9.DBB210 = ['0x40', '0xa0', '0x0', '0x0']
+2025-09-08 15:59:43,842 - plc_tool - INFO - SIM: Write DB9.DBB214 = ['0x41', '0xc0', '0x0', '0x0']
+2025-09-08 15:59:43,843 - plc_tool - INFO - SIM: Write DB9.DBB218 = ['0x0', '0x0']
+2025-09-08 15:59:43,843 - plc_tool - INFO - SIM: Write DB9.DBB220 = ['0x0', '0x1']
+2025-09-08 15:59:43,843 - plc_tool - INFO - SIM: Write DB9.DBB242 = ['0x44', '0xfa', '0x0', '0x0']
+2025-09-08 15:59:43,844 - plc_tool - INFO - SIM: Write DB9.DBB222 = ['0x0', '0x0']
+2025-09-08 15:59:43,844 - plc_tool - INFO - SIM: Write DB9.DBB224 = ['0x10', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,845 - plc_tool - INFO - SIM: Write DB9.DBB246 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,845 - plc_tool - INFO - SIM: Write DB9.DBB250 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,845 - plc_tool - INFO - SIM: Write DB9.DBB254 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,845 - plc_tool - INFO - SIM: Read DB9.DBB198 = ['0x0', '0x2']
+2025-09-08 15:59:43,847 - plc_tool - INFO - SIM: Read DB9.DBB200 = ['0x0', '0x2']
+2025-09-08 15:59:43,847 - plc_tool - INFO - SIM: Read DB9.DBB204 = ['0x40', '0x40', '0x0', '0x0']
+2025-09-08 15:59:43,848 - plc_tool - INFO - SIM: Read DB9.DBB208 = ['0x0', '0x3']
+2025-09-08 15:59:43,848 - plc_tool - INFO - SIM: Read DB9.DBB210 = ['0x40', '0xa0', '0x0', '0x0']
+2025-09-08 15:59:43,848 - plc_tool - INFO - SIM: Read DB9.DBB214 = ['0x41', '0xc0', '0x0', '0x0']
+2025-09-08 15:59:43,849 - plc_tool - INFO - SIM: Read DB9.DBB218 = ['0x0', '0x0']
+2025-09-08 15:59:43,849 - plc_tool - INFO - SIM: Read DB9.DBB220 = ['0x0', '0x1']
+2025-09-08 15:59:43,849 - plc_tool - INFO - SIM: Read DB9.DBB242 = ['0x44', '0xfa', '0x0', '0x0']
+2025-09-08 15:59:43,850 - plc_tool - INFO - SIM: Read DB9.DBB222 = ['0x0', '0x0']
+2025-09-08 15:59:43,850 - plc_tool - INFO - SIM: Read DB9.DBB224 = ['0x10', '0x0']
+2025-09-08 15:59:43,850 - plc_tool - INFO - SIM: Read DB9.DBB246 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,851 - plc_tool - INFO - SIM: Read DB9.DBB250 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,851 - plc_tool - INFO - SIM: Read DB9.DBB254 = ['0x0', '0x0', '0x0', '0x0']
+2025-09-08 15:59:43,851 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=5.0, Temp=24.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 15:59:43,852 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:43,952 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,053 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,155 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,256 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,357 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,458 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,559 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,660 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,761 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,862 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:44,963 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,064 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,165 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,266 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,367 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,468 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,569 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,670 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,771 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,872 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:45,973 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,074 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,175 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,276 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,378 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,479 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,580 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,681 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,782 - plc_tool - INFO - SIM: Read DB9.DBB202 = ['0x0']
+2025-09-08 15:59:46,883 - plc_tool - INFO - SIM: Disconnected
+2025-09-08 15:59:46,883 - plc_tool - INFO - PLC disconnected
+2025-09-08 15:59:46,884 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='RUN', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757339922.063534}
+2025-09-08 16:00:33,787 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:00:33,787 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:00:33,923 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:00:33,988 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:00:33,988 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:00:33,989 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:00:33,989 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:00:33,989 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:00:33,991 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:00:34,199 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:00:34,314 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:00:34,314 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:00:34,315 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:00:34,315 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:00:34,316 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:00:40,250 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:00:40,251 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:00:40,369 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:00:40,423 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:00:40,423 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:00:40,424 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:00:40,425 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:00:40,426 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:00:40,432 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:00:56,629 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:00:56,630 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:00:56,776 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:00:58,020 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=8.0, Temp=24.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:00:58,053 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=8.0, temperature=24.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:00:58,055 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:00:58,056 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:00:58,058 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:00:58,062 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:01:03,829 - __main__ - INFO - Starting run operation...
+2025-09-08 16:01:03,830 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:03,830 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:03,953 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:03,953 - plc_tool - INFO - Clearing all command bits
+2025-09-08 16:01:03,954 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-08 16:01:03,954 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:03,954 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:03,955 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:03,955 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:01:04,033 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-08 16:01:04,045 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:01:04,045 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:04,046 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:04,046 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:04,047 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:01:04,127 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:01:04,202 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:01:04,202 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:04,203 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:04,203 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:04,203 - plc_tool - INFO -   raw_start: 258.2
+2025-09-08 16:01:04,300 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:01:04,331 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-08 16:01:04,332 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:04,332 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:04,332 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:01:04,333 - plc_tool - INFO -   raw_start: 258.3
+2025-09-08 16:01:04,448 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-08 16:01:04,484 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:01:04,484 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:01:04,485 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:01:04,485 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:04,487 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:01:04,551 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:01:04,584 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:01:04,584 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:01:04,585 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:01:04,585 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:04,586 - plc_tool - INFO -   raw_start: 260.1
+2025-09-08 16:01:04,636 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:01:04,695 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:01:04,695 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:01:04,696 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:01:04,697 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:04,697 - plc_tool - INFO -   raw_start: 260.2
+2025-09-08 16:01:04,796 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:01:04,843 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:01:04,844 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:01:04,845 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:01:04,845 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:01:04,846 - plc_tool - INFO -   raw_start: 260.3
+2025-09-08 16:01:04,949 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:01:04,969 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:01:04,970 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:01:04,971 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:01:04,972 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:04,973 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:01:05,092 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:01:05,143 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:01:05,145 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:01:05,146 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:01:05,146 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:05,147 - plc_tool - INFO -   raw_start: 262.1
+2025-09-08 16:01:05,230 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:01:05,282 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:01:05,282 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:01:05,283 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:01:05,283 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:05,283 - plc_tool - INFO -   raw_start: 262.2
+2025-09-08 16:01:05,357 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:01:05,396 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:01:05,397 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:01:05,397 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:01:05,398 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:01:05,398 - plc_tool - INFO -   raw_start: 262.3
+2025-09-08 16:01:05,486 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:01:05,522 - plc_tool - INFO - All command bits cleared and verified
+2025-09-08 16:01:05,522 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-08 16:01:05,522 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:01:05,523 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:01:05,523 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:01:05,524 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:05,524 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:01:05,632 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:01:05,632 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:01:05,633 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:01:05,633 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:01:05,634 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:05,634 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:01:05,720 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:01:05,720 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-08 16:01:05,720 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:05,721 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:05,721 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:01:05,721 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:01:05,830 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-08 16:01:05,868 - plc_tool - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-08 16:01:05,949 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:05,949 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:09,749 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:09,750 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:09,818 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:09,875 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:01:09,876 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:09,877 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:09,877 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:01:09,878 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': True, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:01:09,879 - __main__ - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-08 16:01:09,880 - __main__ - INFO - Handling PAUSE command...
+2025-09-08 16:01:09,880 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:09,880 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:10,053 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:10,054 - __main__ - INFO - Reading current status...
+2025-09-08 16:01:10,124 - __main__ - INFO - Current status code: 2
+2025-09-08 16:01:10,124 - __main__ - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-08 16:01:10,125 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-08 16:01:10,125 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-08 16:01:10,126 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:10,126 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:10,126 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:10,127 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:01:10,231 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-08 16:01:10,272 - plc_tool - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-08 16:01:10,273 - __main__ - INFO - Disconnecting from PLC...
+2025-09-08 16:01:10,274 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:10,275 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:10,276 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:01:12,484 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-08 16:01:14,260 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:01:15,178 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-08 16:01:18,911 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:01:18,953 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n1. Ensure the lid of TAMARA is closed securely.\n2. Stop the pressure supply to the system.\n3. If there are any specific pause procedures in your protocol, follow them accordingly.\n4. If necessary, secure any moving parts or components to prevent accidental movement.\n\nIf you have any specific instructions or safety concerns related to pausing the operation, please provide more details for further guidance.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'confirmed': True, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:01:21,222 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:21,222 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:21,353 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:21,391 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:01:21,392 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:21,392 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:21,393 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:01:21,394 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n1. Ensure the lid of TAMARA is closed securely.\n2. Stop the pressure supply to the system.\n3. If there are any specific pause procedures in your protocol, follow them accordingly.\n4. If necessary, secure any moving parts or components to prevent accidental movement.\n\nIf you have any specific instructions or safety concerns related to pausing the operation, please provide more details for further guidance.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'confirmed': True, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:01:21,395 - __main__ - INFO - Routing message: 'play' (pending_action: None)
+2025-09-08 16:01:21,395 - __main__ - INFO - Handling PLAY/RESUME command...
+2025-09-08 16:01:21,396 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:21,396 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:21,564 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:21,564 - __main__ - INFO - Reading current status...
+2025-09-08 16:01:21,617 - __main__ - INFO - Current status code: 2
+2025-09-08 16:01:21,618 - __main__ - INFO - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-08 16:01:21,620 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-08 16:01:21,621 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:01:21,621 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:01:21,622 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:01:21,622 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:01:21,623 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:01:21,727 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:01:21,791 - plc_tool - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-08 16:01:21,792 - __main__ - INFO - Disconnecting from PLC...
+2025-09-08 16:01:21,793 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:21,793 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:21,794 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:01:22,517 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:01:22,934 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-08 16:01:24,200 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:01:24,206 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation, follow these steps:\n1. Ensure the lid of TAMARA is closed securely.\n2. Stop the pressure supply to the system.\n3. If there are any specific pause procedures in your protocol, follow them accordingly.\n4. If necessary, secure any moving parts or components to prevent accidental movement.\n\nIf you have any specific instructions or safety concerns related to pausing the operation, please provide more details for further guidance.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content="To resume the operation, press the 'play' button on the TAMARA system. This will continue the paused run.", additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'confirmed': True, 'last_tool_result': None, 'last_mode_check': 1757340034.3178988}
+2025-09-08 16:01:26,803 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:26,803 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:26,928 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:26,965 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:01:26,966 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:26,966 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:26,967 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:01:26,967 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:01:26,967 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:01:27,141 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:01:27,255 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:01:27,255 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:01:27,256 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:01:27,256 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:01:27,257 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:05:42,946 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:05:47,740 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:05:47,740 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:05:47,854 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:05:47,899 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:05:47,900 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:05:47,902 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:05:47,903 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:05:47,904 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:05:47,904 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:05:48,071 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:05:48,160 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:05:48,160 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:05:48,161 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:05:48,162 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:05:48,162 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:05:50,124 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:05:50,125 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:05:50,262 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:05:50,311 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:05:50,312 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:05:50,313 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:05:50,313 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:05:50,314 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340348.163032}
+2025-09-08 16:05:50,319 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:06:06,639 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:06:06,640 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:06:06,783 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:06:08,010 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=4.0, Temp=22.0, Chip=BAFFLE, Manifold=SMALL
+- Solvent: ETHANOL
+2025-09-08 16:06:11,075 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:06:11,075 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:06:11,075 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:06:11,077 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340348.163032}
+2025-09-08 16:06:15,549 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:06:15,549 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:06:15,739 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:06:15,793 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:06:15,793 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:06:15,794 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:06:15,794 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:06:15,794 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340348.163032}
+2025-09-08 16:06:15,795 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:06:32,672 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:06:32,673 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:06:32,811 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:06:34,167 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=3.0, FRR=3, Vol=5.0, Temp=23.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:06:34,226 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=3.0, frr=3, target_volume=5.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:06:34,226 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:06:34,226 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:06:34,227 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:06:34,228 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters rejected by PLC. Please modify your inputs to be within the allowed ranges. Check PLC panel for specific limits.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757340348.163032}
+2025-09-08 16:06:43,854 - __main__ - ERROR - Error in REPL loop: cannot access local variable 'action' where it is not associated with a value
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1045, in repl
+    log.info(f"Operation {action} cancelled by user")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'action' where it is not associated with a value
+2025-09-08 16:23:48,830 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:23:48,830 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:23:48,836 - snap7.common - ERROR - b' TCP : Unreachable peer'
+2025-09-08 16:23:48,837 - plc_tool - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-09-08 16:23:48,840 - plc_tool - INFO - SIM: Connected
+2025-09-08 16:23:48,840 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:23:48,842 - plc_tool - INFO - SIM: Read DB9.DBB198 = ['0x0', '0x0']
+2025-09-08 16:23:48,843 - __main__ - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 834, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 881, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 836, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-09-08 16:23:48,847 - plc_tool - INFO - SIM: Disconnected
+2025-09-08 16:23:48,847 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:00,031 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:24:00,032 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:24:00,151 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:24:00,199 - __main__ - INFO - Current operation mode: CONVENTIONAL
+2025-09-08 16:24:00,199 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:24:00,201 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:00,202 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:24:23,858 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:24:23,859 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:24:24,010 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:24:24,052 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:24:24,053 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:24:24,054 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:24,055 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:24:24,056 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:24:24,056 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:24:24,206 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:24:24,317 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:24:24,318 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:24:24,318 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:24:24,319 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:24,319 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:24:26,684 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:24:26,685 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:24:26,832 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:24:26,901 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:24:26,901 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:24:26,902 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:26,903 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:24:26,904 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:24:26,904 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:24:27,069 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:24:27,179 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:24:27,180 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:24:27,180 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:24:27,181 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:24:27,182 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:44:26,985 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:44:26,986 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:44:27,141 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:44:27,179 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:44:27,179 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:44:27,181 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:44:27,181 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:44:27,182 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:44:27,183 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:44:27,359 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:44:27,456 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:44:27,456 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:44:27,457 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:44:27,458 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:44:27,458 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:44:29,705 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:44:29,706 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:44:29,843 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:44:29,874 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:44:29,874 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:44:29,875 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:44:29,875 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:44:29,876 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:44:29,880 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:44:45,973 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:44:45,974 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:44:46,119 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:44:47,341 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=8.0, Temp=23.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:44:47,404 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=8.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:44:47,405 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:44:47,405 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:44:47,406 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:44:47,411 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:45:01,678 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='confirm', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:45:01,680 - __main__ - INFO - Routing message: 'confirm' (pending_action: run)
+2025-09-08 16:45:03,584 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-08 16:45:05,579 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:45:06,200 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-08 16:45:08,230 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:45:08,239 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='confirm', additional_kwargs={}, response_metadata={}), AIMessage(content='Acknowledged. Initiating the run process. Monitoring system for proper execution...', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': 'run', 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:45:10,813 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:45:10,813 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:45:10,923 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:45:10,963 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:45:10,964 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:45:10,965 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:45:10,965 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:45:10,965 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='confirm', additional_kwargs={}, response_metadata={}), AIMessage(content='Acknowledged. Initiating the run process. Monitoring system for proper execution...', additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': 'run', 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:45:10,968 - __main__ - INFO - Routing message: 'pause' (pending_action: run)
+2025-09-08 16:45:10,969 - __main__ - INFO - Handling PAUSE command...
+2025-09-08 16:45:10,969 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:45:10,969 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:45:11,146 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:45:11,146 - __main__ - INFO - Reading current status...
+2025-09-08 16:45:11,207 - __main__ - INFO - Current status code: 2
+2025-09-08 16:45:11,208 - __main__ - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-08 16:45:11,208 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-08 16:45:11,209 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-08 16:45:11,209 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:45:11,209 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:45:11,210 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:45:11,210 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:45:11,293 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-08 16:45:11,348 - plc_tool - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-08 16:45:11,349 - __main__ - INFO - Disconnecting from PLC...
+2025-09-08 16:45:11,349 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:45:11,350 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:45:11,350 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:45:13,129 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:45:13,481 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-08 16:45:15,460 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:45:15,465 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='confirm', additional_kwargs={}, response_metadata={}), AIMessage(content='Acknowledged. Initiating the run process. Monitoring system for proper execution...', additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the ongoing run on TAMARA, follow these steps:\n\n1. Locate the leftmost button on the interface, which is the Pause button.\n2. Press the Pause button to put the synthesis on hold.\n\nAfter pausing the run, ensure that the system is safely secured and that all components are in their correct positions. When you are ready to resume the run, you can simply press the Pause button again to continue from where you left off.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': 'run', 'last_mode_check': 1757342667.4586277}
+2025-09-08 16:45:17,654 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:45:17,654 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:45:17,834 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:45:17,892 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:45:17,892 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:45:17,894 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:45:17,894 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:45:17,894 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:45:17,895 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:45:18,079 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:45:18,161 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:45:18,161 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:45:18,162 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:45:18,162 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:45:18,162 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:46:16,726 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:46:16,727 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:46:16,867 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:46:16,923 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:46:16,923 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:46:16,924 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:46:16,924 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:46:16,926 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:46:16,927 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:46:17,106 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:46:17,164 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:46:17,164 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:46:17,165 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:46:17,165 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:46:17,166 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:46:19,641 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:46:19,642 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:46:19,817 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:46:19,863 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:46:19,864 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:46:19,866 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:46:19,866 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:46:19,867 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757342777.1662757}
+2025-09-08 16:46:19,874 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:46:35,886 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:46:35,887 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:46:36,042 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:46:37,226 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=5.0, FRR=5, Vol=12.0, Temp=24.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:46:37,297 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=5.0, frr=5, target_volume=12.0, temperature=24.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:46:37,298 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:46:37,298 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:46:37,300 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:46:37,302 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757342777.1662757}
+2025-09-08 16:48:42,902 - __main__ - INFO - Starting run operation...
+2025-09-08 16:48:42,903 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:48:42,904 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:48:43,065 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:48:43,066 - plc_tool - INFO - Clearing all command bits
+2025-09-08 16:48:43,067 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-08 16:48:43,067 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:48:43,068 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:48:43,068 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:43,069 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:48:43,187 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-08 16:48:43,264 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:48:43,266 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:48:43,266 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:48:43,267 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:43,268 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:48:43,435 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:48:43,497 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:48:43,498 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:48:43,499 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:48:43,500 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:43,500 - plc_tool - INFO -   raw_start: 258.2
+2025-09-08 16:48:43,590 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:48:43,637 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-08 16:48:43,637 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:48:43,638 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:48:43,639 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:48:43,639 - plc_tool - INFO -   raw_start: 258.3
+2025-09-08 16:48:43,761 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-08 16:48:43,808 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:48:43,810 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:48:43,810 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:48:43,811 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:43,811 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:48:43,932 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:48:43,977 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:48:43,980 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:48:43,981 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:48:43,982 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:43,983 - plc_tool - INFO -   raw_start: 260.1
+2025-09-08 16:48:44,118 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:48:44,165 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:48:44,167 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:48:44,167 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:48:44,168 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:44,168 - plc_tool - INFO -   raw_start: 260.2
+2025-09-08 16:48:44,304 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:48:44,352 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:48:44,352 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:48:44,353 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:48:44,353 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:48:44,354 - plc_tool - INFO -   raw_start: 260.3
+2025-09-08 16:48:44,489 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:48:44,552 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:48:44,552 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:48:44,553 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:48:44,553 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:44,554 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:48:44,660 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:48:44,722 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:48:44,722 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:48:44,723 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:48:44,723 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:44,724 - plc_tool - INFO -   raw_start: 262.1
+2025-09-08 16:48:44,878 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:48:44,932 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:48:44,932 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:48:44,933 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:48:44,933 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:48:44,934 - plc_tool - INFO -   raw_start: 262.2
+2025-09-08 16:48:45,046 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:48:45,103 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:48:45,103 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:48:45,103 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:48:45,103 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:48:45,104 - plc_tool - INFO -   raw_start: 262.3
+2025-09-08 16:48:45,202 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:48:45,248 - plc_tool - INFO - All command bits cleared and verified
+2025-09-08 16:48:45,248 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-08 16:48:45,248 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:48:45,249 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:48:45,250 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:48:45,250 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:45,250 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:48:45,353 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:48:45,353 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:48:45,353 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:48:45,354 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:48:45,354 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:45,354 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:48:45,461 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:48:45,461 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-08 16:48:45,462 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:48:45,462 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:48:45,462 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:48:45,462 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:48:45,591 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-08 16:48:45,649 - plc_tool - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-08 16:48:45,739 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:48:45,739 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:48:54,869 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:48:54,870 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:48:55,037 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:48:55,100 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:48:55,100 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:48:55,101 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:48:55,102 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:48:55,102 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:48:55,104 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:48:55,316 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:48:55,439 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:48:55,439 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:48:55,440 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:48:55,440 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:48:55,441 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:49:23,950 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='status', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757342777.1662757, 'confirmed': True}
+2025-09-08 16:49:23,952 - __main__ - INFO - Routing message: 'status' (pending_action: None)
+2025-09-08 16:49:23,952 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:49:23,954 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:49:24,081 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:49:24,161 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:49:24,161 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:49:24,162 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:49:26,123 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-08 16:49:27,565 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:49:28,629 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-08 16:49:30,704 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-08 16:49:30,709 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='status', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA Status: Ready - System is ready for operation', additional_kwargs={}, response_metadata={}), AIMessage(content='The current status is: **Run completed**\n\nYou should access the summary page now. If not, it indicates a failed run, and you should follow the suggestions on the screen.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757342777.1662757}
+2025-09-08 16:50:47,351 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:50:47,352 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:50:47,511 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:50:47,570 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:50:47,570 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:50:47,571 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:50:47,571 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:50:47,572 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='status', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA Status: Ready - System is ready for operation', additional_kwargs={}, response_metadata={}), AIMessage(content='The current status is: **Run completed**\n\nYou should access the summary page now. If not, it indicates a failed run, and you should follow the suggestions on the screen.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757342777.1662757}
+2025-09-08 16:50:47,573 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:51:06,544 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:51:06,545 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:51:06,691 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:51:08,166 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=8.0, Temp=23.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:51:08,221 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=8.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:51:08,222 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:51:08,222 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:51:08,223 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:51:08,225 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='status', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA Status: Ready - System is ready for operation', additional_kwargs={}, response_metadata={}), AIMessage(content='The current status is: **Run completed**\n\nYou should access the summary page now. If not, it indicates a failed run, and you should follow the suggestions on the screen.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757342777.1662757}
+2025-09-08 16:52:09,140 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:14,648 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:14,648 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:14,849 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:14,908 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:52:14,909 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:14,909 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:14,910 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:14,911 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:14,911 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:15,093 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:15,197 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:52:15,198 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:52:15,198 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:15,199 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:15,199 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:18,683 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:18,684 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:18,834 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:18,877 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:52:18,878 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:18,879 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:18,880 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:18,881 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757343135.2008162}
+2025-09-08 16:52:18,885 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-08 16:52:39,561 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:39,562 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:39,666 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:41,159 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=9.0, Temp=23.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-08 16:52:41,221 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=9.0, temperature=23.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-08 16:52:41,222 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:41,223 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:41,223 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:41,225 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757343135.2008162}
+2025-09-08 16:52:46,761 - __main__ - INFO - Starting run operation...
+2025-09-08 16:52:46,762 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:46,763 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:46,931 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:46,931 - plc_tool - INFO - Clearing all command bits
+2025-09-08 16:52:46,932 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-08 16:52:46,932 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:52:46,933 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:52:46,934 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:46,934 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:52:47,056 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-08 16:52:47,110 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:52:47,111 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:52:47,111 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:52:47,113 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:47,114 - plc_tool - INFO -   raw_start: 258.1
+2025-09-08 16:52:47,225 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-08 16:52:47,288 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:52:47,288 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:52:47,289 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:52:47,289 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:47,290 - plc_tool - INFO -   raw_start: 258.2
+2025-09-08 16:52:47,415 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-08 16:52:47,464 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-08 16:52:47,464 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:52:47,465 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:52:47,465 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:52:47,466 - plc_tool - INFO -   raw_start: 258.3
+2025-09-08 16:52:47,546 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-08 16:52:47,577 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:52:47,577 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:52:47,578 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:52:47,578 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:47,578 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:52:47,701 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:52:47,776 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:52:47,776 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:52:47,776 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:52:47,777 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:47,777 - plc_tool - INFO -   raw_start: 260.1
+2025-09-08 16:52:47,865 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-08 16:52:47,933 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:52:47,933 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:52:47,934 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:52:47,934 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:47,935 - plc_tool - INFO -   raw_start: 260.2
+2025-09-08 16:52:48,050 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-08 16:52:48,091 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:52:48,091 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:52:48,092 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:52:48,092 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:52:48,093 - plc_tool - INFO -   raw_start: 260.3
+2025-09-08 16:52:48,193 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-08 16:52:48,255 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:52:48,255 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:52:48,257 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:52:48,257 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:48,257 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:52:48,383 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:52:48,429 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:52:48,430 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:52:48,430 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:52:48,430 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:48,431 - plc_tool - INFO -   raw_start: 262.1
+2025-09-08 16:52:48,546 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-08 16:52:48,588 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:52:48,588 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:52:48,588 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:52:48,590 - plc_tool - INFO -   bit_offset: 1
+2025-09-08 16:52:48,590 - plc_tool - INFO -   raw_start: 262.2
+2025-09-08 16:52:48,663 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-08 16:52:48,732 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:52:48,732 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:52:48,733 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:52:48,733 - plc_tool - INFO -   bit_offset: 3
+2025-09-08 16:52:48,733 - plc_tool - INFO -   raw_start: 262.3
+2025-09-08 16:52:48,862 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-08 16:52:48,906 - plc_tool - INFO - All command bits cleared and verified
+2025-09-08 16:52:48,906 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-08 16:52:48,907 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-08 16:52:48,907 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-08 16:52:48,907 - plc_tool - INFO -   byte_offset: 260
+2025-09-08 16:52:48,907 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:48,907 - plc_tool - INFO -   raw_start: 260.0
+2025-09-08 16:52:49,005 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-08 16:52:49,005 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:52:49,006 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-08 16:52:49,006 - plc_tool - INFO -   byte_offset: 262
+2025-09-08 16:52:49,006 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:49,007 - plc_tool - INFO -   raw_start: 262.0
+2025-09-08 16:52:49,132 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-08 16:52:49,132 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-08 16:52:49,133 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-08 16:52:49,133 - plc_tool - INFO -   byte_offset: 258
+2025-09-08 16:52:49,134 - plc_tool - INFO -   bit_offset: 0
+2025-09-08 16:52:49,134 - plc_tool - INFO -   raw_start: 258.0
+2025-09-08 16:52:49,256 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-08 16:52:49,326 - plc_tool - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-08 16:52:49,427 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:49,428 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:56,437 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:56,437 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:56,594 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:56,642 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-08 16:52:56,643 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:56,643 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:56,644 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:52:56,645 - snap7.client - INFO - creating snap7 client
+2025-09-08 16:52:56,645 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-08 16:52:56,848 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-08 16:52:56,971 - plc_tool - INFO - Machine mode set to 1
+2025-09-08 16:52:56,971 - __main__ - INFO - Machine mode set to READY
+2025-09-08 16:52:56,972 - snap7.client - INFO - disconnecting snap7 client
+2025-09-08 16:52:56,972 - plc_tool - INFO - PLC disconnected
+2025-09-08 16:52:56,972 - snap7.client - INFO - destroying snap7 client
+2025-09-08 16:53:34,823 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:01:00,082 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:01:00,083 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:01:00,154 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:01:00,193 - __main__ - INFO - Current operation mode: CONVENTIONAL
+2025-09-09 09:01:00,194 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:01:00,194 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:01:00,195 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:03:28,925 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:03:28,925 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:03:28,998 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:03:29,032 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:03:29,033 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:03:29,033 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:03:29,034 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:03:29,034 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:03:29,035 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:03:29,178 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:03:29,239 - plc_tool - INFO - Machine mode set to 1
+2025-09-09 09:03:29,239 - __main__ - INFO - Machine mode set to READY
+2025-09-09 09:03:29,239 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:03:29,241 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:03:29,241 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:03:56,651 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:03:56,658 - __main__ - INFO - Routing message: 'who are you?' (pending_action: None)
+2025-09-09 09:03:59,280 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-09 09:04:00,515 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:04:02,292 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:04:02,303 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:04:37,853 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:04:37,854 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:04:37,977 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:04:38,010 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:04:38,011 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:04:38,011 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:04:38,012 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:04:38,012 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:04:38,014 - __main__ - INFO - Routing message: 'clean' (pending_action: None)
+2025-09-09 09:05:00,941 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:00,942 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:01,030 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:01,942 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: CLEAN
+- Core params: TFR=4.0, FRR=4, Vol=8.0, Temp=23.0, Chip=HERRINGBONE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:05:01,974 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=8.0, temperature=23.0, chip_id=<ChipID.HERRINGBONE: 1>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.CLEAN: 3>, custom_solvent=None), pending_action=clean
+2025-09-09 09:05:01,975 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:01,975 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:01,976 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:01,978 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'clean', 'pending_action': 'clean', 'last_mode_check': 1757401409.24107}
+2025-09-09 09:05:16,966 - __main__ - INFO - Starting clean operation...
+2025-09-09 09:05:16,966 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:16,967 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:17,039 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:17,039 - plc_tool - INFO - Clearing all command bits
+2025-09-09 09:05:17,040 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:05:17,040 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:05:17,041 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:05:17,041 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:17,042 - plc_tool - INFO -   raw_start: 258.0
+2025-09-09 09:05:17,116 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:05:17,147 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:05:17,147 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:05:17,148 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:05:17,148 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:17,148 - plc_tool - INFO -   raw_start: 258.1
+2025-09-09 09:05:17,213 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:05:17,223 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:05:17,223 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:05:17,224 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:05:17,224 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:17,225 - plc_tool - INFO -   raw_start: 258.2
+2025-09-09 09:05:17,265 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:05:17,293 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:05:17,293 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:05:17,294 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:05:17,294 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:05:17,294 - plc_tool - INFO -   raw_start: 258.3
+2025-09-09 09:05:17,375 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:05:17,413 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:05:17,416 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:17,417 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:17,417 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:17,418 - plc_tool - INFO -   raw_start: 260.0
+2025-09-09 09:05:17,454 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:05:17,496 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:05:17,496 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:17,497 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:17,497 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:17,498 - plc_tool - INFO -   raw_start: 260.1
+2025-09-09 09:05:17,604 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:05:17,658 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:05:17,658 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:17,658 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:17,659 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:17,659 - plc_tool - INFO -   raw_start: 260.2
+2025-09-09 09:05:17,733 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:05:17,741 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:05:17,741 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:17,742 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:17,742 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:05:17,743 - plc_tool - INFO -   raw_start: 260.3
+2025-09-09 09:05:17,815 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:05:17,861 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:05:17,861 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:05:17,862 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:05:17,862 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:17,862 - plc_tool - INFO -   raw_start: 262.0
+2025-09-09 09:05:17,928 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:05:17,952 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:05:17,952 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:05:17,954 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:05:17,954 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:17,955 - plc_tool - INFO -   raw_start: 262.1
+2025-09-09 09:05:18,007 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:05:18,018 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:05:18,019 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:05:18,019 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:05:18,020 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:18,020 - plc_tool - INFO -   raw_start: 262.2
+2025-09-09 09:05:18,090 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:05:18,126 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:05:18,126 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:05:18,127 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:05:18,127 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:05:18,127 - plc_tool - INFO -   raw_start: 262.3
+2025-09-09 09:05:18,194 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:05:18,205 - plc_tool - INFO - All command bits cleared and verified
+2025-09-09 09:05:18,205 - plc_tool - INFO - Pulsing COMMANDS_CLEAN.b_START to True
+2025-09-09 09:05:18,206 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:05:18,206 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:05:18,206 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:05:18,207 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:18,207 - plc_tool - INFO -   raw_start: 258.0
+2025-09-09 09:05:18,227 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:05:18,227 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:05:18,228 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:05:18,228 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:05:18,228 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:18,229 - plc_tool - INFO -   raw_start: 262.0
+2025-09-09 09:05:18,248 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:05:18,248 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = True
+2025-09-09 09:05:18,249 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:18,249 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:18,249 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:05:18,250 - plc_tool - INFO -   raw_start: 260.0
+2025-09-09 09:05:18,316 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = True
+2025-09-09 09:05:18,366 - plc_tool - INFO - Command COMMANDS_CLEAN.b_START successfully set to True and verified
+2025-09-09 09:05:18,449 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:18,449 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:31,185 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:31,185 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:31,261 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:31,289 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:05:31,289 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:31,289 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:31,291 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:31,291 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'clean', 'pending_action': None, 'last_mode_check': 1757401409.24107, 'confirmed': True}
+2025-09-09 09:05:31,292 - __main__ - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:05:31,292 - __main__ - INFO - Handling PAUSE command...
+2025-09-09 09:05:31,294 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:31,294 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:31,435 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:31,435 - __main__ - INFO - Reading current status...
+2025-09-09 09:05:31,473 - __main__ - INFO - Current status code: 3
+2025-09-09 09:05:31,473 - __main__ - INFO - Setting PAUSE_PLAY bit to TRUE for CLEAN mode...
+2025-09-09 09:05:31,474 - plc_tool - INFO - Pulsing COMMANDS_CLEAN.b_PAUSE_PLAY to True
+2025-09-09 09:05:31,474 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = True
+2025-09-09 09:05:31,474 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:31,474 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:31,475 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:31,475 - plc_tool - INFO -   raw_start: 260.1
+2025-09-09 09:05:31,553 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = True
+2025-09-09 09:05:31,607 - plc_tool - INFO - Command COMMANDS_CLEAN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:05:31,607 - __main__ - INFO - Disconnecting from PLC...
+2025-09-09 09:05:31,608 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:31,608 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:31,608 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:34,658 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:05:35,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:05:37,976 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:05:38,000 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:05:42,595 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:42,596 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:42,725 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:42,783 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:05:42,784 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:42,784 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:42,786 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:42,786 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:05:42,788 - __main__ - INFO - Routing message: 'play' (pending_action: None)
+2025-09-09 09:05:42,788 - __main__ - INFO - Handling PLAY/RESUME command...
+2025-09-09 09:05:42,789 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:42,789 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:42,918 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:42,918 - __main__ - INFO - Reading current status...
+2025-09-09 09:05:42,964 - __main__ - INFO - Current status code: 3
+2025-09-09 09:05:42,964 - __main__ - INFO - Setting PAUSE_PLAY bit to FALSE for CLEAN mode...
+2025-09-09 09:05:42,965 - plc_tool - INFO - Pulsing COMMANDS_CLEAN.b_PAUSE_PLAY to False
+2025-09-09 09:05:42,965 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:05:42,966 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:05:42,967 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:05:42,967 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:05:42,967 - plc_tool - INFO -   raw_start: 260.1
+2025-09-09 09:05:43,009 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:05:43,019 - plc_tool - INFO - Command COMMANDS_CLEAN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:05:43,019 - __main__ - INFO - Disconnecting from PLC...
+2025-09-09 09:05:43,020 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:43,021 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:43,021 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:43,754 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:05:44,534 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:05:45,678 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:05:45,681 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:05:49,726 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:49,727 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:49,802 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:49,847 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:05:49,847 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:49,848 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:49,849 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:05:49,849 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:05:49,850 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:05:50,004 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:05:50,097 - plc_tool - INFO - Machine mode set to 1
+2025-09-09 09:05:50,097 - __main__ - INFO - Machine mode set to READY
+2025-09-09 09:05:50,098 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:05:50,098 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:05:50,098 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:06:33,340 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:06:33,340 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:06:33,439 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:06:33,481 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:06:33,481 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:06:33,482 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:06:33,483 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:06:33,485 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:06:33,487 - __main__ - INFO - Routing message: 'run' (pending_action: None)
+2025-09-09 09:06:53,680 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:06:53,682 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:06:53,763 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:06:54,570 - plc_tool - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=4.0, FRR=4, Vol=10.0, Temp=24.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-09-09 09:06:54,625 - __main__ - INFO - State after PLC validation: input_payload=InputPayload(tfr=4.0, frr=4, target_volume=10.0, temperature=24.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-09-09 09:06:54,626 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:06:54,626 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:06:54,627 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:06:54,630 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1757401409.24107}
+2025-09-09 09:07:05,023 - __main__ - INFO - Starting run operation...
+2025-09-09 09:07:05,023 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:07:05,024 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:07:05,122 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:07:05,122 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:07:05,123 - plc_tool - INFO - Clearing all command bits
+2025-09-09 09:07:05,123 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-09-09 09:07:05,124 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:05,124 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:05,125 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:05,125 - plc_tool - INFO -   raw_start: 258.0
+2025-09-09 09:07:05,223 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-09-09 09:07:05,240 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:07:05,240 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:05,241 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:05,241 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:05,242 - plc_tool - INFO -   raw_start: 258.1
+2025-09-09 09:07:05,263 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:07:05,314 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:07:05,314 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:05,315 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:05,315 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:05,315 - plc_tool - INFO -   raw_start: 258.2
+2025-09-09 09:07:05,369 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-09-09 09:07:05,411 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-09-09 09:07:05,411 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:05,412 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:05,412 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:07:05,412 - plc_tool - INFO -   raw_start: 258.3
+2025-09-09 09:07:05,483 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-09-09 09:07:05,525 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:07:05,526 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:07:05,526 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:07:05,527 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:05,527 - plc_tool - INFO -   raw_start: 260.0
+2025-09-09 09:07:05,562 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:07:05,584 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:07:05,584 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:07:05,584 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:07:05,586 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:05,586 - plc_tool - INFO -   raw_start: 260.1
+2025-09-09 09:07:05,658 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-09-09 09:07:05,689 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:07:05,689 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:07:05,690 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:07:05,690 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:05,691 - plc_tool - INFO -   raw_start: 260.2
+2025-09-09 09:07:05,766 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-09-09 09:07:05,780 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:07:05,781 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:07:05,781 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:07:05,782 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:07:05,782 - plc_tool - INFO -   raw_start: 260.3
+2025-09-09 09:07:05,836 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-09-09 09:07:05,866 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:07:05,866 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:07:05,867 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:07:05,867 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:05,868 - plc_tool - INFO -   raw_start: 262.0
+2025-09-09 09:07:05,934 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:07:05,975 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:07:05,976 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:07:05,976 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:07:05,977 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:05,977 - plc_tool - INFO -   raw_start: 262.1
+2025-09-09 09:07:06,028 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-09-09 09:07:06,038 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:07:06,039 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:07:06,039 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:07:06,040 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:06,040 - plc_tool - INFO -   raw_start: 262.2
+2025-09-09 09:07:06,073 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-09-09 09:07:06,122 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:07:06,123 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:07:06,123 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:07:06,123 - plc_tool - INFO -   bit_offset: 3
+2025-09-09 09:07:06,124 - plc_tool - INFO -   raw_start: 262.3
+2025-09-09 09:07:06,188 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-09-09 09:07:06,225 - plc_tool - INFO - All command bits cleared and verified
+2025-09-09 09:07:06,226 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-09-09 09:07:06,226 - plc_tool - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-09-09 09:07:06,226 - plc_tool - INFO -   section: COMMANDS_CLEAN
+2025-09-09 09:07:06,227 - plc_tool - INFO -   byte_offset: 260
+2025-09-09 09:07:06,227 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:06,227 - plc_tool - INFO -   raw_start: 260.0
+2025-09-09 09:07:06,293 - plc_tool - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-09-09 09:07:06,293 - plc_tool - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:07:06,294 - plc_tool - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-09-09 09:07:06,294 - plc_tool - INFO -   byte_offset: 262
+2025-09-09 09:07:06,294 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:06,295 - plc_tool - INFO -   raw_start: 262.0
+2025-09-09 09:07:06,362 - plc_tool - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-09-09 09:07:06,362 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-09-09 09:07:06,363 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:06,363 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:06,363 - plc_tool - INFO -   bit_offset: 0
+2025-09-09 09:07:06,364 - plc_tool - INFO -   raw_start: 258.0
+2025-09-09 09:07:06,448 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-09-09 09:07:06,493 - plc_tool - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-09-09 09:07:06,577 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:07:06,577 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:07:53,652 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:07:53,653 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:07:53,741 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:07:53,792 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:07:53,793 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:07:53,794 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:07:53,794 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:07:53,795 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1757401409.24107, 'confirmed': True}
+2025-09-09 09:07:53,797 - __main__ - INFO - Routing message: 'pause' (pending_action: None)
+2025-09-09 09:07:53,797 - __main__ - INFO - Handling PAUSE command...
+2025-09-09 09:07:53,797 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:07:53,798 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:07:53,938 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:07:53,938 - __main__ - INFO - Reading current status...
+2025-09-09 09:07:53,994 - __main__ - INFO - Current status code: 2
+2025-09-09 09:07:53,994 - __main__ - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-09-09 09:07:53,995 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-09-09 09:07:53,995 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:07:53,995 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:07:53,995 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:07:53,996 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:07:53,996 - plc_tool - INFO -   raw_start: 258.1
+2025-09-09 09:07:54,072 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-09-09 09:07:54,124 - plc_tool - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-09-09 09:07:54,124 - __main__ - INFO - Disconnecting from PLC...
+2025-09-09 09:07:54,126 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:07:54,127 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:07:54,127 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:07:54,863 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:07:55,615 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:07:57,449 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:07:57,456 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the operation to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the operation, follow the standard procedure for restarting the process.\n\nAlways follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:08:00,492 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:08:00,493 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:08:00,572 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:08:00,611 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:08:00,611 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:08:00,612 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:08:00,612 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:08:00,614 - __main__ - INFO - Current state before invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the operation to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the operation, follow the standard procedure for restarting the process.\n\nAlways follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:08:00,615 - __main__ - INFO - Routing message: 'play' (pending_action: None)
+2025-09-09 09:08:00,616 - __main__ - INFO - Handling PLAY/RESUME command...
+2025-09-09 09:08:00,616 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:08:00,617 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:08:00,763 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:08:00,763 - __main__ - INFO - Reading current status...
+2025-09-09 09:08:00,795 - __main__ - INFO - Current status code: 2
+2025-09-09 09:08:00,795 - __main__ - INFO - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-09-09 09:08:00,796 - plc_tool - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-09-09 09:08:00,796 - plc_tool - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:08:00,797 - plc_tool - INFO -   section: COMMANDS_RUN
+2025-09-09 09:08:00,797 - plc_tool - INFO -   byte_offset: 258
+2025-09-09 09:08:00,798 - plc_tool - INFO -   bit_offset: 1
+2025-09-09 09:08:00,798 - plc_tool - INFO -   raw_start: 258.1
+2025-09-09 09:08:00,866 - plc_tool - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-09-09 09:08:00,892 - plc_tool - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-09-09 09:08:00,893 - __main__ - INFO - Disconnecting from PLC...
+2025-09-09 09:08:00,893 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:08:00,894 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:08:00,895 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:08:01,427 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:08:01,969 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-09 09:08:02,954 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-09 09:08:02,963 - __main__ - INFO - Current state after invoke: {'messages': [HumanMessage(content='Who are you?', additional_kwargs={}, response_metadata={}), AIMessage(content="I am an AI assistant specializing in TAMARA, a microfluidic system. My role is to provide technical information, step-by-step guidance, and safety considerations related to TAMARA's operation, specifications, and best practices.", additional_kwargs={}, response_metadata={}), HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="CLEAN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the cleaning operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the cleaning cycle to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the cleaning operation, follow the standard procedure for restarting the process.\n\nIt\'s crucial to follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='To resume the cleaning operation on TAMARA after pausing, simply press the "Play" button on the control panel. This will allow the cleaning cycle to continue from where it was paused. \n\nEnsure that all components are in the correct position and that the system is ready to resume operation safely. If there are any specific steps required to resume the cleaning cycle, follow the manufacturer\'s guidelines to ensure proper operation.', additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the operation on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the control panel of TAMARA.\n2. Ensure that all processes come to a stop, and the system is in a safe state.\n3. Check the status of the operation to ensure it has paused correctly.\n4. If needed, make a note of the current progress or any specific steps completed.\n5. To resume the operation, follow the standard procedure for restarting the process.\n\nAlways follow the manufacturer\'s guidelines and safety protocols when pausing and resuming operations on TAMARA to prevent any damage or safety hazards.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='CLEAN operation resumed.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1757401409.24107}
+2025-09-09 09:08:11,855 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:08:11,856 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:08:11,943 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:08:11,980 - __main__ - INFO - Current operation mode: AGENTIC
+2025-09-09 09:08:11,981 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:08:11,981 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:08:11,983 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:08:11,983 - snap7.client - INFO - creating snap7 client
+2025-09-09 09:08:11,984 - snap7.client - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-09 09:08:12,145 - plc_tool - INFO - PLC connected (192.168.0.1)
+2025-09-09 09:08:12,241 - plc_tool - INFO - Machine mode set to 1
+2025-09-09 09:08:12,242 - __main__ - INFO - Machine mode set to READY
+2025-09-09 09:08:12,243 - snap7.client - INFO - disconnecting snap7 client
+2025-09-09 09:08:12,244 - plc_tool - INFO - PLC disconnected
+2025-09-09 09:08:12,244 - snap7.client - INFO - destroying snap7 client
+2025-09-09 09:11:43,179 - snap7.client - INFO - destroying snap7 client

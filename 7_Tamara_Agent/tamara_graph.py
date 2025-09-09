@@ -1,7 +1,58 @@
 #!/usr/bin/env python3
-"""
-tamara_graph.py — Minimal LangGraph agent harness for TAMARA
+from __future__ import annotations
 
+"""
+tamara_graph.py — LangGraph Agent for TAMARA Control System
+
+This module implements a LangGraph-based agent for controlling TAMARA operations,
+providing a natural language interface to the microfluidic system while maintaining
+strict safety protocols and operational validation.
+
+Core Responsibilities:
+1. User Interaction
+   - Natural language command processing
+   - Operation parameter collection
+   - Status feedback and confirmations
+
+2. Safety Management
+   - Pre-operation safety checks
+   - Runtime state validation
+   - Emergency handling
+   - Mode transition safety
+
+3. System Integration
+   - PLC communication (via plc_tool)
+   - Operation state management
+   - Parameter validation
+   - Command verification
+
+4. Knowledge Integration
+   - RAG-based query handling
+   - Context-aware responses
+   - Operation guidance
+
+Graph Structure:
+ROUTE → [ASK_KB → END] or [COLLECT_INPUTS → PRECAUTIONS → ACTIONS → END]
+
+Key Components:
+- GraphState: Manages operation state and history
+- Route: Classifies user intent and handles commands
+- Input Collection: Gathers and validates parameters
+- Precautions: Implements safety checks and confirmations
+- Actions: Executes PLC operations with verification
+
+Safety Features:
+- Mode transition validation
+- Parameter range checking
+- Operation state verification
+- Command exclusivity enforcement
+- Automatic safety state restoration
+"""
+
+# ----------------------------------------------------------------------------
+# Standard library imports
+# ----------------------------------------------------------------------------
+"""
 - A compact agent built with LangGraph that routes between RAG answers and PLC actions.
 - A history-aware RAG chain -> `rag_build.py`
   (OpenAI embeddings "text-embedding-3-small", Chroma persist dir, history-aware retriever,
@@ -33,7 +84,7 @@ Environment hints:
   PLC_*           - same as in plc_tool.py (PLC_SIM=1 by default).
 
 """
-from __future__ import annotations
+
 import os
 import time
 import argparse
@@ -74,17 +125,48 @@ from plc_tool import (
     DB_CONFIG, snap7  # Import DB_CONFIG and snap7 for operation mode check
 )
 
-# PLC Status Constants
+# ----------------------------------------------------------------------------
+# Constants and Configuration
+# ----------------------------------------------------------------------------
+
+class PLCStatus:
+    """PLC status codes and state definitions."""
+    INITIALIZING = 0    # System startup in progress
+    READY = 1          # System ready for operation
+    RUNNING = 2        # Normal operation in progress
+    CLEANING = 3       # Clean cycle in progress
+    PRESSURE_TEST = 4  # Pressure test in progress
+    SAFE_PURGE = 5    # System purging
+    FAULTED = 6       # System error detected
+    RESET = 7         # System reset in progress
+    E_STOP = 8        # Emergency stop activated
+
+class Timeouts:
+    """Operation timeout values in seconds."""
+    MODE_CHECK = 5.0       # Time between operation mode checks
+    CRUNCH_VALID = 10.0    # Maximum wait for PLC validation
+    BACKOFF_MIN = 0.05     # Minimum polling interval
+    BACKOFF_MAX = 0.2      # Maximum polling interval
+
+class Validation:
+    """Parameter validation limits."""
+    TFR_MIN = 0.8         # Minimum Total Flow Rate (mL/min)
+    TFR_MAX = 15.0        # Maximum Total Flow Rate (mL/min)
+    TEMP_MIN = 5.0        # Minimum Temperature (°C)
+    TEMP_MAX = 60.0       # Maximum Temperature (°C)
+    STRING_MAX = 16       # Maximum length for custom solvent name
+
+# Backwards compatibility - some code still uses dictionary format
 PLC_STATUS = {
-    "INITIALIZING": 0,
-    "READY": 1,
-    "RUNNING": 2,
-    "CLEANING": 3,
-    "PRESSURE_TEST": 4,
-    "SAFE_PURGE": 5,
-    "FAULTED": 6,
-    "RESET": 7,
-    "E_STOP": 8
+    "INITIALIZING": PLCStatus.INITIALIZING,
+    "READY": PLCStatus.READY,
+    "RUNNING": PLCStatus.RUNNING,
+    "CLEANING": PLCStatus.CLEANING,
+    "PRESSURE_TEST": PLCStatus.PRESSURE_TEST,
+    "SAFE_PURGE": PLCStatus.SAFE_PURGE,
+    "FAULTED": PLCStatus.FAULTED,
+    "RESET": PLCStatus.RESET,
+    "E_STOP": PLCStatus.E_STOP
 }
 
 # Configure logging
@@ -232,19 +314,19 @@ class GraphState(TypedDict, total=False):
     messages: List[Any]               # alternating HumanMessage/AIMessage
     intent: Optional[Literal["ask_kb", "run", "clean", "ptest", "other"]]
     pending_action: Optional[str]     # "run"|"clean"|"ptest" when waiting for confirmation
-    confirmed: bool
-    last_tool_result: Optional[str]
+    # confirmed: bool
+    # last_tool_result: Optional[str]
     last_mode_check: float           # timestamp of last operation mode check
 
 # ------------------------------------------------------------------------------------
 # Router
 # ------------------------------------------------------------------------------------
 
-ROUTE_HINT = (
-    "Classify the user's message into one of: "
-    "ask_kb (knowledge question), run, clean, ptest (pressure test), other. "
-    "Return just the label."
-)
+# ROUTE_HINT = (
+#     "Classify the user's message into one of: "
+#     "ask_kb (knowledge question), run, clean, ptest (pressure test), other. "
+#     "Return just the label."
+# )
 
 def _heuristic_route(text: str) -> str:
     t = text.lower()
@@ -258,6 +340,38 @@ def _heuristic_route(text: str) -> str:
     return "ask_kb"
 
 def route(state: GraphState, *, llm=None) -> GraphState:
+    """Route user messages to appropriate handlers based on intent and current state.
+    
+    This function is the primary routing hub for the TAMARA agent. It handles:
+    1. Command Recognition: Identifies operation commands (run/clean/test)
+    2. Control Commands: Manages pause/play/stop operations
+    3. Status Queries: Provides system state information
+    4. Knowledge Queries: Routes to RAG for information requests
+    
+    Command Priority:
+    1. Control commands (stop/pause/play) - immediate handling
+    2. Status queries - direct PLC communication
+    3. Operation commands (run/clean/test) - requires validation
+    4. Knowledge queries (default) - RAG processing
+    
+    Args:
+        state (GraphState): Current graph state containing:
+            - messages: List of user/AI message history
+            - intent: Current operation intent
+            - pending_action: Any operation awaiting confirmation
+        llm (Optional): Language model instance (unused in current implementation)
+        
+    Returns:
+        GraphState: Updated state with:
+            - New messages added
+            - Intent classification
+            - Any state changes from command processing
+            
+    Safety:
+        - Validates operation mode before state transitions
+        - Ensures proper mode transitions
+        - Maintains operation state consistency
+    """
     last = state["messages"][-1]
     if isinstance(last, HumanMessage):
         user_text = last.content.lower()
@@ -463,11 +577,26 @@ PRECHECK_TEXT_PRESSURE_TEST = (
 def static_validate(payload: InputPayload) -> Tuple[bool, List[str]]:
     """Perform static validation of input parameters before sending to PLC.
     
-    Checks:
-    - TFR range (0.8-15.0 mL/min)
-    - FRR positive
-    - Temperature range (5-60°C)
-    - Target volume positive
+    This function validates all input parameters against their allowed ranges
+    and logical constraints. It performs the following checks:
+    1. TFR (Total Flow Rate) within operational limits
+    2. FRR (Flow Rate Ratio) is positive
+    3. Temperature within safe operating range
+    4. Target volume is positive and reasonable
+    
+    Args:
+        payload (InputPayload): The complete set of operation parameters to validate
+        
+    Returns:
+        Tuple[bool, List[str]]: A tuple containing:
+            - bool: True if all validations pass, False otherwise
+            - List[str]: List of validation error messages (empty if all pass)
+            
+    Example:
+        >>> payload = InputPayload(tfr=1.0, frr=5, ...)
+        >>> is_valid, messages = static_validate(payload)
+        >>> if not is_valid:
+        ...     print("Validation failed:", messages)
     """
     messages = []
     is_valid = True
@@ -586,70 +715,6 @@ def _collect_inputs_from_cli(kind: str) -> InputPayload:
             if input("Try again? (y/n): ").lower() != 'y':
                 raise
 
-def _do_plc_action(kind: str) -> str:
-    """Execute a PLC operation with proper mode handling and command protocol.
-    
-    Args:
-        kind: Operation type ("run", "clean", or "ptest")
-        
-    Returns:
-        Status message for the user
-        
-    The sequence is:
-    1. Collect and validate inputs
-    2. Write inputs and wait for Crunch_Valid
-    3. Set machine mode
-    4. Clear all command bits
-    5. Set START for the target mode
-    6. Wait for user confirmation
-    7. Set CONFIRM bit when confirmed
-    """
-    plc = PLCInterface()
-    try:
-        # Collect and validate inputs
-        payload = _collect_inputs_from_cli(kind)
-        
-        # Write inputs to PLC
-        plc.write_payload_to_plc(payload)
-        
-        # Poll Crunch_Valid with timeout and backoff
-        t0 = time.time()
-        ok = False
-        backoff = 0.05  # Start with 50ms
-        max_backoff = 0.2  # Cap at 200ms
-        timeout = 10.0  # Total timeout 10s
-        
-        while time.time() - t0 < timeout:
-            if plc.read_crunch_valid():
-                ok = True
-                break
-            time.sleep(backoff)
-            backoff = min(backoff * 1.5, max_backoff)  # Exponential backoff
-            
-        if not ok:
-            return f"{kind.capitalize()} inputs were not validated by PLC (timeout after {timeout}s)"
-            
-        # Clear all command bits and set mode
-        plc.clear_all_cmd_bits()
-        
-        # Map operation to machine mode
-        mode_map = {
-            "run": MachineMode.RUN,
-            "clean": MachineMode.CLEAN,
-            "ptest": MachineMode.PRESSURE_TEST
-        }
-        mode = mode_map[kind]
-        
-        # Set START bit for this mode
-        plc.pulse_cmd(mode, ModeCmds.START, True)
-        
-        return f"{kind.capitalize()} inputs accepted and validated. Ready for confirmation."
-        
-    except Exception as e:
-        return f"Error during {kind}: {str(e)}"
-    finally:
-        plc.disconnect()
-
 def do_run(state: GraphState) -> GraphState:
     """Execute RUN operation with validated parameters."""
     if not state.get("pending_action"):
@@ -758,15 +823,57 @@ def answer_with_rag(state: GraphState) -> GraphState:
 def build_graph():
     """Build the TAMARA agent graph with proper state management and flow control.
     
-    Graph Structure:
-    1. Route → Initial intent classification
-    2. Input Collection → Get and validate parameters
-    3. Precautions → Safety checks and confirmation
-    4. Actions → Execute operations
-    5. End → Terminal state
+    This function constructs a LangGraph state machine that enforces:
+    1. Proper operation sequencing
+    2. Safety protocol adherence
+    3. State transition validation
+    4. Error handling and recovery
     
-    State Flow:
-    ROUTE → [ASK_KB → END] or [COLLECT_INPUTS → PRECAUTIONS → ACTIONS → END]
+    Graph Structure:
+    ---------------
+    1. Route Node
+       - Initial intent classification
+       - Command recognition
+       - State validation
+    
+    2. Input Collection Nodes
+       - Parameter gathering
+       - Range validation
+       - PLC communication
+    
+    3. Precaution Nodes
+       - Safety checklist presentation
+       - Operator confirmation
+       - State verification
+    
+    4. Action Nodes
+       - Operation execution
+       - Command bit management
+       - Status monitoring
+    
+    5. Terminal States
+       - Successful completion
+       - Error handling
+       - Operation cancellation
+    
+    State Flow Paths:
+    ----------------
+    1. Knowledge Query:
+       ROUTE → ASK_KB → END
+    
+    2. Operation Execution:
+       ROUTE → COLLECT_INPUTS → PRECAUTIONS → ACTIONS → END
+    
+    Safety Features:
+    ---------------
+    - Mode validation at transitions
+    - Parameter range checking
+    - Command exclusivity enforcement
+    - Operation state verification
+    - Automatic safety state restoration
+    
+    Returns:
+        compiled_graph: A LangGraph state machine ready for execution
     """
     graph = StateGraph(GraphState)
 

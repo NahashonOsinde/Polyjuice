@@ -1,12 +1,46 @@
 # TAMARA Agent - To Do List
 
-## CLEAN_UPS
-- Remove unused function `_do_plc_action` (lines 514-530) - defined but never called
-- Remove unused variable `ROUTE_HINT` (lines 224-228) - defined but never used
-- Remove unused state fields `last_tool_result` and `confirmed` from GraphState - never read or used for logic
-- Add missing type hints to internal functions like `_route_intent` and `_handle_input_collection`
-- Add constants for hardcoded status codes (2, 3, 4) in route function for better maintainability
-- Improve error logging consistency in REPL (use log.error() instead of print for errors)
+## FUTURE CLEAN_UPS
+1. Code Removal:
+   - Remove unused function `_do_plc_action` (lines 514-530) - defined but never called
+   - Remove unused variable `ROUTE_HINT` (lines 224-228) - defined but never used
+   - Remove unused state fields `last_tool_result` and `confirmed` from GraphState
+   - Clean up any deprecated functions and variables
+   - Remove redundant error checks
+
+2. Code Restructuring:
+   - Split large files into smaller, focused modules
+   - Create separate modules for:
+     * PLC communication
+     * State management
+     * Command handling
+     * User interface
+   - Move constants to a dedicated configuration file
+   - Create utility modules for common operations
+
+3. Architecture Improvements:
+   - Implement proper dependency injection
+   - Add abstract interfaces for better testing
+   - Create factory classes for object creation
+   - Add proper service layer separation
+
+4. Error Handling:
+   - Create custom exception classes
+   - Add proper error recovery strategies
+   - Implement retry mechanisms
+   - Add error reporting system
+
+5. Configuration Management:
+   - Move all configuration to external files
+   - Add environment-specific configurations
+   - Implement configuration validation
+   - Add configuration documentation
+
+6. Monitoring & Debugging:
+   - Add performance metrics
+   - Implement proper debug modes
+   - Add system health checks
+   - Create monitoring dashboards
 
 ## NOTES
 - These cleanups are safe removals that won't affect functionality
@@ -20,86 +54,114 @@ TAMARA Agent - Production TODO List
 [ ] Implement Proper State Machine: Add states like RUNNING, PAUSED, STOPPED, CLEANING, TESTING
 [ ] Add State Transitions: Ensure proper flow between states (e.g., can't pause if not running)
 [ ] State Validation: Prevent invalid state transitions (e.g., can't start if already running)
+[ ] E-Stop Handling: Implement immediate response to E-Stop condition
+[ ] State Recovery After E-Stop: Define and implement recovery procedures
+
 2. PLC Address Configuration
 [ ] Complete DB_CONFIG for Clean Mode: Currently only has RUN mode addresses
 [ ] Complete DB_CONFIG for Pressure Test Mode: Missing pressure test specific variables
 [ ] Add Mode-Specific Variables: Different operations may need different PLC variables
 [ ] Validate All Addresses: Ensure no address conflicts or out-of-range errors
+
 3. Error Handling & Recovery
 [ ] PLC Connection Failures: Handle network timeouts, connection drops
 [ ] Command Verification: Add retry logic for failed PLC writes
 [ ] State Recovery: Handle cases where PLC state doesn't match agent state
 [ ] Graceful Degradation: Continue operation even if some PLC variables fail
+
 🟡 MEDIUM PRIORITY - Important Features
 4. Operation Monitoring & Control
 [ ] Real-time Status Updates: Poll PLC status periodically during operations
 [ ] Progress Tracking: Monitor operation progress (e.g., % complete for cleaning cycles)
 [ ] Timeout Handling: Add timeouts for long-running operations
 [ ] Emergency Stop: Implement proper E-stop handling and recovery
+[ ] Safety Interlocks: Implement software safety interlocks
+
 5. User Experience & Safety
 [ ] Operation Confirmation: Require explicit confirmation for critical operations
 [ ] Safety Checks: Validate safety conditions before starting operations
 [ ] Operation Logging: Log all operations for audit trail
 [ ] User Permissions: Different access levels for different operations
+[ ] Safety Status Display: Real-time display of safety-critical parameters
+
 6. Data Management
 [ ] Operation History: Store and retrieve previous operation parameters
 [ ] Parameter Templates: Save/load common parameter sets
 [ ] Export/Import: Allow backup and restore of configurations
 [ ] Data Validation: Ensure data integrity and consistency
+[ ] Safety Parameter Validation: Additional validation for safety-critical parameters
+
 🟢 LOW PRIORITY - Nice to Have
 7. Advanced Features
 [ ] Scheduled Operations: Allow operations to be scheduled
 [ ] Batch Processing: Handle multiple operations in sequence
 [ ] Remote Monitoring: Web interface or API for remote access
 [ ] Notifications: Alert users of operation completion/failures
+[ ] Safety Event Notifications: Immediate alerts for safety-critical events
+
 8. Performance & Optimization
 [ ] Connection Pooling: Reuse PLC connections efficiently
 [ ] Async Operations: Non-blocking PLC communications
 [ ] Caching: Cache frequently accessed PLC data
 [ ] Resource Management: Proper cleanup of resources
-   TECHNICAL DEBT & MIGRATION
+
+TECHNICAL DEBT & MIGRATION
 9. Migration from Snap7 to OPC UA
 [ ] Research OPC UA Libraries: Evaluate Python OPC UA clients
 [ ] Design OPC UA Interface: Plan the OPC UA server structure
 [ ] Implement OPC UA Client: Replace snap7 with OPC UA
 [ ] Data Mapping: Map current DB variables to OPC UA nodes
 [ ] Testing & Validation: Ensure OPC UA implementation works correctly
+
 10. Code Quality & Testing
 [ ] Unit Tests: Add comprehensive test coverage
 [ ] Integration Tests: Test full PLC communication flows
 [ ] Error Simulation: Test error conditions and recovery
 [ ] Performance Tests: Measure response times and throughput
 [ ] Code Documentation: Add detailed docstrings and comments
+[ ] Safety Feature Testing: Comprehensive testing of safety features
+
 🚨 SECURITY & COMPLIANCE
 11. Security Measures
 [ ] Authentication: User login and session management
 [ ] Authorization: Role-based access control
-[ Audit Logging: Track all user actions and system changes
+[ ] Audit Logging: Track all user actions and system changes
 [ ] Input Validation: Prevent injection attacks and invalid inputs
 [ ] Network Security: Secure PLC communication channels
+[ ] Safety System Access Control: Restricted access to safety parameters
+
 12. Compliance & Standards
 [ ] Industry Standards: Ensure compliance with relevant standards
 [ ] Data Protection: Implement data privacy measures
 [ ] Backup & Recovery: Regular backups and disaster recovery
 [ ] Change Management: Proper change control procedures
+[ ] Safety Standards Compliance: Meet relevant safety standards
+
 📊 MONITORING & MAINTENANCE
 13. System Health
 [ ] Health Checks: Monitor system status and performance
 [ ] Alerting: Proactive notification of issues
 [ ] Metrics Collection: Gather performance and usage metrics
 [ ] Log Analysis: Tools for analyzing logs and debugging
+[ ] Safety System Monitoring: Dedicated monitoring for safety systems
+
 14. Deployment & Operations
 [ ] Installation Scripts: Automated deployment
 [ ] Configuration Management: Environment-specific configurations
 [ ] Update Procedures: Safe update and rollback procedures
 [ ] Backup Procedures: Regular backup schedules
+[ ] Safety System Configuration: Separate configuration for safety features
+
 🎯 IMMEDIATE NEXT STEPS (Next 1-2 weeks):
 Fix State Management - This is blocking proper operation flow
 Complete PLC Configuration - Add missing Clean and Pressure Test addresses
 Add Error Handling - Make the system more robust
 Implement State Recovery - Handle PLC-agent state mismatches
-   LONG-TERM VISION (Next 3-6 months):
+Implement E-Stop Handling - Critical safety feature
+
+LONG-TERM VISION (Next 3-6 months):
 OPC UA Migration - Modernize the communication protocol
 Web Interface - Add remote monitoring capabilities
 Advanced Automation - Scheduled operations and batch processing
 Production Deployment - Move from POC to production system
+Comprehensive Safety System - Full implementation of all safety features
