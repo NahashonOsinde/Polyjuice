@@ -23,6 +23,7 @@
    - Add abstract interfaces for better testing
    - Create factory classes for object creation
    - Add proper service layer separation
+   -- Add proper memory handling for the Human LLM interactions
 
 4. Error Handling:
    - Create custom exception classes
@@ -40,7 +41,15 @@
    - Add performance metrics
    - Implement proper debug modes
    - Add system health checks
-   - Create monitoring dashboards
+   - Create monitoring 
+   
+7. UI/UX
+   - Use Streamlit for better user interaction
+   - Speech to text conversions - Eleven Labs
+   -Canvas from OpenAI
+
+8. Efficiency and costs 
+   - Implement deletion of earlier Human messages to preserve a minimal context window
 
 ## NOTES
 - These cleanups are safe removals that won't affect functionality

@@ -96,7 +96,7 @@ from dotenv import load_dotenv
 
 # LangChain / LangGraph minimal set
 try:
-    from langchain_community.vectorstores import Chroma
+    from langchain_chroma import Chroma  # Updated import for Chroma
     from langchain_openai import OpenAIEmbeddings, ChatOpenAI
     from langchain.text_splitter import RecursiveCharacterTextSplitter
     from langchain_core.documents import Document
@@ -106,8 +106,8 @@ try:
     from langchain.chains.combine_documents import create_stuff_documents_chain
     from langgraph.graph import StateGraph, END
 except Exception as e:
-    raise SystemExit("This script needs langchain, langchain_openai, langgraph, chromadb installed. "
-                     "Install minimal deps: pip install 'langchain>=0.2' 'langchain-openai' 'langgraph>=0.2' 'chromadb'") from e
+    raise SystemExit("This script needs langchain-chroma, langchain, langchain_openai, langgraph installed. "
+                     "Install minimal deps: pip install 'langchain>=0.2' 'langchain-chroma' 'langchain-openai' 'langgraph>=0.2' 'chromadb'") from e
 
 # Load environment variables from .env
 load_dotenv()
@@ -353,21 +353,27 @@ def build_rag_chain():
     #     "You are an AI assistant specializing in TAMARA. Provide precise, technical, step-by-step answers "
     #     "and include safety considerations when relevant. Use ONLY the provided context.\n\n{context}"
     # )
-    qa_system_prompt = """You are an AI assistant specializing in TAMARA, a microfluidic system. 
-        Your role is to provide accurate, precise, technical, step-by-step answers, and helpful information 
-        about TAMARA's operation, specifications, and best practices. Include safety considerations when relevant.
+    # qa_system_prompt = """You are an AI assistant specializing in TAMARA, a microfluidic system. 
+    #     Your role is to provide accurate, precise, technical, step-by-step answers, and helpful information 
+    #     about TAMARA's operation, specifications, and best practices. Include safety considerations when relevant.
         
-        When answering:
-        1. Be precise and technical when discussing specifications
-        2. Provide step-by-step guidance for operational questions
-        3. Include relevant safety considerations
-        4. If you're unsure or the information isn't in the context, say so
-        5. Keep responses focused and relevant to TAMARA
+    #     When answering:
+    #     1. Be precise and technical when discussing specifications
+    #     2. Provide step-by-step guidance for operational questions
+    #     3. Include relevant safety considerations
+    #     4. If you're unsure or the information isn't in the context, say so
+    #     5. Keep responses focused and relevant to TAMARA and Nanolipid partical synthesis
         
-        Use ONLY the following context to answer the question:
-        \n{context}
+    #     Use ONLY the following context to answer the question:
+    #     \n{context}
         
-        Base your answers solely on the provided context."""
+    #     Base your answers solely on the provided context."""
+
+    prompt_path = os.path.join(SCRIPT_DIR, "Prompts", "AdvancedPrompt_V0.txt") # Basic_01.txt, Basic_02.txt, AdvancedPrompt_V0.txt
+
+    # Read the QA system prompt from file
+    with open(prompt_path, 'r') as file:
+        qa_system_prompt = file.read().strip()
     
     qa_prompt = ChatPromptTemplate.from_messages([
         ("system", qa_system_prompt),
