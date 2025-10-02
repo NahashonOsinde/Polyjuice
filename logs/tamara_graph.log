@@ -2722,3 +2722,511 @@ ValueError: Invalid operation mode value: 0
 2025-09-11 13:39:18,054 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is an LNP?', additional_kwargs={}, response_metadata={}), AIMessage(content='Lipid Nanoparticles (LNPs) are particles ranging in size from 10 to 100 nm that are composed of lipids. These nanoparticles are specifically designed for encapsulating RNA and oligonucleotides, which standard nanoparticles like liposomes or PLGA cannot efficiently encapsulate due to the negative charge of the RNA. LNPs are typically made up of four main lipids: Ionizable lipid, PEG, Phospholipid, and sterol lipid. The unique composition of LNPs allows for efficient encapsulation and delivery of nucleic acids.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1757590729.8110197}
 2025-09-11 15:09:45,347 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is an LNP?', additional_kwargs={}, response_metadata={}), AIMessage(content='Lipid Nanoparticles (LNPs) are particles ranging in size from 10 to 100 nm that are composed of lipids. These nanoparticles are specifically designed for encapsulating RNA and oligonucleotides, which standard nanoparticles like liposomes or PLGA cannot efficiently encapsulate due to the negative charge of the RNA. LNPs are typically made up of four main lipids: Ionizable lipid, PEG, Phospholipid, and sterol lipid. The unique composition of LNPs allows for efficient encapsulation and delivery of nucleic acids.', additional_kwargs={}, response_metadata={}), HumanMessage(content='What is a pressure test?', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1757590729.8110197}
 2025-09-11 15:09:45,350 - INFO - Routing message: 'what is a pressure test?' (pending_action: None)
+2025-09-18 13:41:21,578 - INFO - creating snap7 client
+2025-09-18 13:41:21,580 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-18 13:41:21,686 - INFO - PLC connected (192.168.0.1)
+2025-09-18 13:41:21,710 - INFO - Current operation mode: CONVENTIONAL
+2025-09-18 13:41:21,711 - INFO - disconnecting snap7 client
+2025-09-18 13:41:21,711 - INFO - PLC disconnected
+2025-09-18 13:41:21,712 - INFO - destroying snap7 client
+2025-09-18 14:32:27,772 - INFO - creating snap7 client
+2025-09-18 14:32:27,773 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-18 14:32:27,842 - INFO - PLC connected (192.168.0.1)
+2025-09-18 14:32:27,870 - INFO - Current operation mode: AGENTIC
+2025-09-18 14:32:27,871 - INFO - disconnecting snap7 client
+2025-09-18 14:32:27,872 - INFO - PLC disconnected
+2025-09-18 14:32:27,872 - INFO - destroying snap7 client
+2025-09-18 14:32:27,873 - INFO - creating snap7 client
+2025-09-18 14:32:27,875 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-09-18 14:32:27,980 - INFO - PLC connected (192.168.0.1)
+2025-09-18 14:32:28,040 - INFO - Machine mode set to 1
+2025-09-18 14:32:28,040 - INFO - Machine mode set to READY
+2025-09-18 14:32:28,041 - INFO - disconnecting snap7 client
+2025-09-18 14:32:28,041 - INFO - PLC disconnected
+2025-09-18 14:32:28,043 - INFO - destroying snap7 client
+2025-09-18 14:33:04,491 - INFO - Current state before invoke: {'messages': [HumanMessage(content='I would like to do a DOE based on Taguchi by varying the TFR. Give me a set of 10 experiments.', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1758198748.0437982}
+2025-09-18 14:33:04,498 - INFO - Routing message: 'i would like to do a doe based on taguchi by varying the tfr. give me a set of 10 experiments.' (pending_action: None)
+2025-09-18 14:33:05,021 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-09-18 14:33:06,273 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-18 14:33:12,166 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-18 14:33:12,243 - INFO - Current state after invoke: {'messages': [HumanMessage(content='I would like to do a DOE based on Taguchi by varying the TFR. Give me a set of 10 experiments.', additional_kwargs={}, response_metadata={}), AIMessage(content='To design a Design of Experiments (DOE) based on Taguchi by varying the Total Flow Rate (TFR), we can create a set of 10 experiments. The TFR can be adjusted within the range of 0.8 to 15 mL/min, depending on input parameters such as pressure and volume to ensure accuracy and repeatability. Here is a suggested set of 10 experiments varying the TFR:\n\n1. Experiment 1: TFR = 1 mL/min\n2. Experiment 2: TFR = 2 mL/min\n3. Experiment 3: TFR = 3 mL/min\n4. Experiment 4: TFR = 4 mL/min\n5. Experiment 5: TFR = 5 mL/min\n6. Experiment 6: TFR = 6 mL/min\n7. Experiment 7: TFR = 7 mL/min\n8. Experiment 8: TFR = 8 mL/min\n9. Experiment 9: TFR = 9 mL/min\n10. Experiment 10: TFR = 10 mL/min\n\nThese experiments cover a range of TFR values within the specified limits. By conducting these experiments and analyzing the results, you can evaluate the impact of TFR variations on the final nanoparticle characteristics as part of your DOE based on Taguchi methodology.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1758198748.0437982}
+2025-09-18 14:33:35,312 - INFO - Current state before invoke: {'messages': [HumanMessage(content='I would like to do a DOE based on Taguchi by varying the TFR. Give me a set of 10 experiments.', additional_kwargs={}, response_metadata={}), AIMessage(content='To design a Design of Experiments (DOE) based on Taguchi by varying the Total Flow Rate (TFR), we can create a set of 10 experiments. The TFR can be adjusted within the range of 0.8 to 15 mL/min, depending on input parameters such as pressure and volume to ensure accuracy and repeatability. Here is a suggested set of 10 experiments varying the TFR:\n\n1. Experiment 1: TFR = 1 mL/min\n2. Experiment 2: TFR = 2 mL/min\n3. Experiment 3: TFR = 3 mL/min\n4. Experiment 4: TFR = 4 mL/min\n5. Experiment 5: TFR = 5 mL/min\n6. Experiment 6: TFR = 6 mL/min\n7. Experiment 7: TFR = 7 mL/min\n8. Experiment 8: TFR = 8 mL/min\n9. Experiment 9: TFR = 9 mL/min\n10. Experiment 10: TFR = 10 mL/min\n\nThese experiments cover a range of TFR values within the specified limits. By conducting these experiments and analyzing the results, you can evaluate the impact of TFR variations on the final nanoparticle characteristics as part of your DOE based on Taguchi methodology.', additional_kwargs={}, response_metadata={}), HumanMessage(content='Give me a table with the TFR, FRR nad target volume parametr values.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1758198748.0437982}
+2025-09-18 14:33:35,314 - INFO - Routing message: 'give me a table with the tfr, frr nad target volume parametr values.' (pending_action: None)
+2025-09-18 14:33:36,208 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-18 14:33:37,261 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-09-18 14:33:41,889 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-09-18 14:33:41,901 - INFO - Current state after invoke: {'messages': [HumanMessage(content='I would like to do a DOE based on Taguchi by varying the TFR. Give me a set of 10 experiments.', additional_kwargs={}, response_metadata={}), AIMessage(content='To design a Design of Experiments (DOE) based on Taguchi by varying the Total Flow Rate (TFR), we can create a set of 10 experiments. The TFR can be adjusted within the range of 0.8 to 15 mL/min, depending on input parameters such as pressure and volume to ensure accuracy and repeatability. Here is a suggested set of 10 experiments varying the TFR:\n\n1. Experiment 1: TFR = 1 mL/min\n2. Experiment 2: TFR = 2 mL/min\n3. Experiment 3: TFR = 3 mL/min\n4. Experiment 4: TFR = 4 mL/min\n5. Experiment 5: TFR = 5 mL/min\n6. Experiment 6: TFR = 6 mL/min\n7. Experiment 7: TFR = 7 mL/min\n8. Experiment 8: TFR = 8 mL/min\n9. Experiment 9: TFR = 9 mL/min\n10. Experiment 10: TFR = 10 mL/min\n\nThese experiments cover a range of TFR values within the specified limits. By conducting these experiments and analyzing the results, you can evaluate the impact of TFR variations on the final nanoparticle characteristics as part of your DOE based on Taguchi methodology.', additional_kwargs={}, response_metadata={}), HumanMessage(content='Give me a table with the TFR, FRR nad target volume parametr values.', additional_kwargs={}, response_metadata={}), AIMessage(content='Certainly! Here is a table with the Total Flow Rate (TFR), Flow Rate Ratio (FRR), and Target Volume parameter values for your experiments:\n\n| Experiment | TFR (mL/min) | FRR | Target Volume (µL) |\n|------------|--------------|-----|--------------------|\n| 1          | 1            |     |                    |\n| 2          | 2            |     |                    |\n| 3          | 3            |     |                    |\n| 4          | 4            |     |                    |\n| 5          | 5            |     |                    |\n| 6          | 6            |     |                    |\n| 7          | 7            |     |                    |\n| 8          | 8            |     |                    |\n| 9          | 9            |     |                    |\n| 10         | 10           |     |                    |\n\nYou can fill in the corresponding Flow Rate Ratio (FRR) and Target Volume values for each experiment based on your experimental design and requirements. This table will help you organize and track the parameters for your DOE based on Taguchi methodology.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1758198748.0437982}
+2025-10-02 15:26:11,987 - INFO - creating snap7 client
+2025-10-02 15:26:11,989 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:26:12,059 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:26:12,087 - INFO - Current operation mode: CONVENTIONAL
+2025-10-02 15:26:12,087 - INFO - disconnecting snap7 client
+2025-10-02 15:26:12,088 - INFO - PLC disconnected
+2025-10-02 15:26:12,089 - INFO - destroying snap7 client
+2025-10-02 15:40:33,262 - INFO - creating snap7 client
+2025-10-02 15:40:33,263 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:40:33,347 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:40:33,373 - INFO - Current operation mode: AGENTIC
+2025-10-02 15:40:33,374 - INFO - disconnecting snap7 client
+2025-10-02 15:40:33,374 - INFO - PLC disconnected
+2025-10-02 15:40:33,375 - INFO - destroying snap7 client
+2025-10-02 15:40:33,375 - INFO - creating snap7 client
+2025-10-02 15:40:33,376 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:40:33,567 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:40:33,648 - INFO - Machine mode set to 1
+2025-10-02 15:40:33,648 - INFO - Machine mode set to READY
+2025-10-02 15:40:33,649 - INFO - disconnecting snap7 client
+2025-10-02 15:40:33,649 - INFO - PLC disconnected
+2025-10-02 15:40:33,649 - INFO - destroying snap7 client
+2025-10-02 15:40:44,244 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:40:44,255 - INFO - Routing message: 'what is tamara?' (pending_action: None)
+2025-10-02 15:40:44,730 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-10-02 15:40:46,060 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-10-02 15:40:47,771 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:40:47,780 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:41:23,044 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:41:23,046 - INFO - Routing message: 'i would like to do a run' (pending_action: None)
+2025-10-02 15:41:53,526 - INFO - creating snap7 client
+2025-10-02 15:41:53,526 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:41:53,649 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:41:54,558 - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: RUN
+- Core params: TFR=2.0, FRR=5, Vol=3.0, Temp=21.0, Chip=BAFFLE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-10-02 15:41:54,600 - INFO - State after PLC validation: input_payload=InputPayload(tfr=2.0, frr=5, target_volume=3.0, temperature=21.0, chip_id=<ChipID.BAFFLE: 0>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.RUN: 2>, custom_solvent=None), pending_action=run
+2025-10-02 15:41:54,600 - INFO - disconnecting snap7 client
+2025-10-02 15:41:54,601 - INFO - PLC disconnected
+2025-10-02 15:41:54,601 - INFO - destroying snap7 client
+2025-10-02 15:41:54,603 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': 'run', 'last_mode_check': 1759412433.650625}
+2025-10-02 15:42:10,171 - INFO - Starting run operation...
+2025-10-02 15:42:10,172 - INFO - creating snap7 client
+2025-10-02 15:42:10,172 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:42:10,181 - ERROR - b' TCP : Unreachable peer'
+2025-10-02 15:42:10,188 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-02 15:42:10,191 - INFO - SIM: Connected
+2025-10-02 15:42:10,192 - INFO - destroying snap7 client
+2025-10-02 15:42:10,192 - INFO - Clearing all command bits
+2025-10-02 15:42:10,192 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-10-02 15:42:10,192 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:10,192 - INFO -   byte_offset: 258
+2025-10-02 15:42:10,193 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,193 - INFO -   raw_start: 258.0
+2025-10-02 15:42:10,193 - INFO - SIM: Write DB9.DBX258.0 = 0
+2025-10-02 15:42:10,193 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-10-02 15:42:10,194 - INFO - SIM: Read DB9.DBX258.0 = False
+2025-10-02 15:42:10,194 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,194 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:10,194 - INFO -   byte_offset: 258
+2025-10-02 15:42:10,194 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,194 - INFO -   raw_start: 258.1
+2025-10-02 15:42:10,195 - INFO - SIM: Write DB9.DBX258.1 = 0
+2025-10-02 15:42:10,195 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,195 - INFO - SIM: Read DB9.DBX258.1 = False
+2025-10-02 15:42:10,195 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 15:42:10,195 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:10,196 - INFO -   byte_offset: 258
+2025-10-02 15:42:10,196 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,196 - INFO -   raw_start: 258.2
+2025-10-02 15:42:10,196 - INFO - SIM: Write DB9.DBX258.1 = 0
+2025-10-02 15:42:10,196 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 15:42:10,196 - INFO - SIM: Read DB9.DBX258.1 = False
+2025-10-02 15:42:10,197 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-10-02 15:42:10,197 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:10,197 - INFO -   byte_offset: 258
+2025-10-02 15:42:10,197 - INFO -   bit_offset: 3
+2025-10-02 15:42:10,198 - INFO -   raw_start: 258.3
+2025-10-02 15:42:10,198 - INFO - SIM: Write DB9.DBX258.3 = 0
+2025-10-02 15:42:10,198 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-10-02 15:42:10,198 - INFO - SIM: Read DB9.DBX258.3 = False
+2025-10-02 15:42:10,199 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-10-02 15:42:10,199 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 15:42:10,199 - INFO -   byte_offset: 260
+2025-10-02 15:42:10,199 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,199 - INFO -   raw_start: 260.0
+2025-10-02 15:42:10,199 - INFO - SIM: Write DB9.DBX260.0 = 0
+2025-10-02 15:42:10,200 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-10-02 15:42:10,200 - INFO - SIM: Read DB9.DBX260.0 = False
+2025-10-02 15:42:10,200 - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,200 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 15:42:10,200 - INFO -   byte_offset: 260
+2025-10-02 15:42:10,201 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,201 - INFO -   raw_start: 260.1
+2025-10-02 15:42:10,201 - INFO - SIM: Write DB9.DBX260.1 = 0
+2025-10-02 15:42:10,201 - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,201 - INFO - SIM: Read DB9.DBX260.1 = False
+2025-10-02 15:42:10,202 - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-10-02 15:42:10,202 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 15:42:10,202 - INFO -   byte_offset: 260
+2025-10-02 15:42:10,202 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,202 - INFO -   raw_start: 260.2
+2025-10-02 15:42:10,202 - INFO - SIM: Write DB9.DBX260.1 = 0
+2025-10-02 15:42:10,203 - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-10-02 15:42:10,203 - INFO - SIM: Read DB9.DBX260.1 = False
+2025-10-02 15:42:10,203 - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-10-02 15:42:10,203 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 15:42:10,203 - INFO -   byte_offset: 260
+2025-10-02 15:42:10,203 - INFO -   bit_offset: 3
+2025-10-02 15:42:10,204 - INFO -   raw_start: 260.3
+2025-10-02 15:42:10,204 - INFO - SIM: Write DB9.DBX260.3 = 0
+2025-10-02 15:42:10,204 - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-10-02 15:42:10,204 - INFO - SIM: Read DB9.DBX260.3 = False
+2025-10-02 15:42:10,204 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 15:42:10,205 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 15:42:10,205 - INFO -   byte_offset: 262
+2025-10-02 15:42:10,205 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,205 - INFO -   raw_start: 262.0
+2025-10-02 15:42:10,205 - INFO - SIM: Write DB9.DBX262.0 = 0
+2025-10-02 15:42:10,205 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 15:42:10,206 - INFO - SIM: Read DB9.DBX262.0 = False
+2025-10-02 15:42:10,206 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,206 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 15:42:10,206 - INFO -   byte_offset: 262
+2025-10-02 15:42:10,206 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,206 - INFO -   raw_start: 262.1
+2025-10-02 15:42:10,207 - INFO - SIM: Write DB9.DBX262.1 = 0
+2025-10-02 15:42:10,207 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-10-02 15:42:10,207 - INFO - SIM: Read DB9.DBX262.1 = False
+2025-10-02 15:42:10,207 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-10-02 15:42:10,207 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 15:42:10,207 - INFO -   byte_offset: 262
+2025-10-02 15:42:10,208 - INFO -   bit_offset: 1
+2025-10-02 15:42:10,208 - INFO -   raw_start: 262.2
+2025-10-02 15:42:10,208 - INFO - SIM: Write DB9.DBX262.1 = 0
+2025-10-02 15:42:10,208 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-10-02 15:42:10,208 - INFO - SIM: Read DB9.DBX262.1 = False
+2025-10-02 15:42:10,208 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-10-02 15:42:10,209 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 15:42:10,209 - INFO -   byte_offset: 262
+2025-10-02 15:42:10,209 - INFO -   bit_offset: 3
+2025-10-02 15:42:10,209 - INFO -   raw_start: 262.3
+2025-10-02 15:42:10,210 - INFO - SIM: Write DB9.DBX262.3 = 0
+2025-10-02 15:42:10,210 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-10-02 15:42:10,210 - INFO - SIM: Read DB9.DBX262.3 = False
+2025-10-02 15:42:10,210 - INFO - All command bits cleared and verified
+2025-10-02 15:42:10,210 - INFO - Pulsing COMMANDS_RUN.b_START to True
+2025-10-02 15:42:10,210 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-10-02 15:42:10,210 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 15:42:10,211 - INFO -   byte_offset: 260
+2025-10-02 15:42:10,211 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,211 - INFO -   raw_start: 260.0
+2025-10-02 15:42:10,211 - INFO - SIM: Write DB9.DBX260.0 = 0
+2025-10-02 15:42:10,211 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-10-02 15:42:10,212 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 15:42:10,212 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 15:42:10,212 - INFO -   byte_offset: 262
+2025-10-02 15:42:10,212 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,212 - INFO -   raw_start: 262.0
+2025-10-02 15:42:10,212 - INFO - SIM: Write DB9.DBX262.0 = 0
+2025-10-02 15:42:10,213 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 15:42:10,213 - INFO - Writing BOOL COMMANDS_RUN.b_START = True
+2025-10-02 15:42:10,213 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:10,213 - INFO -   byte_offset: 258
+2025-10-02 15:42:10,214 - INFO -   bit_offset: 0
+2025-10-02 15:42:10,214 - INFO -   raw_start: 258.0
+2025-10-02 15:42:10,214 - INFO - SIM: Write DB9.DBX258.0 = 1
+2025-10-02 15:42:10,214 - INFO - Successfully wrote COMMANDS_RUN.b_START = True
+2025-10-02 15:42:10,214 - INFO - SIM: Read DB9.DBX258.0 = True
+2025-10-02 15:42:10,214 - INFO - Command COMMANDS_RUN.b_START successfully set to True and verified
+2025-10-02 15:42:10,215 - INFO - SIM: Read DB9.DBX258.0 = True
+2025-10-02 15:42:10,215 - INFO - SIM: Read DB9.DBX258.1 = False
+2025-10-02 15:42:10,215 - INFO - SIM: Disconnected
+2025-10-02 15:42:10,215 - INFO - PLC disconnected
+2025-10-02 15:42:35,710 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1759412433.650625, 'confirmed': True}
+2025-10-02 15:42:35,711 - INFO - Routing message: 'pause the run' (pending_action: None)
+2025-10-02 15:42:35,712 - INFO - Handling PAUSE command...
+2025-10-02 15:42:35,713 - INFO - creating snap7 client
+2025-10-02 15:42:35,713 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:42:35,827 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:42:35,829 - INFO - Reading current status...
+2025-10-02 15:42:35,863 - INFO - Current status code: 2
+2025-10-02 15:42:35,863 - INFO - Setting PAUSE_PLAY bit to TRUE for RUN mode...
+2025-10-02 15:42:35,864 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to True
+2025-10-02 15:42:35,865 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-10-02 15:42:35,865 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:42:35,866 - INFO -   byte_offset: 258
+2025-10-02 15:42:35,867 - INFO -   bit_offset: 1
+2025-10-02 15:42:35,867 - INFO -   raw_start: 258.1
+2025-10-02 15:42:35,952 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = True
+2025-10-02 15:42:35,997 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to True and verified
+2025-10-02 15:42:35,998 - INFO - Disconnecting from PLC...
+2025-10-02 15:42:35,999 - INFO - disconnecting snap7 client
+2025-10-02 15:42:36,000 - INFO - PLC disconnected
+2025-10-02 15:42:36,001 - INFO - destroying snap7 client
+2025-10-02 15:42:37,706 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:42:39,297 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-10-02 15:42:40,378 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:42:40,388 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:05,274 - INFO - creating snap7 client
+2025-10-02 15:43:05,275 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:43:05,370 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:43:05,391 - INFO - Current operation mode: AGENTIC
+2025-10-02 15:43:05,392 - INFO - disconnecting snap7 client
+2025-10-02 15:43:05,392 - INFO - PLC disconnected
+2025-10-02 15:43:05,393 - INFO - destroying snap7 client
+2025-10-02 15:43:05,394 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:05,396 - INFO - Routing message: 'play' (pending_action: None)
+2025-10-02 15:43:05,396 - INFO - Handling PLAY/RESUME command...
+2025-10-02 15:43:05,396 - INFO - creating snap7 client
+2025-10-02 15:43:05,396 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:43:05,538 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:43:05,538 - INFO - Reading current status...
+2025-10-02 15:43:05,584 - INFO - Current status code: 2
+2025-10-02 15:43:05,584 - INFO - Setting PAUSE_PLAY bit to FALSE for RUN mode...
+2025-10-02 15:43:05,585 - INFO - Pulsing COMMANDS_RUN.b_PAUSE_PLAY to False
+2025-10-02 15:43:05,585 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:43:05,586 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:43:05,586 - INFO -   byte_offset: 258
+2025-10-02 15:43:05,587 - INFO -   bit_offset: 1
+2025-10-02 15:43:05,587 - INFO -   raw_start: 258.1
+2025-10-02 15:43:05,656 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:43:05,668 - INFO - Command COMMANDS_RUN.b_PAUSE_PLAY successfully set to False and verified
+2025-10-02 15:43:05,668 - INFO - Disconnecting from PLC...
+2025-10-02 15:43:05,668 - INFO - disconnecting snap7 client
+2025-10-02 15:43:05,669 - INFO - PLC disconnected
+2025-10-02 15:43:05,669 - INFO - destroying snap7 client
+2025-10-02 15:43:06,988 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:43:07,840 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-10-02 15:43:08,480 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:43:08,482 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:35,291 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:35,292 - INFO - Routing message: 'stop the run' (pending_action: None)
+2025-10-02 15:43:35,293 - INFO - Handling STOP command...
+2025-10-02 15:43:35,294 - INFO - creating snap7 client
+2025-10-02 15:43:35,294 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:43:35,400 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:43:35,400 - INFO - Reading current status...
+2025-10-02 15:43:35,435 - INFO - Current status code: 2
+2025-10-02 15:43:35,435 - INFO - Setting STOP bit to TRUE...
+2025-10-02 15:43:35,435 - INFO - Pulsing COMMANDS_RUN.b_STOP to True
+2025-10-02 15:43:35,436 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-10-02 15:43:35,436 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:43:35,436 - INFO -   byte_offset: 258
+2025-10-02 15:43:35,436 - INFO -   bit_offset: 0
+2025-10-02 15:43:35,437 - INFO -   raw_start: 258.0
+2025-10-02 15:43:35,495 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-10-02 15:43:35,495 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:43:35,495 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:43:35,496 - INFO -   byte_offset: 258
+2025-10-02 15:43:35,496 - INFO -   bit_offset: 1
+2025-10-02 15:43:35,497 - INFO -   raw_start: 258.1
+2025-10-02 15:43:35,574 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 15:43:35,574 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 15:43:35,575 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:43:35,575 - INFO -   byte_offset: 258
+2025-10-02 15:43:35,575 - INFO -   bit_offset: 1
+2025-10-02 15:43:35,575 - INFO -   raw_start: 258.2
+2025-10-02 15:43:35,650 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 15:43:35,650 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = True
+2025-10-02 15:43:35,650 - INFO -   section: COMMANDS_RUN
+2025-10-02 15:43:35,650 - INFO -   byte_offset: 258
+2025-10-02 15:43:35,650 - INFO -   bit_offset: 3
+2025-10-02 15:43:35,650 - INFO -   raw_start: 258.3
+2025-10-02 15:43:35,699 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = True
+2025-10-02 15:43:35,738 - INFO - Command COMMANDS_RUN.b_STOP successfully set to True and verified
+2025-10-02 15:43:35,738 - INFO - Disconnecting from PLC...
+2025-10-02 15:43:35,738 - INFO - disconnecting snap7 client
+2025-10-02 15:43:35,739 - INFO - PLC disconnected
+2025-10-02 15:43:35,739 - INFO - destroying snap7 client
+2025-10-02 15:43:37,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:43:38,564 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-10-02 15:43:40,234 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:43:40,238 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation stopped.', additional_kwargs={}, response_metadata={}), AIMessage(content='To stop the run on TAMARA, follow these steps:\n\n1. Press the "Stop" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Follow the proper shutdown procedure as outlined in the TAMARA user manual.\n\nFor detailed instructions, refer to the TAMARA user manual, specifically pages related to stopping operations.', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:58,265 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation stopped.', additional_kwargs={}, response_metadata={}), AIMessage(content='To stop the run on TAMARA, follow these steps:\n\n1. Press the "Stop" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Follow the proper shutdown procedure as outlined in the TAMARA user manual.\n\nFor detailed instructions, refer to the TAMARA user manual, specifically pages related to stopping operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='start a run', additional_kwargs={}, response_metadata={})], 'intent': 'other', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:43:58,266 - INFO - Routing message: 'start a run' (pending_action: None)
+2025-10-02 15:44:52,623 - INFO - creating snap7 client
+2025-10-02 15:44:52,624 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:44:52,718 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:44:54,431 - ERROR - Transaction failed: Transaction verification failed:
+Verification failed for OPERATION_MODE: expected 2, got 1
+Rollback errors:
+Failed to rollback OPERATION_MODE to 0
+2025-10-02 15:44:54,432 - ERROR - Transaction failed: Transaction failed: Transaction verification failed:
+Verification failed for OPERATION_MODE: expected 2, got 1
+Rollback errors:
+Failed to rollback OPERATION_MODE to 0
+2025-10-02 15:44:54,433 - INFO - disconnecting snap7 client
+2025-10-02 15:44:54,433 - INFO - PLC disconnected
+2025-10-02 15:44:54,434 - INFO - destroying snap7 client
+2025-10-02 15:44:54,435 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation stopped.', additional_kwargs={}, response_metadata={}), AIMessage(content='To stop the run on TAMARA, follow these steps:\n\n1. Press the "Stop" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Follow the proper shutdown procedure as outlined in the TAMARA user manual.\n\nFor detailed instructions, refer to the TAMARA user manual, specifically pages related to stopping operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='start a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Error: Transaction failed: Transaction verification failed:\nVerification failed for OPERATION_MODE: expected 2, got 1\nRollback errors:\nFailed to rollback OPERATION_MODE to 0', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:45:06,575 - INFO - Current state before invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation stopped.', additional_kwargs={}, response_metadata={}), AIMessage(content='To stop the run on TAMARA, follow these steps:\n\n1. Press the "Stop" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Follow the proper shutdown procedure as outlined in the TAMARA user manual.\n\nFor detailed instructions, refer to the TAMARA user manual, specifically pages related to stopping operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='start a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Error: Transaction failed: Transaction verification failed:\nVerification failed for OPERATION_MODE: expected 2, got 1\nRollback errors:\nFailed to rollback OPERATION_MODE to 0', additional_kwargs={}, response_metadata={}), HumanMessage(content='which state are we in?', additional_kwargs={}, response_metadata={})], 'intent': 'run', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:45:06,576 - INFO - Routing message: 'which state are we in?' (pending_action: None)
+2025-10-02 15:45:07,327 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:45:08,121 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 200 OK"
+2025-10-02 15:45:09,908 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-02 15:45:09,916 - INFO - Current state after invoke: {'messages': [HumanMessage(content='What is Tamara?', additional_kwargs={}, response_metadata={}), AIMessage(content='TAMARA, the Nanoparticle Formulation System, is a user-friendly platform based on microfluidics. It is designed to provide researchers with ease of use and precision in nanoparticle synthesis. TAMARA is compliant with EMC and Low Voltage Directives, has undergone qualification tests, and incorporates patented technology for nanoparticle formulation.', additional_kwargs={}, response_metadata={}), HumanMessage(content='I would like to do a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-run checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start RUN operation.\n\nPlease verify:\n1. Required fluids are loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle is in place\n7. Pressure supply is within specifications\n\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), HumanMessage(content='pause the run', additional_kwargs={}, response_metadata={}), AIMessage(content="RUN operation paused. Say 'play' to resume.", additional_kwargs={}, response_metadata={}), AIMessage(content='To pause the run on TAMARA, follow these steps:\n\n1. Press the "Pause" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Verify that the system is in a safe state before proceeding with any adjustments or maintenance.\n\nFor more detailed instructions, refer to the TAMARA user manual, specifically pages related to pausing operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='play', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation resumed.', additional_kwargs={}, response_metadata={}), AIMessage(content='Resuming the run. Operation in progress.', additional_kwargs={}, response_metadata={}), HumanMessage(content='stop the run', additional_kwargs={}, response_metadata={}), AIMessage(content='RUN operation stopped.', additional_kwargs={}, response_metadata={}), AIMessage(content='To stop the run on TAMARA, follow these steps:\n\n1. Press the "Stop" button on the TAMARA user interface.\n2. Ensure that all operations have come to a complete stop.\n3. Secure any open connections or valves.\n4. Follow the proper shutdown procedure as outlined in the TAMARA user manual.\n\nFor detailed instructions, refer to the TAMARA user manual, specifically pages related to stopping operations.', additional_kwargs={}, response_metadata={}), HumanMessage(content='start a run', additional_kwargs={}, response_metadata={}), AIMessage(content='Error: Transaction failed: Transaction verification failed:\nVerification failed for OPERATION_MODE: expected 2, got 1\nRollback errors:\nFailed to rollback OPERATION_MODE to 0', additional_kwargs={}, response_metadata={}), HumanMessage(content='which state are we in?', additional_kwargs={}, response_metadata={}), AIMessage(content='The current state is "Idle" or "Standby" mode.', additional_kwargs={}, response_metadata={})], 'intent': 'ask_kb', 'pending_action': None, 'last_mode_check': 1759412433.650625}
+2025-10-02 15:45:27,101 - INFO - creating snap7 client
+2025-10-02 15:45:27,102 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:45:27,165 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:45:27,176 - INFO - Current operation mode: CONVENTIONAL
+2025-10-02 15:45:27,176 - INFO - disconnecting snap7 client
+2025-10-02 15:45:27,177 - INFO - PLC disconnected
+2025-10-02 15:45:27,177 - INFO - destroying snap7 client
+2025-10-02 15:45:41,917 - INFO - creating snap7 client
+2025-10-02 15:45:41,918 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:45:42,006 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:45:42,054 - INFO - Current operation mode: AGENTIC
+2025-10-02 15:45:42,054 - INFO - disconnecting snap7 client
+2025-10-02 15:45:42,055 - INFO - PLC disconnected
+2025-10-02 15:45:42,056 - INFO - destroying snap7 client
+2025-10-02 15:45:42,056 - INFO - creating snap7 client
+2025-10-02 15:45:42,057 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 15:45:42,218 - INFO - PLC connected (192.168.0.1)
+2025-10-02 15:45:42,301 - INFO - Machine mode set to 1
+2025-10-02 15:45:42,302 - INFO - Machine mode set to READY
+2025-10-02 15:45:42,303 - INFO - disconnecting snap7 client
+2025-10-02 15:45:42,304 - INFO - PLC disconnected
+2025-10-02 15:45:42,305 - INFO - destroying snap7 client
+2025-10-02 16:07:39,047 - INFO - creating snap7 client
+2025-10-02 16:07:39,048 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:07:39,148 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:07:39,207 - INFO - Current operation mode: AGENTIC
+2025-10-02 16:07:39,207 - INFO - disconnecting snap7 client
+2025-10-02 16:07:39,207 - INFO - PLC disconnected
+2025-10-02 16:07:39,207 - INFO - destroying snap7 client
+2025-10-02 16:07:39,209 - INFO - Current state before invoke: {'messages': [HumanMessage(content='clean', additional_kwargs={}, response_metadata={})], 'intent': None, 'pending_action': None, 'confirmed': False, 'last_tool_result': None, 'last_mode_check': 1759412742.3067973}
+2025-10-02 16:07:39,213 - INFO - Routing message: 'clean' (pending_action: None)
+2025-10-02 16:08:13,609 - INFO - creating snap7 client
+2025-10-02 16:08:13,610 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:08:13,676 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:08:14,634 - INFO - Experiment payload written to PLC DB9:
+- Operation: AGENTIC, Machine: CLEAN
+- Core params: TFR=3.0, FRR=3, Vol=5.0, Temp=23.0, Chip=HERRINGBONE, Manifold=LARGE
+- Solvent: ETHANOL
+2025-10-02 16:08:14,691 - INFO - State after PLC validation: input_payload=InputPayload(tfr=3.0, frr=3, target_volume=5.0, temperature=23.0, chip_id=<ChipID.HERRINGBONE: 1>, manifold_id=<ManifoldID.LARGE: 1>, lab_pressure=2000.0, org_solvent_id=<OrgSolventID.ETHANOL: 0>, operation_mode=<OperationMode.AGENTIC: 2>, machine_mode=<MachineMode.CLEAN: 3>, custom_solvent=None), pending_action=clean
+2025-10-02 16:08:14,692 - INFO - disconnecting snap7 client
+2025-10-02 16:08:14,692 - INFO - PLC disconnected
+2025-10-02 16:08:14,693 - INFO - destroying snap7 client
+2025-10-02 16:08:14,695 - INFO - Current state after invoke: {'messages': [HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={})], 'intent': 'clean', 'pending_action': 'clean', 'last_mode_check': 1759412742.3067973}
+2025-10-02 16:08:27,197 - INFO - Starting clean operation...
+2025-10-02 16:08:27,198 - INFO - creating snap7 client
+2025-10-02 16:08:27,198 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:08:27,301 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:08:27,301 - INFO - Clearing all command bits
+2025-10-02 16:08:27,302 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-10-02 16:08:27,302 - INFO -   section: COMMANDS_RUN
+2025-10-02 16:08:27,303 - INFO -   byte_offset: 258
+2025-10-02 16:08:27,303 - INFO -   bit_offset: 0
+2025-10-02 16:08:27,304 - INFO -   raw_start: 258.0
+2025-10-02 16:08:27,374 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-10-02 16:08:27,417 - INFO - Writing BOOL COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 16:08:27,418 - INFO -   section: COMMANDS_RUN
+2025-10-02 16:08:27,418 - INFO -   byte_offset: 258
+2025-10-02 16:08:27,419 - INFO -   bit_offset: 1
+2025-10-02 16:08:27,420 - INFO -   raw_start: 258.1
+2025-10-02 16:08:27,468 - INFO - Successfully wrote COMMANDS_RUN.b_PAUSE_PLAY = False
+2025-10-02 16:08:27,479 - INFO - Writing BOOL COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 16:08:27,479 - INFO -   section: COMMANDS_RUN
+2025-10-02 16:08:27,479 - INFO -   byte_offset: 258
+2025-10-02 16:08:27,479 - INFO -   bit_offset: 1
+2025-10-02 16:08:27,480 - INFO -   raw_start: 258.2
+2025-10-02 16:08:27,512 - INFO - Successfully wrote COMMANDS_RUN.b_CONFIRM = False
+2025-10-02 16:08:27,560 - INFO - Writing BOOL COMMANDS_RUN.b_STOP = False
+2025-10-02 16:08:27,560 - INFO -   section: COMMANDS_RUN
+2025-10-02 16:08:27,561 - INFO -   byte_offset: 258
+2025-10-02 16:08:27,561 - INFO -   bit_offset: 3
+2025-10-02 16:08:27,562 - INFO -   raw_start: 258.3
+2025-10-02 16:08:27,647 - INFO - Successfully wrote COMMANDS_RUN.b_STOP = False
+2025-10-02 16:08:27,689 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = False
+2025-10-02 16:08:27,690 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 16:08:27,691 - INFO -   byte_offset: 260
+2025-10-02 16:08:27,691 - INFO -   bit_offset: 0
+2025-10-02 16:08:27,692 - INFO -   raw_start: 260.0
+2025-10-02 16:08:27,754 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = False
+2025-10-02 16:08:27,781 - INFO - Writing BOOL COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-10-02 16:08:27,781 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 16:08:27,782 - INFO -   byte_offset: 260
+2025-10-02 16:08:27,782 - INFO -   bit_offset: 1
+2025-10-02 16:08:27,783 - INFO -   raw_start: 260.1
+2025-10-02 16:08:27,821 - INFO - Successfully wrote COMMANDS_CLEAN.b_PAUSE_PLAY = False
+2025-10-02 16:08:27,854 - INFO - Writing BOOL COMMANDS_CLEAN.b_CONFIRM = False
+2025-10-02 16:08:27,854 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 16:08:27,855 - INFO -   byte_offset: 260
+2025-10-02 16:08:27,855 - INFO -   bit_offset: 1
+2025-10-02 16:08:27,856 - INFO -   raw_start: 260.2
+2025-10-02 16:08:27,912 - INFO - Successfully wrote COMMANDS_CLEAN.b_CONFIRM = False
+2025-10-02 16:08:27,925 - INFO - Writing BOOL COMMANDS_CLEAN.b_STOP = False
+2025-10-02 16:08:27,925 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 16:08:27,926 - INFO -   byte_offset: 260
+2025-10-02 16:08:27,926 - INFO -   bit_offset: 3
+2025-10-02 16:08:27,927 - INFO -   raw_start: 260.3
+2025-10-02 16:08:27,987 - INFO - Successfully wrote COMMANDS_CLEAN.b_STOP = False
+2025-10-02 16:08:28,005 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 16:08:28,005 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 16:08:28,006 - INFO -   byte_offset: 262
+2025-10-02 16:08:28,007 - INFO -   bit_offset: 0
+2025-10-02 16:08:28,007 - INFO -   raw_start: 262.0
+2025-10-02 16:08:28,062 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 16:08:28,090 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-10-02 16:08:28,090 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 16:08:28,090 - INFO -   byte_offset: 262
+2025-10-02 16:08:28,090 - INFO -   bit_offset: 1
+2025-10-02 16:08:28,091 - INFO -   raw_start: 262.1
+2025-10-02 16:08:28,168 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_PAUSE_PLAY = False
+2025-10-02 16:08:28,211 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-10-02 16:08:28,211 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 16:08:28,211 - INFO -   byte_offset: 262
+2025-10-02 16:08:28,212 - INFO -   bit_offset: 1
+2025-10-02 16:08:28,212 - INFO -   raw_start: 262.2
+2025-10-02 16:08:28,286 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_CONFIRM = False
+2025-10-02 16:08:28,303 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-10-02 16:08:28,303 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 16:08:28,303 - INFO -   byte_offset: 262
+2025-10-02 16:08:28,303 - INFO -   bit_offset: 3
+2025-10-02 16:08:28,304 - INFO -   raw_start: 262.3
+2025-10-02 16:08:28,346 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_STOP = False
+2025-10-02 16:08:28,390 - INFO - All command bits cleared and verified
+2025-10-02 16:08:28,390 - INFO - Pulsing COMMANDS_CLEAN.b_START to True
+2025-10-02 16:08:28,391 - INFO - Writing BOOL COMMANDS_RUN.b_START = False
+2025-10-02 16:08:28,391 - INFO -   section: COMMANDS_RUN
+2025-10-02 16:08:28,391 - INFO -   byte_offset: 258
+2025-10-02 16:08:28,391 - INFO -   bit_offset: 0
+2025-10-02 16:08:28,391 - INFO -   raw_start: 258.0
+2025-10-02 16:08:28,470 - INFO - Successfully wrote COMMANDS_RUN.b_START = False
+2025-10-02 16:08:28,470 - INFO - Writing BOOL COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 16:08:28,470 - INFO -   section: COMMANDS_PRESSURE_TEST
+2025-10-02 16:08:28,471 - INFO -   byte_offset: 262
+2025-10-02 16:08:28,471 - INFO -   bit_offset: 0
+2025-10-02 16:08:28,471 - INFO -   raw_start: 262.0
+2025-10-02 16:08:28,542 - INFO - Successfully wrote COMMANDS_PRESSURE_TEST.b_START = False
+2025-10-02 16:08:28,542 - INFO - Writing BOOL COMMANDS_CLEAN.b_START = True
+2025-10-02 16:08:28,542 - INFO -   section: COMMANDS_CLEAN
+2025-10-02 16:08:28,542 - INFO -   byte_offset: 260
+2025-10-02 16:08:28,543 - INFO -   bit_offset: 0
+2025-10-02 16:08:28,543 - INFO -   raw_start: 260.0
+2025-10-02 16:08:28,647 - INFO - Successfully wrote COMMANDS_CLEAN.b_START = True
+2025-10-02 16:08:28,695 - INFO - Command COMMANDS_CLEAN.b_START successfully set to True and verified
+2025-10-02 16:08:28,720 - INFO - disconnecting snap7 client
+2025-10-02 16:08:28,720 - INFO - PLC disconnected
+2025-10-02 16:08:36,924 - INFO - creating snap7 client
+2025-10-02 16:08:36,925 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:08:37,021 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:08:37,086 - INFO - Current operation mode: AGENTIC
+2025-10-02 16:08:37,086 - INFO - disconnecting snap7 client
+2025-10-02 16:08:37,086 - INFO - PLC disconnected
+2025-10-02 16:08:37,087 - INFO - destroying snap7 client
+2025-10-02 16:08:37,087 - INFO - creating snap7 client
+2025-10-02 16:08:37,087 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:08:37,231 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:08:37,288 - INFO - Machine mode set to 1
+2025-10-02 16:08:37,288 - INFO - Machine mode set to READY
+2025-10-02 16:08:37,289 - INFO - disconnecting snap7 client
+2025-10-02 16:08:37,289 - INFO - PLC disconnected
+2025-10-02 16:08:37,290 - INFO - destroying snap7 client
+2025-10-02 16:10:02,554 - INFO - creating snap7 client
+2025-10-02 16:10:02,555 - INFO - connecting to 192.168.0.1:102 rack 0 slot 1
+2025-10-02 16:10:02,689 - INFO - PLC connected (192.168.0.1)
+2025-10-02 16:10:02,737 - INFO - Current operation mode: AGENTIC
+2025-10-02 16:10:02,737 - INFO - disconnecting snap7 client
+2025-10-02 16:10:02,738 - INFO - PLC disconnected
+2025-10-02 16:10:02,738 - INFO - destroying snap7 client
+2025-10-02 16:10:02,740 - INFO - Current state before invoke: {'messages': [HumanMessage(content='clean', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters sent to PLC. Checking validation...', additional_kwargs={}, response_metadata={}), AIMessage(content='Parameters accepted by PLC. Proceeding with safety checks...', additional_kwargs={}, response_metadata={}), AIMessage(content="Before we proceed, please confirm the pre-clean checks:\n1) Required fluids are loaded in the reservoirs per protocol.\n2) Chip is correctly seated & oriented; gasket in place; manifold connected.\n3) Lid is CLOSED; lines secure; drain bottle in place.\n4) Pressure supply within specifications; recent Pressure Test passed if applicable.\nType 'confirm' to continue or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content="Ready to start CLEAN operation.\n\nPlease verify:\n1. Cleaning solution is loaded in reservoirs\n2. Chip is correctly seated and oriented\n3. Manifold is properly connected\n4. Lid is CLOSED\n5. Lines are secure\n6. Drain bottle has sufficient capacity\n7. Pressure supply is within specifications\n\nWARNING: Once started, the cleaning cycle must complete for safety.\nType 'confirm' to proceed or 'cancel' to abort.", additional_kwargs={}, response_metadata={}), AIMessage(content='Operation stopped and machine set to READY state.', additional_kwargs={}, response_metadata={}), HumanMessage(content='run', additional_kwargs={}, response_metadata={})], 'intent': 'clean', 'pending_action': None, 'last_mode_check': 1759412742.3067973, 'confirmed': True}
+2025-10-02 16:10:02,741 - INFO - Routing message: 'run' (pending_action: None)
