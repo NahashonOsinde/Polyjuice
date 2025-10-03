@@ -909,3 +909,135 @@ Failed to rollback OPERATION_MODE to 0
 Verification failed for OPERATION_MODE: expected 2, got 1
 Rollback errors:
 Failed to rollback OPERATION_MODE to 0
+2025-10-03 11:48:28,681 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 11:48:28,686 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-03 12:20:17,181 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 12:20:17,182 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-03 12:30:48,181 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 12:30:48,182 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-03 12:30:48,187 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 888, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1138, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 890, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-10-03 12:37:09,681 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 12:37:09,683 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-03 12:37:09,687 - ERROR - Failed to read operation mode: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 888, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1139, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 890, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-10-03 12:37:09,691 - ERROR - Error in REPL loop: Invalid operation mode value: 0
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 888, in read_operation_mode
+    return OperationMode(mode)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 0 is not a valid OperationMode
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1231, in repl
+    if not check_operation_mode():
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\tamara_graph.py", line 1139, in check_operation_mode
+    mode = plc.read_operation_mode()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 890, in read_operation_mode
+    raise ValueError(f"Invalid operation mode value: {mode}")
+ValueError: Invalid operation mode value: 0
+2025-10-03 12:37:22,180 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 12:37:22,181 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'
+2025-10-03 12:42:15,181 - ERROR - b' TCP : Unreachable peer'
+2025-10-03 12:42:15,182 - ERROR - PLC connection failed, switching to simulator. Reason: b' TCP : Unreachable peer'
+Traceback (most recent call last):
+  File "C:\Users\NahashonOsinde\OneDrive - Inside Therapeutics\00_Documents\01_AI_Agent_Stuff\LangChain_Graph\TamaraAgent_LangGraph\7_Tamara_Agent\plc_tool.py", line 420, in connect
+    self.client.connect(self.ip, self.rack, self.slot)  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\client.py", line 197, in connect
+    check_error(self._lib.Cli_ConnectTo(self._s7_client, c_char_p(address.encode()), c_int(rack), c_int(slot)))
+  File "C:\Users\NahashonOsinde\miniconda3\envs\LangChain\Lib\site-packages\snap7\error.py", line 143, in check_error
+    raise RuntimeError(error)
+RuntimeError: b' TCP : Unreachable peer'

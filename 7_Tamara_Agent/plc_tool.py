@@ -673,8 +673,62 @@ class PLCInterface:
             raise
 
     # ---- sanitized operations ---------------------------------------------
+    def write_parameters_to_plc(self, payload: InputPayload) -> None:
+        """Write experiment parameters to PLC (DB9) without setting machine mode or commands.
+        
+        This function only writes the operational parameters and operation mode,
+        but does NOT set the machine mode or any command bits. This allows
+        parameters to be validated by the PLC before the operation is started.
+        """
+        with self.transaction() as tx:
+            # Operation mode only (not machine mode)
+            tx.write_int('OPERATION_MODE', int(payload.operation_mode))
+            
+            # Core parameters
+            tx.write_real('r_TFR', float(payload.tfr))
+            tx.write_int('i_FRR', int(payload.frr))
+            tx.write_real('r_TARGET_VOLUME', float(payload.target_volume))
+            tx.write_real('r_TEMPERATURE', float(payload.temperature))
+            tx.write_int('i_CHIP_ID', int(payload.chip_id))
+            tx.write_int('i_MANIFOLD_ID', int(payload.manifold_id))
+            tx.write_real('r_LAB_PRESSURE', float(payload.lab_pressure))
+            
+            # Solvent handling
+            tx.write_int('i_ORG_SOLVENT_ID', int(payload.org_solvent_id))
+            
+            if payload.org_solvent_id == OrgSolventID.CUSTOM:
+                if not payload.custom_solvent:
+                    raise ValueError("Custom solvent parameters required when org_solvent_id is CUSTOM")
+                    
+                # Write custom solvent name (S7 STRING[16])
+                tx.write_string('s_CUSTOM_ORG_SOLVENT', payload.custom_solvent.name, 16)
+                
+                # Write custom solvent parameters
+                tx.write_real('r_VISCOSITY', float(payload.custom_solvent.viscosity))
+                tx.write_real('r_SENSITIVITY', float(payload.custom_solvent.sensitivity))
+                tx.write_real('r_MOLAR_VOLUME', float(payload.custom_solvent.molar_volume))
+            else:
+                # Clear custom fields when using a preset solvent
+                tx.write_string('s_CUSTOM_ORG_SOLVENT', "", 16)
+                tx.write_real('r_VISCOSITY', 0.0)
+                tx.write_real('r_SENSITIVITY', 0.0)
+                tx.write_real('r_MOLAR_VOLUME', 0.0)
+            
+        logger.info(
+            "Experiment parameters written to PLC DB9 (no machine mode set):\n"
+            f"- Operation: {payload.operation_mode.name}\n"
+            f"- Core params: TFR={payload.tfr}, FRR={payload.frr}, Vol={payload.target_volume}, "
+            f"Temp={payload.temperature}, Chip={payload.chip_id.name}, Manifold={payload.manifold_id.name}\n"
+            f"- Solvent: {payload.org_solvent_id.name}"
+            + (f" ({payload.custom_solvent.name})" if payload.org_solvent_id == OrgSolventID.CUSTOM else "")
+        )
+
     def write_payload_to_plc(self, payload: InputPayload) -> None:
-        """Write experiment inputs to PLC (DB9) with strong type enforcement."""
+        """Write complete experiment payload to PLC (DB9) with machine mode and commands.
+        
+        This function writes all parameters AND sets the machine mode.
+        Use write_parameters_to_plc() first for parameter validation.
+        """
         with self.transaction() as tx:
             # Operation mode and machine mode
             tx.write_int('OPERATION_MODE', int(payload.operation_mode))
@@ -711,7 +765,7 @@ class PLCInterface:
                 tx.write_real('r_MOLAR_VOLUME', 0.0)
             
         logger.info(
-            "Experiment payload written to PLC DB9:\n"
+            "Complete experiment payload written to PLC DB9:\n"
             f"- Operation: {payload.operation_mode.name}, Machine: {payload.machine_mode.name}\n"
             f"- Core params: TFR={payload.tfr}, FRR={payload.frr}, Vol={payload.target_volume}, "
             f"Temp={payload.temperature}, Chip={payload.chip_id.name}, Manifold={payload.manifold_id.name}\n"
@@ -848,6 +902,33 @@ class PLCInterface:
         with self.transaction() as tx:
             tx.write_int('MACHINE_MODE', mode)
         logger.info(f"Machine mode set to {mode}")
+
+    def start_operation(self, payload: InputPayload) -> None:
+        """Start an operation by setting machine mode and command bits.
+        
+        This function should only be called after user confirmation.
+        It sets the machine mode and the START command bit for the operation.
+        
+        Args:
+            payload: The validated operation parameters
+        """
+        with self.transaction() as tx:
+            # Set machine mode
+            tx.write_int('MACHINE_MODE', int(payload.machine_mode))
+            
+            # Clear all command bits first
+            self.clear_all_cmd_bits()
+            
+            # Set START bit for the appropriate mode
+            mode_map = {
+                MachineMode.RUN: 'COMMANDS_RUN',
+                MachineMode.CLEAN: 'COMMANDS_CLEAN', 
+                MachineMode.PRESSURE_TEST: 'COMMANDS_PRESSURE_TEST'
+            }
+            mode_key = mode_map[payload.machine_mode]
+            self._write_bool(f"{mode_key}.b_START", True)
+            
+        logger.info(f"Operation started: {payload.machine_mode.name} mode with START bit set")
 
 # ----------------------------------------------------------------------------
 # Simple CLI for quick tests

@@ -394,6 +394,7 @@ class GraphState(TypedDict, total=False):
     messages: List[Any]               # alternating HumanMessage/AIMessage
     intent: Optional[Literal["ask_kb", "run", "clean", "ptest", "other"]]
     pending_action: Optional[str]     # "run"|"clean"|"ptest" when waiting for confirmation
+    input_payload: Optional[InputPayload]  # validated operation parameters
     # confirmed: bool
     # last_tool_result: Optional[str]
     last_mode_check: float           # timestamp of last operation mode check
@@ -559,6 +560,10 @@ def route(state: GraphState, *, llm=None) -> GraphState:
                     
                 # Stop command automatically clears other bits in the mode
                 plc.pulse_cmd(mode, ModeCmds.STOP, True)
+                
+                # Set machine mode to READY after stopping
+                plc.set_machine_mode(PLC_STATUS["READY"])
+                
                 state["messages"].append(AIMessage(content=f"{mode.name} operation stopped."))
             else:
                 log.info(f"Cannot stop - status code {status_code} not in [{PLC_STATUS['RUNNING']},{PLC_STATUS['CLEANING']},{PLC_STATUS['PRESSURE_TEST']}] (Running/Cleaning/PTest)")
@@ -613,7 +618,7 @@ def route(state: GraphState, *, llm=None) -> GraphState:
         state["intent"] = "other"
         return state
 
-    # Standard operation routing
+    # Standard operation routing (only if no control command was processed)
     label = _heuristic_route(user_text)
     state["intent"] = label  # keep simple & deterministic
     return state
@@ -709,8 +714,8 @@ def _collect_inputs_from_cli(kind: str) -> InputPayload:
     while True:
         try:
             # Core parameters
-            tfr = float(input("Total Flow Rate (mL/min): ").strip())
             frr = int(input("Flow Rate Ratio (integer): ").strip())
+            tfr = float(input("Total Flow Rate (mL/min): ").strip())    
             target_volume = float(input("Target Volume (mL): ").strip())
             temperature = float(input("Temperature (°C): ").strip())
             lab_pressure = float(input("Lab pressure (mbar): ").strip())
@@ -975,11 +980,11 @@ def build_graph():
                 state["messages"].append(AIMessage(content=error_msg))
                 return state
             
-            # 3. Send to PLC and check validation
+            # 3. Send parameters to PLC and check validation (no machine mode set yet)
             plc = PLCInterface()
             try:
-                # Send inputs
-                plc.write_payload_to_plc(payload)
+                # Send parameters only (no machine mode or commands)
+                plc.write_parameters_to_plc(payload)
                 state["messages"].append(AIMessage(content="Parameters sent to PLC. Checking validation..."))
                 
                 # Poll for validation
@@ -1061,6 +1066,9 @@ def build_graph():
             return "ask_kb"
         elif intent in ["run", "clean", "ptest"]:
             return f"collect_{intent}_inputs"
+        elif intent == "other":
+            # Control commands (pause/play/stop/status) - no further routing needed
+            return END
         else:
             return "ask_kb"
 
@@ -1079,7 +1087,8 @@ def build_graph():
             "ask_kb": "ask_kb",
             "collect_run_inputs": "collect_run_inputs",
             "collect_clean_inputs": "collect_clean_inputs",
-            "collect_ptest_inputs": "collect_ptest_inputs"
+            "collect_ptest_inputs": "collect_ptest_inputs",
+            END: END
         }
     )
 
@@ -1204,6 +1213,7 @@ def repl(draw: bool = False):
         "messages": [],
         "intent": None,
         "pending_action": None,
+        "input_payload": None,
         "confirmed": False,
         "last_tool_result": None,
         "last_mode_check": time.time()  # Initialize mode check timestamp
@@ -1227,11 +1237,7 @@ def repl(draw: bool = False):
                     ensure_ready_state()
                     continue
 
-            # Handle stop command
-            if user.lower() == "stop":
-                ensure_ready_state()
-                state["messages"].append(AIMessage(content="Operation stopped and machine set to READY state."))
-                continue
+            # Stop command is handled by the route function - no need for duplicate handling here
 
             # Add user message & run graph once
             state["messages"].append(HumanMessage(content=user))
@@ -1258,26 +1264,27 @@ def repl(draw: bool = False):
                 # Wait for user confirmation
                 confirm_input = input("\nType 'confirm' to start operation or 'cancel' to abort: ").strip().lower()
                 if confirm_input == "confirm":
-                    # Set PLC command bits
+                    # Start the operation using the validated payload
                     action = state["pending_action"]
                     log.info(f"Starting {action} operation...")
                     plc = PLCInterface()
                     try:
-                        # Map action to machine mode
+                        # Get the validated payload from state
+                        payload = state.get("input_payload")
+                        if not payload:
+                            print(f"\nAI: Error - No validated parameters found for {action} operation.")
+                            return
+                        
+                        # Start the operation (sets machine mode and START bit)
+                        plc.start_operation(payload)
+                        
+                        # Verify START is set and PAUSE_PLAY is clear
                         mode_map = {
                             "run": MachineMode.RUN,
                             "clean": MachineMode.CLEAN,
                             "ptest": MachineMode.PRESSURE_TEST
                         }
                         mode = mode_map[action]
-                        
-                        # Clear all command bits first
-                        plc.clear_all_cmd_bits()
-                        
-                        # Set START bit for this mode
-                        plc.pulse_cmd(mode, ModeCmds.START, True)
-                        
-                        # Verify START is set and PAUSE_PLAY is clear
                         start_set = plc._read_bool(f"COMMANDS_{mode.name}.b_START")
                         pause_clear = not plc._read_bool(f"COMMANDS_{mode.name}.b_PAUSE_PLAY")
                         
