@@ -801,7 +801,7 @@ def do_run(state: GraphState) -> GraphState:
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Prepare confirmation message with safety checks
+    # Prepare ready message - final confirmation handled in REPL loop
     msg = (
         "Ready to start RUN operation.\n\n"
         "Please verify:\n"
@@ -812,7 +812,7 @@ def do_run(state: GraphState) -> GraphState:
         "5. Lines are secure\n"
         "6. Drain bottle is in place\n"
         "7. Pressure supply is within specifications\n\n"
-        "Type 'confirm' to proceed or 'cancel' to abort."
+        "AI: Ready to start RUN operation."
     )
     state["messages"].append(AIMessage(content=msg))
     return state
@@ -823,7 +823,7 @@ def do_clean(state: GraphState) -> GraphState:
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Prepare confirmation message with safety checks
+    # Prepare ready message - final confirmation handled in REPL loop
     msg = (
         "Ready to start CLEAN operation.\n\n"
         "Please verify:\n"
@@ -835,7 +835,7 @@ def do_clean(state: GraphState) -> GraphState:
         "6. Drain bottle has sufficient capacity\n"
         "7. Pressure supply is within specifications\n\n"
         "WARNING: Once started, the cleaning cycle must complete for safety.\n"
-        "Type 'confirm' to proceed or 'cancel' to abort."
+        "AI: Ready to start CLEAN operation."
     )
     state["messages"].append(AIMessage(content=msg))
     return state
@@ -846,7 +846,7 @@ def do_ptest(state: GraphState) -> GraphState:
         state["messages"].append(AIMessage(content="Error: No operation pending. Please start over."))
         return state
     
-    # Prepare confirmation message with safety checks
+    # Prepare ready message - final confirmation handled in REPL loop
     msg = (
         "Ready to start PRESSURE TEST operation.\n\n"
         "Please verify:\n"
@@ -858,7 +858,7 @@ def do_ptest(state: GraphState) -> GraphState:
         "6. Area is clear of personnel\n"
         "7. Emergency stop is accessible\n\n"
         "WARNING: Stand clear during pressure test.\n"
-        "Type 'confirm' to proceed or 'cancel' to abort."
+        "AI: Ready to start PRESSURE TEST operation."
     )
     state["messages"].append(AIMessage(content=msg))
     return state
@@ -1028,7 +1028,8 @@ def build_graph():
 
     # Add precaution nodes - these just show the message
     def show_precautions_run(state: GraphState) -> GraphState:
-        state["messages"].append(AIMessage(content=PRECHECK_TEXT_RUN))
+        # state["messages"].append(AIMessage(content=PRECHECK_TEXT_RUN))
+        state["messages"]
         return state
     
     def show_precautions_clean(state: GraphState) -> GraphState:
@@ -1253,7 +1254,7 @@ def repl(draw: bool = False):
             
             # Handle confirmation if we're in an action state
             last_ai = next((m for m in reversed(state["messages"]) if isinstance(m, AIMessage)), None)
-            if state.get("pending_action") and last_ai and "Type 'confirm' to proceed" in last_ai.content:
+            if state.get("pending_action") and last_ai and "AI: Ready to start" in last_ai.content:
                 # Wait for user confirmation
                 confirm_input = input("\nType 'confirm' to start operation or 'cancel' to abort: ").strip().lower()
                 if confirm_input == "confirm":
